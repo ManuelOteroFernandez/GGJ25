@@ -15,6 +15,15 @@ run/main_scene="res://Enviroment/Game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=2304
+window/size/viewport_height=1296
+
+[layer_names]
+
+2d_physics/layer_2="Muros"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
