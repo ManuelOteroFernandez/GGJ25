@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
-const JUMP_WALL_VELOCITY = Vector2(-500,JUMP_VELOCITY/2)
+const JUMP_WALL_VELOCITY = Vector2(JUMP_VELOCITY,JUMP_VELOCITY/1.5)
 
 @export var gravity_wall = Vector2(0,200)
 
@@ -13,6 +13,8 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		if _is_on_wall():
+			if velocity.y < 0: 
+				velocity.y = 0  
 			velocity += gravity_wall * delta 
 		else:
 			velocity += get_gravity() * delta
