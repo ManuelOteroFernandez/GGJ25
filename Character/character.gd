@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -300.0
-const JUMP_WALL_VELOCITY = Vector2(JUMP_VELOCITY,JUMP_VELOCITY/1.5)
+const JUMP_WALL_VELOCITY = Vector2(JUMP_VELOCITY,0)
 
 @export var gravity_wall = Vector2(0,200)
 
