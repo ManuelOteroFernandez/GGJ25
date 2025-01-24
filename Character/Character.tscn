@@ -26,3 +26,11 @@ shape = SubResource("CapsuleShape2D_3wk46")
 position = Vector2(-2.84217e-14, -2.98023e-08)
 scale = Vector2(0.15625, 0.226562)
 sprite_frames = SubResource("SpriteFrames_ktwkg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+position_smoothing_speed = 32.075
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_right_margin = 0.5
