@@ -47,7 +47,7 @@ func _move_bubble(delta:float):
 		velocity.x = move_toward(velocity.x, 0, SPEED_BUBBLE)
 		
 	if Input.is_action_pressed("ui_down"):
-		velocity.y = move_toward(velocity.x, 0, SPEED_BUBBLE)
+		velocity.y += SPEED_BUBBLE * 10 * delta
 		
 	velocity.y += GRAVITY_BUBBLE * delta
 	
