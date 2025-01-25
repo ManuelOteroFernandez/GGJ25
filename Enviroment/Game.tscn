@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://dyi2j7ofds4ko"]
+[gd_scene load_steps=6 format=4 uid="uid://dyi2j7ofds4ko"]
 
 [ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://Character/Character.tscn" id="2_0r578"]
 [ext_resource type="Texture2D" uid="uid://b4leua1gagwx3" path="res://Enviroment/tiles_sheet.png" id="3_t23de"]
+[ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://Bubble/BubbleGenerator.tscn" id="3_y6ar3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urob0"]
 texture = ExtResource("3_t23de")
@@ -168,3 +169,12 @@ position = Vector2(477, 233)
 [node name="TileMapLayer" type="TileMapLayer" parent="Map"]
 tile_map_data = PackedByteArray("AAD9/wkAAAAAAAAAAAD+/wkAAAAAAAAAAAD//wkAAAAAAAAAAAAAAAkAAAAAAAAAAAABAAkAAAAAAAAAAAACAAkAAAAAAAAAAAADAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAoAAAAAAAAAAAAKAAoAAAAAAAAAAAALAAoAAAAAAAAAAAAMAAoAAAAAAAAAAAANAAoAAAAAAAAAAAAOAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAAQAAoAAAAAAAAAAAARAAoAAAAAAAAAAAASAAoAAAAAAAAAAAATAAoAAAAAAAAAAAAFAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAJAAkAAAAAAAAAAAAKAAkAAAAAAAAAAAALAAkAAAAAAAAAAAAMAAkAAAAAAAAAAAANAAkAAAAAAAAAAAAOAAkAAAAAAAAAAAAPAAkAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAAUAAkAAAAAAAAAAAAVAAkAAAAAAAAAAAAWAAkAAAAAAAAAAAAXAAkAAAAAAAAAAAAYAAkAAAAAAAAAAAAZAAkAAAAAAAAAAAAaAAkAAAAAAAAAAAAbAAkAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ksxwn")
+
+[node name="BubbleGenerator" parent="." instance=ExtResource("3_y6ar3")]
+position = Vector2(438, 475)
+bubble_speed = Vector2(100, -100)
+
+[node name="BubbleGenerator2" parent="." instance=ExtResource("3_y6ar3")]
+position = Vector2(393, 475)
+spawn_time = 3.0
+bubble_speed = Vector2(-100, -100)
