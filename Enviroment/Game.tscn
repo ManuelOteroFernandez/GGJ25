@@ -158,6 +158,7 @@ physics_layer_0/collision_layer = 3
 sources/0 = SubResource("TileSetAtlasSource_urob0")
 
 [node name="Game" type="Node2D"]
+position = Vector2(0, 8)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_0r578")]
 position = Vector2(477, 233)
