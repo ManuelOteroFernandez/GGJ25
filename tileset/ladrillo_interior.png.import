@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7dsyc7x3mlb7"
-path="res://.godot/imported/ladrillo_subsolo.png-ae1821df5cd9679393a8f43c83fdaf4f.ctex"
+uid="uid://cdt8akt71k8cu"
+path="res://.godot/imported/ladrillo_interior.png-21584cb75817bfa9b9c24580c67c7a2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/ladrillo_subsolo.png"
-dest_files=["res://.godot/imported/ladrillo_subsolo.png-ae1821df5cd9679393a8f43c83fdaf4f.ctex"]
+source_file="res://tileset/ladrillo_interior.png"
+dest_files=["res://.godot/imported/ladrillo_interior.png-21584cb75817bfa9b9c24580c67c7a2e.ctex"]
 
 [params]
 
