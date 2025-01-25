@@ -22,14 +22,13 @@ func _physics_process(delta: float) -> void:
 
 
 func onCollisionEnter(body: Node) -> void:
+	if body.is_in_group("Player"):
+		queue_free()
 	if body.is_in_group("Bubbles"):
 		endurance += (body.get_parent() as Bubble).endurance
 		direction += (body.get_parent() as Bubble).direction
 		bubbleT = GameController.bubbleType.purple
 		body.get_parent().free()
-		
-	if body.is_in_group("Player"):
-		queue_free()
 		
 
 

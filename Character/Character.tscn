@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://Character/character.gd" id="1_p7qbp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3wk46"]
+radius = 38.0
+height = 126.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ktwkg"]
 animations = [{
@@ -20,11 +22,12 @@ animations = [{
 script = ExtResource("1_p7qbp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_3wk46")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.84217e-14, -2.98023e-08)
-scale = Vector2(0.15625, 0.226562)
+scale = Vector2(1, 0.6)
 sprite_frames = SubResource("SpriteFrames_ktwkg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
