@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -600.0
 const JUMP_WALL_VELOCITY = Vector2(JUMP_VELOCITY,0)
 const GRAVITY_WALL = Vector2(0,200)
 
-const SPEED_BUBBLE = 100.0
+const SPEED_BUBBLE = 200.0
 const GRAVITY_BUBBLE = 100.0
 
 var is_jumping:bool = false
