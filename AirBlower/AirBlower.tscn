@@ -28,6 +28,7 @@ gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+visible = false
 scale = Vector2(1, 3.44531)
 sprite_frames = SubResource("SpriteFrames_gohs5")
 

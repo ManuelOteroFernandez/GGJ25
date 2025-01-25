@@ -23,13 +23,26 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		var collider = collision.get_collider() as Node
 		if collider.is_in_group("Muro") or collider.is_in_group("Player"):
-			self.queue_free()
+			if  endurance > 0:
+				changeType()
+			else:
+				queue_free()
 		elif collider.is_in_group("Bubbles"):
-			endurance += (collider.get_parent() as Bubble).endurance
+			changeType()
 			direction += (collider.get_parent() as Bubble).direction
-			bubbleT = GameController.bubbleType.purple
 			collider.get_parent().free()
+		print(endurance)
 
+func changeType() -> void:
+	if bubbleT == GameController.bubbleType.blue:
+		bubbleT = GameController.bubbleType.purple
+		$RigidBody2D/AnimatedSprite2D.modulate = GameController.bubbleColor[bubbleT]
+		endurance = 1
+	elif bubbleT == GameController.bubbleType.purple:
+		bubbleT = GameController.bubbleType.blue
+		$RigidBody2D/AnimatedSprite2D.modulate = GameController.bubbleColor[bubbleT]
+		endurance = 0
+		
 
 #func onCollisionEnter(body: Node) -> void:
 	#if body.is_in_group("Player") or body.is_in_group("Muro"):
