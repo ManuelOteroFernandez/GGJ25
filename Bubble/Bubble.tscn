@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3ylhln31lr80"]
 
 [ext_resource type="Script" path="res://Bubble/bubble.gd" id="1_5l2d8"]
-[ext_resource type="Texture2D" uid="uid://ccrlpljsdhna4" path="res://icon.svg" id="3_wfm5x"]
+[ext_resource type="Texture2D" uid="uid://mod8hta7xeju" path="res://Bubble/bubbleTemplate.png" id="2_28w11"]
 
 [sub_resource type="GDScript" id="GDScript_qlvm1"]
 script/source = "extends RigidBody2D
@@ -24,7 +24,7 @@ radius = 85.0235
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_wfm5x")
+"texture": ExtResource("2_28w11")
 }],
 "loop": true,
 "name": &"default",
@@ -46,6 +46,7 @@ shape = SubResource("CircleShape2D_5owta")
 debug_color = Color(0, 0.596117, 0.721825, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+scale = Vector2(0.33, 0.33)
 sprite_frames = SubResource("SpriteFrames_yp2d7")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

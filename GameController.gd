@@ -1,9 +1,12 @@
 extends Node
 
+# Enum para tipos de burbulla
 enum bubbleType {
 	blue, purple
 }
 
+#Diccionario de valores para a cor das burbullas
+var bubbleColor = {bubbleType.blue: Color.CORNFLOWER_BLUE, bubbleType.purple: Color.PURPLE}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
