@@ -11,6 +11,9 @@ const GRAVITY_WALL = Vector2(0,200)
 const SPEED_BUBBLE = 200.0
 const GRAVITY_BUBBLE = 100.0
 
+@onready var shape_cat: CapsuleShape2D = load("res://Character/shapeCat.tres")
+@onready var shape_bubble: CircleShape2D = load("res://Character/shapeBubble.tres")
+
 var is_jumping:bool = false
 var move_mode:MOVE_SET = MOVE_SET.NORMAL
 var current_dir = 1
@@ -33,7 +36,7 @@ func _process(_delta: float) -> void:
 			$AnimatedSprite2D.animation = "idleL" if current_dir < 0 else "idleR"
 	elif anim_state == ANIM_STATE_SET.WALL:
 		$AnimatedSprite2D.animation = "slideL" if current_dir < 0 else "slideR"
-	elif anim_state == ANIM_STATE_SET.FALL:
+	elif anim_state in [ANIM_STATE_SET.FALL,ANIM_STATE_SET.JUMP_WALL]:
 		$AnimatedSprite2D.animation = "fallL" if current_dir < 0 else "fallR"
 		
 	
@@ -64,10 +67,14 @@ func set_move_mode(new_mode:MOVE_SET):
 		set_collision_layer_value(3,true)
 		set_collision_mask_value(3,true)
 		$BubbleTemplate.visible = true
+		$CollisionShape2D.position = Vector2(0,-79)
+		$CollisionShape2D.shape = shape_bubble
 	else:
 		set_collision_layer_value(3,false)
 		set_collision_mask_value(3,false)
 		$BubbleTemplate.visible = false
+		$CollisionShape2D.position = Vector2(0,0)
+		$CollisionShape2D.shape = shape_cat
 
 func _move_bubble(delta:float):
 	
@@ -134,6 +141,7 @@ func _move_on_ground(delta:float) -> void:
 
 	if Input.is_action_just_pressed("ui_accept") and _is_on_wall():
 		anim_state = ANIM_STATE_SET.JUMP_WALL
+		current_dir *= -1
 			
 		$JumpTimer.start()
 		velocity.y = JUMP_WALL_VELOCITY.y

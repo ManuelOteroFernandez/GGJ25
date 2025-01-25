@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Character/character.gd" id="1_p7qbp"]
 [ext_resource type="Texture2D" uid="uid://b3q5evxygj6jc" path="res://gatete/gatete_idle_der.png" id="2_2wu7i"]
+[ext_resource type="Shape2D" uid="uid://yahvowfedqg3" path="res://Character/shapeCat.tres" id="2_7wa33"]
 [ext_resource type="Texture2D" uid="uid://clqpolreqw6d7" path="res://gatete/gatete_falling_esq.png" id="2_kuuet"]
 [ext_resource type="Texture2D" uid="uid://d4iwn2xbi02qu" path="res://gatete/gatete_falling_der.png" id="3_1s82u"]
 [ext_resource type="Texture2D" uid="uid://d3bhqqiqjqqg5" path="res://gatete/gatete_idle_esq.png" id="3_dk0tc"]
@@ -18,10 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://dlsmnc3soapol" path="res://gatete/gatete_slide_der.png" id="13_3ooec"]
 [ext_resource type="Texture2D" uid="uid://dih1c3csshh4v" path="res://gatete/gatete_buceo_der.png" id="13_8oqa4"]
 [ext_resource type="Texture2D" uid="uid://mod8hta7xeju" path="res://Bubble/bubbleTemplate.png" id="14_xqq3e"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3wk46"]
-radius = 38.0
-height = 126.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ktwkg"]
 animations = [{
@@ -151,7 +148,7 @@ script = ExtResource("1_p7qbp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_3wk46")
+shape = ExtResource("2_7wa33")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -35)
@@ -184,7 +181,6 @@ collide_with_areas = true
 wait_time = 0.2
 
 [node name="BubbleTemplate" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1, -79)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_xqq3e")
