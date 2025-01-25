@@ -30,7 +30,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bubble" type="Node2D"]
+[node name="Bubble" type="Node2D" groups=["Bubbles"]]
 script = ExtResource("1_5l2d8")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Bubbles"]]
@@ -48,4 +48,7 @@ debug_color = Color(0, 0.596117, 0.721825, 0.42)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_yp2d7")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="body_entered" from="RigidBody2D" to="." method="onCollisionEnter"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
