@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmlan3lbek3bk"
-path="res://.godot/imported/porcoespiño.png-22cc0207d266d1f630cbd8ead4711420.ctex"
+path="res://.godot/imported/porcoespiño.png-ecfb4ca589b18627287a1ea49d902e88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/porcoespiño.png"
-dest_files=["res://.godot/imported/porcoespiño.png-22cc0207d266d1f630cbd8ead4711420.ctex"]
+source_file="res://enemies/Porcoespiño/porcoespiño.png"
+dest_files=["res://.godot/imported/porcoespiño.png-ecfb4ca589b18627287a1ea49d902e88.ctex"]
 
 [params]
 

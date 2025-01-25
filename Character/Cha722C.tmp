@@ -145,8 +145,6 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 9
-collision_mask = 9
 script = ExtResource("1_p7qbp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -157,7 +155,7 @@ shape = SubResource("CapsuleShape2D_3wk46")
 position = Vector2(1, -35)
 scale = Vector2(0.59, 0.59)
 sprite_frames = SubResource("SpriteFrames_ktwkg")
-animation = &"idleR"
+animation = &"moveBubbleL"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
@@ -184,7 +182,6 @@ collide_with_areas = true
 wait_time = 0.2
 
 [node name="BubbleTemplate" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1, -79)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_xqq3e")

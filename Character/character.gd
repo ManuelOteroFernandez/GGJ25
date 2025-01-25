@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 enum MOVE_SET { NORMAL, BURBUJA }
 enum ANIM_STATE_SET { JUMP, IDLE, RUN , FALL, WALL, JUMP_WALL }
@@ -16,7 +16,7 @@ var move_mode:MOVE_SET = MOVE_SET.NORMAL
 var current_dir = 1
 var anim_state = ANIM_STATE_SET.IDLE
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if anim_state == ANIM_STATE_SET.RUN:
 		if move_mode == MOVE_SET.BURBUJA:
 			$AnimatedSprite2D.animation = "moveBubbleL" if current_dir < 0 else "moveBubbleR"
@@ -50,13 +50,11 @@ func _physics_process(delta: float) -> void:
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
+		#print(collision.get_collider().name)
 		var node_collision = (collision.get_collider() as Node)
 		if node_collision.is_in_group("Bubbles"):
 			set_move_mode(MOVE_SET.BURBUJA)
-			
-		if node_collision.is_in_group("Enemigo"):
-			pass #Muerte
-		
+	
 		if node_collision.is_in_group("Muro"):
 			set_move_mode(MOVE_SET.NORMAL)
 	
@@ -160,7 +158,8 @@ func _is_on_wall() -> bool:
 		
 	return false
 	
-
+func dead():
+	position = GameController.last_checkpoint_position
 
 func _on_jump_timer_timeout() -> void:
 	if is_on_floor():
