@@ -57,8 +57,10 @@ func set_move_mode(new_mode:MOVE_SET):
 	move_mode = new_mode
 	if move_mode == MOVE_SET.BURBUJA:
 		set_collision_layer_value(3,true)
+		set_collision_mask_value(3,true)
 	else:
 		set_collision_layer_value(3,false)
+		set_collision_mask_value(3,false)
 
 func _move_bubble(delta:float):
 	
@@ -71,7 +73,8 @@ func _move_bubble(delta:float):
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += SPEED_BUBBLE * 10 * delta
 		
-	velocity.y += GRAVITY_BUBBLE * delta
+	var g = get_gravity()
+	velocity.y += GRAVITY_BUBBLE * delta if g.y > 0 else g.y * delta
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		var exit = Vector2(0,0)
