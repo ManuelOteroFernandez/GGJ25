@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxaneln1uybmp"
-path="res://.godot/imported/gatete_slide_esq.png-6d59aa769b715ff35e4e5b6802ff2bf8.ctex"
+uid="uid://cj04840tox6ek"
+path="res://.godot/imported/tubería_basic.png-15d87f7bd7e2a8543b0c97f4735a32a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gatete/gatete_slide_esq.png"
-dest_files=["res://.godot/imported/gatete_slide_esq.png-6d59aa769b715ff35e4e5b6802ff2bf8.ctex"]
+source_file="res://cousasescenario/tubería_basic.png"
+dest_files=["res://.godot/imported/tubería_basic.png-15d87f7bd7e2a8543b0c97f4735a32a1.ctex"]
 
 [params]
 
