@@ -23,6 +23,7 @@ GameController="*res://GameController.gd"
 
 Player=""
 Muro=""
+Enemigo=""
 
 [rendering]
 
