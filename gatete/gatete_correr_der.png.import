@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://j7kv7pmg8y4v"
-path="res://.godot/imported/gatete_correr_der2.png-e5fb4673b113e1cc48f20a8382cfdfdf.ctex"
+path="res://.godot/imported/gatete_correr_der.png-48cb5fae0e4b752b0b9f35e5f05b4d2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gatete/gatete_correr_der2.png"
-dest_files=["res://.godot/imported/gatete_correr_der2.png-e5fb4673b113e1cc48f20a8382cfdfdf.ctex"]
+source_file="res://gatete/gatete_correr_der.png"
+dest_files=["res://.godot/imported/gatete_correr_der.png-48cb5fae0e4b752b0b9f35e5f05b4d2f.ctex"]
 
 [params]
 

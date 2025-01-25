@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 enum MOVE_SET { NORMAL, BURBUJA }
+enum ANIM_STATE_SET { JUMP, IDLE, RUN , FALL, WALL }
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
@@ -12,6 +13,19 @@ const GRAVITY_BUBBLE = 100.0
 
 var is_jumping:bool = false
 var move_mode:MOVE_SET = MOVE_SET.NORMAL
+var current_dir = 1
+var anim_state = ANIM_STATE_SET.IDLE
+
+func _process(delta: float) -> void:
+	if anim_state == ANIM_STATE_SET.RUN:
+		$AnimatedSprite2D.animation = "runL" if current_dir < 0 else "runR"
+	elif anim_state == ANIM_STATE_SET.JUMP:
+		$AnimatedSprite2D.animation = "jumpL" if current_dir < 0 else "jumpR"
+	elif anim_state == ANIM_STATE_SET.IDLE:
+		$AnimatedSprite2D.animation = "idleL" if current_dir < 0 else "idleR"
+	elif anim_state == ANIM_STATE_SET.FALL:
+		$AnimatedSprite2D.animation = "fallL" if current_dir < 0 else "fallR"
+	
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -78,28 +92,39 @@ func _move_on_ground(delta:float) -> void:
 		else:
 			velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 	
 	if not is_jumping:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction:
+			current_dir = direction
 			velocity.x = direction * SPEED
+			if is_on_floor():
+				anim_state = ANIM_STATE_SET.RUN
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			
+	# Handle jump.
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		anim_state = ANIM_STATE_SET.JUMP
 
 	if Input.is_action_just_pressed("ui_accept") and _is_on_wall():
-		is_jumping = true
+		anim_state = ANIM_STATE_SET.JUMP
+			
 		$JumpTimer.start()
 		velocity.y = JUMP_WALL_VELOCITY.y
 		velocity.x = JUMP_WALL_VELOCITY.x if $RayCastDer.is_colliding() else -JUMP_WALL_VELOCITY.x
 	
+	if velocity.y > 0:
+		anim_state = ANIM_STATE_SET.FALL
+	
+	if velocity == Vector2(0,0):
+		anim_state = ANIM_STATE_SET.IDLE
 	
 func _is_on_wall() -> bool:
-	if is_jumping or is_on_floor(): 
+	if anim_state == ANIM_STATE_SET.JUMP or is_on_floor(): 
 		return false
 		
 	if $RayCastDer.is_colliding():
@@ -113,5 +138,7 @@ func _is_on_wall() -> bool:
 
 
 func _on_jump_timer_timeout() -> void:
-	is_jumping = false
-	
+	if is_on_floor():
+		anim_state = ANIM_STATE_SET.RUN
+	else:
+		anim_state = ANIM_STATE_SET.FALL

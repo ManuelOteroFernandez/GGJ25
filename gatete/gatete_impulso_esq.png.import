@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3bhqqiqjqqg5"
-path="res://.godot/imported/gatete_idle_esq2.png-eec1d3399745431c4f0f9bac5da87a04.ctex"
+uid="uid://rc5mw6mxwcfy"
+path="res://.godot/imported/gatete_impulso_esq.png-417ad873eb35a2598e9fd743cb7d6d07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gatete/gatete_idle_esq2.png"
-dest_files=["res://.godot/imported/gatete_idle_esq2.png-eec1d3399745431c4f0f9bac5da87a04.ctex"]
+source_file="res://gatete/gatete_impulso_esq.png"
+dest_files=["res://.godot/imported/gatete_impulso_esq.png-417ad873eb35a2598e9fd743cb7d6d07.ctex"]
 
 [params]
 

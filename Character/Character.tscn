@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8p160kb7yaso"]
+[gd_scene load_steps=10 format=3 uid="uid://b8p160kb7yaso"]
 
-[ext_resource type="Texture2D" uid="uid://ccrlpljsdhna4" path="res://icon.svg" id="1_nbvc5"]
 [ext_resource type="Script" path="res://Character/character.gd" id="1_p7qbp"]
+[ext_resource type="Texture2D" uid="uid://b3q5evxygj6jc" path="res://gatete/gatete_idle_der.png" id="2_2wu7i"]
+[ext_resource type="Texture2D" uid="uid://d3bhqqiqjqqg5" path="res://gatete/gatete_idle_esq.png" id="3_dk0tc"]
+[ext_resource type="Texture2D" uid="uid://bdjfy6o07e4um" path="res://gatete/gatete_salto_esq.png" id="4_t500s"]
+[ext_resource type="Texture2D" uid="uid://b8qnts5h7sqn1" path="res://gatete/gatete_salto_der.png" id="5_7mogr"]
+[ext_resource type="Texture2D" uid="uid://c1hvr10w0dqck" path="res://gatete/gatete_correr_esq.png" id="6_imtfn"]
+[ext_resource type="Texture2D" uid="uid://j7kv7pmg8y4v" path="res://gatete/gatete_correr_der.png" id="7_74yhw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3wk46"]
 radius = 38.0
@@ -11,10 +16,50 @@ height = 126.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_nbvc5")
+"texture": ExtResource("3_dk0tc")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idleL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2wu7i")
+}],
+"loop": true,
+"name": &"idleR",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_t500s")
+}],
+"loop": true,
+"name": &"jumpL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7mogr")
+}],
+"loop": true,
+"name": &"jumpR",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_imtfn")
+}],
+"loop": true,
+"name": &"runL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_74yhw")
+}],
+"loop": true,
+"name": &"runR",
 "speed": 5.0
 }]
 
@@ -26,9 +71,10 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_3wk46")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2.84217e-14, -2.98023e-08)
-scale = Vector2(1, 0.6)
+position = Vector2(1, -35)
+scale = Vector2(0.59, 0.59)
 sprite_frames = SubResource("SpriteFrames_ktwkg")
+animation = &"idleL"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
