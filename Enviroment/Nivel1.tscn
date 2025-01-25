@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b4leua1gagwx3" path="res://Enviroment/tiles_sheet.png" id="1_miv8u"]
 [ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://Character/Character.tscn" id="2_iraho"]
-[ext_resource type="PackedScene" uid="uid://b3ylhln31lr80" path="res://Bubble/Bubble.tscn" id="3_es4dn"]
+[ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://Bubble/BubbleGenerator.tscn" id="4_r4afi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4elkm"]
 texture = ExtResource("1_miv8u")
@@ -166,12 +166,9 @@ tile_map_data = PackedByteArray("AAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAoAAAAAAAA
 tile_set = SubResource("TileSet_c0dv3")
 
 [node name="CharacterBody2D" parent="Map" instance=ExtResource("2_iraho")]
-position = Vector2(1012, 501)
+position = Vector2(962, 589)
 
-[node name="Bubble" parent="Map" instance=ExtResource("3_es4dn")]
-position = Vector2(1233, 427)
-direction = Vector2(10, 0)
-
-[node name="Bubble2" parent="Map" instance=ExtResource("3_es4dn")]
-position = Vector2(1452, 427)
-direction = Vector2(-1, 0)
+[node name="BubbleGenerator" parent="." instance=ExtResource("4_r4afi")]
+position = Vector2(1491, 726)
+spawn_time = 4.0
+bubble_speed = Vector2(0, -200)

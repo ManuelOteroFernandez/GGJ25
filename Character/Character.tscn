@@ -4,6 +4,8 @@
 [ext_resource type="Script" path="res://Character/character.gd" id="1_p7qbp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3wk46"]
+radius = 38.0
+height = 126.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ktwkg"]
 animations = [{
@@ -16,15 +18,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_p7qbp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_3wk46")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.84217e-14, -2.98023e-08)
-scale = Vector2(0.15625, 0.226562)
+scale = Vector2(1, 0.6)
 sprite_frames = SubResource("SpriteFrames_ktwkg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -34,3 +37,20 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.5
 drag_right_margin = 0.5
+
+[node name="RayCastDer" type="RayCast2D" parent="."]
+position = Vector2(10, 0)
+target_position = Vector2(1, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="RayCastIzq" type="RayCast2D" parent="."]
+position = Vector2(-10, 0)
+target_position = Vector2(-1, 0)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

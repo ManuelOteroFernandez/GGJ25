@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnn87aqvrb6mj"]
+
+[ext_resource type="Script" path="res://Bubble/bubble_generator.gd" id="1_37rfm"]
+[ext_resource type="Texture2D" uid="uid://ccrlpljsdhna4" path="res://icon.svg" id="1_ap2mh"]
+
+[node name="BubbleGenerator" type="Node2D"]
+script = ExtResource("1_37rfm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("1_ap2mh")
+
+[node name="BubbleList" type="Node" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

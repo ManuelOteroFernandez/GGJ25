@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GameController="*res://GameController.gd"
 
+[global_group]
+
+Player=""
+Muro=""
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

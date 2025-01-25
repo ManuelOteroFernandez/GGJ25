@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5owta"]
+radius = 85.0235
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yp2d7"]
 animations = [{
@@ -30,7 +31,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bubble" type="Node2D"]
+[node name="Bubble" type="Node2D" groups=["Bubbles"]]
 script = ExtResource("1_5l2d8")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Bubbles"]]
@@ -45,7 +46,9 @@ shape = SubResource("CircleShape2D_5owta")
 debug_color = Color(0, 0.596117, 0.721825, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
-scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_yp2d7")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="body_entered" from="RigidBody2D" to="." method="onCollisionEnter"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
