@@ -55,6 +55,10 @@ func _physics_process(delta: float) -> void:
 	
 func set_move_mode(new_mode:MOVE_SET):
 	move_mode = new_mode
+	if move_mode == MOVE_SET.BURBUJA:
+		set_collision_layer_value(3,true)
+	else:
+		set_collision_layer_value(3,false)
 
 func _move_bubble(delta:float):
 	
