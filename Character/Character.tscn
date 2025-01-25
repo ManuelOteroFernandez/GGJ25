@@ -1,12 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8p160kb7yaso"]
+[gd_scene load_steps=16 format=3 uid="uid://b8p160kb7yaso"]
 
 [ext_resource type="Script" path="res://Character/character.gd" id="1_p7qbp"]
 [ext_resource type="Texture2D" uid="uid://b3q5evxygj6jc" path="res://gatete/gatete_idle_der.png" id="2_2wu7i"]
+[ext_resource type="Texture2D" uid="uid://clqpolreqw6d7" path="res://gatete/gatete_falling_esq.png" id="2_kuuet"]
+[ext_resource type="Texture2D" uid="uid://d4iwn2xbi02qu" path="res://gatete/gatete_falling_der.png" id="3_1s82u"]
 [ext_resource type="Texture2D" uid="uid://d3bhqqiqjqqg5" path="res://gatete/gatete_idle_esq.png" id="3_dk0tc"]
 [ext_resource type="Texture2D" uid="uid://bdjfy6o07e4um" path="res://gatete/gatete_salto_esq.png" id="4_t500s"]
 [ext_resource type="Texture2D" uid="uid://b8qnts5h7sqn1" path="res://gatete/gatete_salto_der.png" id="5_7mogr"]
 [ext_resource type="Texture2D" uid="uid://c1hvr10w0dqck" path="res://gatete/gatete_correr_esq.png" id="6_imtfn"]
+[ext_resource type="Texture2D" uid="uid://rc5mw6mxwcfy" path="res://gatete/gatete_impulso_esq.png" id="6_yc0q3"]
 [ext_resource type="Texture2D" uid="uid://j7kv7pmg8y4v" path="res://gatete/gatete_correr_der.png" id="7_74yhw"]
+[ext_resource type="Texture2D" uid="uid://cqx4yqll5qavv" path="res://gatete/gatete_impulso_der.png" id="8_m3l3y"]
+[ext_resource type="Texture2D" uid="uid://db8kt0or0llxx" path="res://gatete/gatete_slide_esq.png" id="12_myy5u"]
+[ext_resource type="Texture2D" uid="uid://cd7a8udh2v844" path="res://gatete/gatete_slide_der.png" id="13_3ooec"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3wk46"]
 radius = 38.0
@@ -14,6 +20,22 @@ height = 126.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ktwkg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kuuet")
+}],
+"loop": true,
+"name": &"fallL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1s82u")
+}],
+"loop": true,
+"name": &"fallR",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_dk0tc")
@@ -31,18 +53,24 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.4,
+"texture": ExtResource("6_yc0q3")
+}, {
 "duration": 1.0,
 "texture": ExtResource("4_t500s")
 }],
-"loop": true,
+"loop": false,
 "name": &"jumpL",
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.4,
+"texture": ExtResource("8_m3l3y")
+}, {
 "duration": 1.0,
 "texture": ExtResource("5_7mogr")
 }],
-"loop": true,
+"loop": false,
 "name": &"jumpR",
 "speed": 5.0
 }, {
@@ -61,6 +89,22 @@ animations = [{
 "loop": true,
 "name": &"runR",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_myy5u")
+}],
+"loop": true,
+"name": &"slideL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_3ooec")
+}],
+"loop": true,
+"name": &"slideR",
+"speed": 5.0
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
@@ -74,7 +118,7 @@ shape = SubResource("CapsuleShape2D_3wk46")
 position = Vector2(1, -35)
 scale = Vector2(0.59, 0.59)
 sprite_frames = SubResource("SpriteFrames_ktwkg")
-animation = &"jumpL"
+animation = &"slideL"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false

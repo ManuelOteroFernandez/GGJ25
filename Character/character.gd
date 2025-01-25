@@ -19,12 +19,16 @@ var anim_state = ANIM_STATE_SET.IDLE
 func _process(delta: float) -> void:
 	if anim_state == ANIM_STATE_SET.RUN:
 		$AnimatedSprite2D.animation = "runL" if current_dir < 0 else "runR"
-	elif anim_state == ANIM_STATE_SET.JUMP:
+	elif anim_state == ANIM_STATE_SET.JUMP and $AnimatedSprite2D.animation not in ["jumpL","jumpR"]:
 		$AnimatedSprite2D.animation = "jumpL" if current_dir < 0 else "jumpR"
+		$AnimatedSprite2D.play()
 	elif anim_state == ANIM_STATE_SET.IDLE:
 		$AnimatedSprite2D.animation = "idleL" if current_dir < 0 else "idleR"
+	elif anim_state == ANIM_STATE_SET.WALL:
+		$AnimatedSprite2D.animation = "slideL" if current_dir < 0 else "slideR"
 	elif anim_state == ANIM_STATE_SET.FALL:
 		$AnimatedSprite2D.animation = "fallL" if current_dir < 0 else "fallR"
+		
 	
 
 func _physics_process(delta: float) -> void:
@@ -89,6 +93,7 @@ func _move_on_ground(delta:float) -> void:
 			if velocity.y < 0: 
 				velocity.y = 0
 			velocity += GRAVITY_WALL * delta 
+			anim_state = ANIM_STATE_SET.WALL
 		else:
 			velocity += get_gravity() * delta
 
@@ -117,11 +122,12 @@ func _move_on_ground(delta:float) -> void:
 		velocity.y = JUMP_WALL_VELOCITY.y
 		velocity.x = JUMP_WALL_VELOCITY.x if $RayCastDer.is_colliding() else -JUMP_WALL_VELOCITY.x
 	
-	if velocity.y > 0 and anim_state != ANIM_STATE_SET.JUMP_WALL:
+	if velocity.y > 0 and anim_state not in [ANIM_STATE_SET.JUMP_WALL, ANIM_STATE_SET.WALL]:
 		anim_state = ANIM_STATE_SET.FALL
 	
 	if velocity == Vector2(0,0):
 		anim_state = ANIM_STATE_SET.IDLE
+		
 	
 func _is_on_wall() -> bool:
 	if is_on_floor(): 

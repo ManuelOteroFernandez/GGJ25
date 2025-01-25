@@ -171,7 +171,7 @@ tile_map_data = PackedByteArray("AAD9/wkAAAAAAAAAAAD+/wkAAAAAAAAAAAD//wkAAAAAAAA
 tile_set = SubResource("TileSet_ksxwn")
 
 [node name="BubbleGenerator" parent="." instance=ExtResource("3_y6ar3")]
-position = Vector2(660, 225)
+position = Vector2(1174, 282)
 bubble_speed = Vector2(100, -100)
 
 [node name="BubbleGenerator2" parent="." instance=ExtResource("3_y6ar3")]
