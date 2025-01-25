@@ -122,6 +122,7 @@ animation = &"slideL"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
+zoom = Vector2(0.75, 0.75)
 position_smoothing_speed = 32.075
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
