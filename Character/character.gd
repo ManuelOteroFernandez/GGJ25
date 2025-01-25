@@ -18,12 +18,19 @@ var anim_state = ANIM_STATE_SET.IDLE
 
 func _process(delta: float) -> void:
 	if anim_state == ANIM_STATE_SET.RUN:
-		$AnimatedSprite2D.animation = "runL" if current_dir < 0 else "runR"
+		if move_mode == MOVE_SET.BURBUJA:
+			$AnimatedSprite2D.animation = "moveBubbleL" if current_dir < 0 else "moveBubbleR"
+		else:
+			$AnimatedSprite2D.animation = "runL" if current_dir < 0 else "runR"
 	elif anim_state == ANIM_STATE_SET.JUMP and $AnimatedSprite2D.animation not in ["jumpL","jumpR"]:
 		$AnimatedSprite2D.animation = "jumpL" if current_dir < 0 else "jumpR"
 		$AnimatedSprite2D.play()
 	elif anim_state == ANIM_STATE_SET.IDLE:
-		$AnimatedSprite2D.animation = "idleL" if current_dir < 0 else "idleR"
+		
+		if move_mode == MOVE_SET.BURBUJA:
+			$AnimatedSprite2D.animation = "idleBubbleL" if current_dir < 0 else "idleBubbleR"
+		else:
+			$AnimatedSprite2D.animation = "idleL" if current_dir < 0 else "idleR"
 	elif anim_state == ANIM_STATE_SET.WALL:
 		$AnimatedSprite2D.animation = "slideL" if current_dir < 0 else "slideR"
 	elif anim_state == ANIM_STATE_SET.FALL:
@@ -57,21 +64,29 @@ func set_move_mode(new_mode:MOVE_SET):
 	move_mode = new_mode
 	if move_mode == MOVE_SET.BURBUJA:
 		set_collision_layer_value(3,true)
+		set_collision_mask_value(3,true)
+		$BubbleTemplate.visible = true
 	else:
 		set_collision_layer_value(3,false)
+		set_collision_mask_value(3,false)
+		$BubbleTemplate.visible = false
 
 func _move_bubble(delta:float):
 	
+	anim_state = ANIM_STATE_SET.IDLE
 	var directionX := Input.get_axis("ui_left", "ui_right")
 	if directionX:
+		current_dir = directionX
 		velocity.x = directionX * SPEED_BUBBLE
+		anim_state = ANIM_STATE_SET.RUN
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED_BUBBLE)
 		
 	if Input.is_action_pressed("ui_down"):
 		velocity.y += SPEED_BUBBLE * 10 * delta
 		
-	velocity.y += GRAVITY_BUBBLE * delta
+	var g = get_gravity()
+	velocity.y += GRAVITY_BUBBLE * delta if g.y > 0 else g.y * delta
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		var exit = Vector2(0,0)
@@ -85,7 +100,7 @@ func _move_bubble(delta:float):
 			exit = Vector2(1,0)
 		
 		if exit != Vector2(0,0):
-			is_jumping = true
+			anim_state = ANIM_STATE_SET.FALL
 			$JumpTimer.start()
 			velocity = exit * JUMP_VELOCITY
 			set_move_mode(MOVE_SET.NORMAL)
