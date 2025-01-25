@@ -1,3 +1,51 @@
-[gd_scene format=3 uid="uid://b3ylhln31lr80"]
+[gd_scene load_steps=6 format=3 uid="uid://b3ylhln31lr80"]
+
+[ext_resource type="Script" path="res://Bubble/bubble.gd" id="1_5l2d8"]
+[ext_resource type="Texture2D" uid="uid://ccrlpljsdhna4" path="res://icon.svg" id="3_wfm5x"]
+
+[sub_resource type="GDScript" id="GDScript_qlvm1"]
+script/source = "extends RigidBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5owta"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yp2d7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wfm5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Bubble" type="Node2D"]
+script = ExtResource("1_5l2d8")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Bubbles"]]
+mass = 0.001
+gravity_scale = 0.1
+contact_monitor = true
+max_contacts_reported = 1
+script = SubResource("GDScript_qlvm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_5owta")
+debug_color = Color(0, 0.596117, 0.721825, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_yp2d7")
+
+[connection signal="body_entered" from="RigidBody2D" to="." method="onCollisionEnter"]
