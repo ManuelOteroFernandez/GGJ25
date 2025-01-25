@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 enum MOVE_SET { NORMAL, BURBUJA }
-enum ANIM_STATE_SET { JUMP, IDLE, RUN , FALL, WALL }
+enum ANIM_STATE_SET { JUMP, IDLE, RUN , FALL, WALL, JUMP_WALL }
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
@@ -93,7 +93,7 @@ func _move_on_ground(delta:float) -> void:
 			velocity += get_gravity() * delta
 
 	
-	if not is_jumping:
+	if anim_state != ANIM_STATE_SET.JUMP_WALL:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction := Input.get_axis("ui_left", "ui_right")
@@ -111,20 +111,20 @@ func _move_on_ground(delta:float) -> void:
 		anim_state = ANIM_STATE_SET.JUMP
 
 	if Input.is_action_just_pressed("ui_accept") and _is_on_wall():
-		anim_state = ANIM_STATE_SET.JUMP
+		anim_state = ANIM_STATE_SET.JUMP_WALL
 			
 		$JumpTimer.start()
 		velocity.y = JUMP_WALL_VELOCITY.y
 		velocity.x = JUMP_WALL_VELOCITY.x if $RayCastDer.is_colliding() else -JUMP_WALL_VELOCITY.x
 	
-	if velocity.y > 0:
+	if velocity.y > 0 and anim_state != ANIM_STATE_SET.JUMP_WALL:
 		anim_state = ANIM_STATE_SET.FALL
 	
 	if velocity == Vector2(0,0):
 		anim_state = ANIM_STATE_SET.IDLE
 	
 func _is_on_wall() -> bool:
-	if anim_state == ANIM_STATE_SET.JUMP or is_on_floor(): 
+	if is_on_floor(): 
 		return false
 		
 	if $RayCastDer.is_colliding():
