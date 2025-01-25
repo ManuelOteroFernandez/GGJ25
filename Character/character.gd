@@ -3,7 +3,7 @@ extends CharacterBody2D
 enum MOVE_SET { NORMAL, BURBUJA }
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -600.0
 const JUMP_WALL_VELOCITY = Vector2(JUMP_VELOCITY,0)
 const GRAVITY_WALL = Vector2(0,200)
 
@@ -25,10 +25,15 @@ func _physics_process(delta: float) -> void:
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		print(collision.get_collider().name)
-		if (collision.get_collider() as Node).is_in_group("Bubbles"):
+		var node_collision = (collision.get_collider() as Node)
+		if node_collision.is_in_group("Bubbles"):
 			set_move_mode(MOVE_SET.BURBUJA)
-			print("bubble")
+			
+		if node_collision.is_in_group("Enemigo"):
+			pass #Muerte
+		
+		if node_collision.is_in_group("Muro"):
+			set_move_mode(MOVE_SET.NORMAL)
 	
 func set_move_mode(new_mode:MOVE_SET):
 	move_mode = new_mode
@@ -41,10 +46,7 @@ func _move_bubble(delta:float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED_BUBBLE)
 		
-	var directionY := Input.get_axis("ui_up", "ui_down")
-	if directionY:
-		velocity.y = directionY * SPEED_BUBBLE
-	else:
+	if Input.is_action_pressed("ui_down"):
 		velocity.y = move_toward(velocity.x, 0, SPEED_BUBBLE)
 		
 	velocity.y += GRAVITY_BUBBLE * delta
@@ -60,10 +62,11 @@ func _move_bubble(delta:float):
 		if Input.is_action_pressed("ui_left"):
 			exit = Vector2(1,0)
 		
-		is_jumping = true
-		$JumpTimer.start()
-		velocity = exit * JUMP_VELOCITY
-		set_move_mode(MOVE_SET.NORMAL)
+		if exit != Vector2(0,0):
+			is_jumping = true
+			$JumpTimer.start()
+			velocity = exit * JUMP_VELOCITY
+			set_move_mode(MOVE_SET.NORMAL)
 		
 
 func _move_on_ground(delta:float) -> void:

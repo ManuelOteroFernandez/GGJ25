@@ -22,6 +22,7 @@ GameController="*res://GameController.gd"
 [global_group]
 
 Player=""
+Muro=""
 
 [rendering]
 
