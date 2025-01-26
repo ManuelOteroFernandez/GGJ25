@@ -1,6 +1,7 @@
 extends Node
 
 signal pause_signal
+signal init_game_signal
 
 # Enum para tipos de burbulla
 enum bubbleType {
@@ -23,6 +24,7 @@ func _input(event: InputEvent) -> void:
 		pause()
 		
 func init_game():
+	init_game_signal.emit()
 	in_menu = false
 	get_tree().paused = false
 	

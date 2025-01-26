@@ -1,5 +1,4 @@
 extends Control
-signal init_game_signal
 
 @export var fade: FadeScreen
 
@@ -39,5 +38,4 @@ func _init_game():
 	fade.disconnect("end_fade_signal", _init_game)
 	visible = false
 	GameController.init_game()
-	init_game_signal.emit()
 	fade.to_white()

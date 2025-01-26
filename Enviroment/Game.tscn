@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dyi2j7ofds4ko"]
+[gd_scene load_steps=16 format=4 uid="uid://dyi2j7ofds4ko"]
 
 [ext_resource type="Script" path="res://Enviroment/game.gd" id="1_7wl5m"]
 [ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://Character/Character.tscn" id="2_0r578"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bchnsttsurq8c" path="res://UI/MainMenu.tscn" id="8_753ur"]
 [ext_resource type="PackedScene" uid="uid://dbcv57i5bh274" path="res://UI/fade_screen.tscn" id="8_wvjf0"]
 [ext_resource type="PackedScene" uid="uid://bnf2ne0knnysg" path="res://UI/MenuPause.tscn" id="9_10i7p"]
+[ext_resource type="AudioStream" uid="uid://bqebghrswe20x" path="res://Musica/2.Musica/Gatopompas_menu_loop.mp3" id="12_lqkq0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urob0"]
 texture = ExtResource("3_t23de")
@@ -226,3 +227,8 @@ metadata/_edit_use_anchors_ = true
 [node name="fade_screen" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_wvjf0")]
 player = NodePath("../../CharacterBody2D")
 metadata/_edit_use_anchors_ = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_lqkq0")
+autoplay = true
+parameters/looping = true
