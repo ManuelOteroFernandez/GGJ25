@@ -1,0 +1,170 @@
+[gd_scene load_steps=5 format=3 uid="uid://bchnsttsurq8c"]
+
+[ext_resource type="Theme" uid="uid://c0spuf5fuqnr6" path="res://new_theme.tres" id="1_lwfic"]
+[ext_resource type="Texture2D" uid="uid://ccrlpljsdhna4" path="res://icon.svg" id="2_lbt2e"]
+[ext_resource type="Script" path="res://UI/mainMenu.gd" id="3_2ctia"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1l56y"]
+
+[node name="MainMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lwfic")
+script = ExtResource("3_2ctia")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_lwfic")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lwfic")
+bbcode_enabled = true
+text = "[center][b]GATOGAMI / GATOPOMPAS[/b][/center]"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 33.705)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lwfic")
+bbcode_enabled = true
+text = "Movimiento: W A S D"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lwfic")
+bbcode_enabled = true
+text = "Salto: SPACE"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lwfic")
+bbcode_enabled = true
+text = "Salir de burbuja: Salto + W A S D"
+fit_content = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lwfic")
+
+[node name="btnInit" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_lbt2e")
+
+[node name="btnCredits" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_lbt2e")
+
+[node name="btnExit" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_lbt2e")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+position = Vector2(65, 63)
+visibility_mode = 1
+
+[node name="PanelContainer" type="Control" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Credits" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 699.0
+theme = ExtResource("1_lwfic")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Credits"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Credits/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lwfic")
+bbcode_enabled = true
+text = "[center][b]CREDITOS[/b][/center]"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Credits/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Credits/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/Credits/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lwfic")
+bbcode_enabled = true
+text = "Movimiento: W A S D"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/Credits/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lwfic")
+bbcode_enabled = true
+text = "Salto: SPACE"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/Credits/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1l56y")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="PanelContainer/Credits/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lwfic")
+bbcode_enabled = true
+text = "[font_size=28]Recursos FX [/font_size]"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="PanelContainer/Credits/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lwfic")
+bbcode_enabled = true
+text = "Opensgameart:
+qubodup,  bart,  farfadet46,  pokmon63,  rubberduck,  StarNinjas,  quinn, remaxim,  James Legg,  Nicole Marie T,  Macro
+
+Procomun
+"
+fit_content = true
+
+[node name="TextureButton" type="TextureButton" parent="PanelContainer"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -158.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = 158.0
+texture_normal = ExtResource("2_lbt2e")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/btnInit" to="." method="_on_init_game"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/btnCredits" to="." method="_on_open_credits"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/btnExit" to="." method="_on_exit_game"]
+[connection signal="pressed" from="PanelContainer/TextureButton" to="." method="_on_close_credits"]
