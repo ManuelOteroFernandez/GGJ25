@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnf2ne0knnysg"]
+
+[ext_resource type="Theme" uid="uid://c0spuf5fuqnr6" path="res://new_theme.tres" id="1_r6o1r"]
+[ext_resource type="Script" path="res://UI/menu_pause.gd" id="2_f4kjv"]
+[ext_resource type="Texture2D" uid="uid://ccrlpljsdhna4" path="res://icon.svg" id="3_x86si"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tihdv"]
+
+[node name="PauseMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r6o1r")
+script = ExtResource("2_f4kjv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_r6o1r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_r6o1r")
+bbcode_enabled = true
+text = "[center][b]PAUSE[/b][/center]"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 260
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tihdv")
+
+[node name="btnContinue" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_x86si")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnContinue" to="." method="_on_btn_continue_pressed"]

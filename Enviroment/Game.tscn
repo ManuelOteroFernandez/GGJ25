@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dyi2j7ofds4ko"]
+[gd_scene load_steps=15 format=4 uid="uid://dyi2j7ofds4ko"]
 
 [ext_resource type="Script" path="res://Enviroment/game.gd" id="1_7wl5m"]
 [ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://Character/Character.tscn" id="2_0r578"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://Bubble/BubbleGenerator.tscn" id="3_y6ar3"]
 [ext_resource type="PackedScene" uid="uid://cuo8j65d6g5ep" path="res://AirBlower/AirBlower.tscn" id="4_r2p2q"]
 [ext_resource type="PackedScene" uid="uid://bikkpuuf1fguh" path="res://Checkpoints/checkpoint.tscn" id="5_evd3c"]
-[ext_resource type="PackedScene" path="res://enemies/goose.tscn" id="6_2m7wg"]
+[ext_resource type="PackedScene" uid="uid://c0ciq8i8jqgak" path="res://enemies/goose.tscn" id="6_2m7wg"]
 [ext_resource type="PackedScene" uid="uid://bchnsttsurq8c" path="res://UI/MainMenu.tscn" id="8_753ur"]
 [ext_resource type="PackedScene" uid="uid://dbcv57i5bh274" path="res://UI/fade_screen.tscn" id="8_wvjf0"]
+[ext_resource type="PackedScene" uid="uid://bnf2ne0knnysg" path="res://UI/MenuPause.tscn" id="9_10i7p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urob0"]
 texture = ExtResource("3_t23de")
@@ -213,6 +214,10 @@ position = Vector2(2233, 463)
 position = Vector2(1202, 517)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" node_paths=PackedStringArray("fade") instance=ExtResource("9_10i7p")]
+visible = false
+fade = NodePath("../fade_screen")
 
 [node name="MainMenu" parent="CanvasLayer" node_paths=PackedStringArray("fade") instance=ExtResource("8_753ur")]
 fade = NodePath("../fade_screen")

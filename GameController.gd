@@ -1,5 +1,7 @@
 extends Node
 
+signal pause_signal
+
 # Enum para tipos de burbulla
 enum bubbleType {
 	blue, purple
@@ -10,9 +12,19 @@ var bubbleColor = {bubbleType.blue: Color.CORNFLOWER_BLUE, bubbleType.purple: Co
 
 var last_checkpoint_position = Vector2(0,0)
 
+var in_menu = true
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _input(event: InputEvent) -> void: 
 	if event.is_action_pressed("pause",true):
-		get_tree().paused = not get_tree().paused
+		pause()
+		
+func init_game():
+	in_menu = false
+	
+func pause():
+	get_tree().paused = not get_tree().paused
+	pause_signal.emit()
+	

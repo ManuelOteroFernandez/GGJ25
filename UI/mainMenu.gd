@@ -3,6 +3,9 @@ signal init_game_signal
 
 @export var fade: FadeScreen
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 func _on_close_credits() -> void:
 	fade.connect("end_fade_signal",	_change_main_to_credits )
 	fade.to_black()
