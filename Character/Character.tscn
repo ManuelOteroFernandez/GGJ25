@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b8p160kb7yaso"]
+[gd_scene load_steps=23 format=3 uid="uid://b8p160kb7yaso"]
 
 [ext_resource type="Script" path="res://Character/character.gd" id="1_p7qbp"]
 [ext_resource type="Texture2D" uid="uid://b3q5evxygj6jc" path="res://gatete/gatete_idle_der.png" id="2_2wu7i"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://dlsmnc3soapol" path="res://gatete/gatete_slide_der.png" id="13_3ooec"]
 [ext_resource type="Texture2D" uid="uid://dih1c3csshh4v" path="res://gatete/gatete_buceo_der.png" id="13_8oqa4"]
 [ext_resource type="Texture2D" uid="uid://mod8hta7xeju" path="res://Bubble/bubbleTemplate.png" id="14_xqq3e"]
+[ext_resource type="Texture2D" uid="uid://bu2ue1kxbpc57" path="res://gatete/gatete_walkingcicle_esq.png" id="16_wwrfs"]
+[ext_resource type="Texture2D" uid="uid://bk6e71ra0rdsv" path="res://gatete/gatete_walkingcicle_der.png" id="18_wjui6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ktwkg"]
 animations = [{
@@ -111,6 +113,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_imtfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wwrfs")
 }],
 "loop": true,
 "name": &"runL",
@@ -119,6 +124,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("7_74yhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_wjui6")
 }],
 "loop": true,
 "name": &"runR",
@@ -154,7 +162,8 @@ shape = ExtResource("2_7wa33")
 position = Vector2(1, -35)
 scale = Vector2(0.59, 0.59)
 sprite_frames = SubResource("SpriteFrames_ktwkg")
-animation = &"idleR"
+animation = &"runR"
+frame_progress = 0.101226
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.35, 0.35)
@@ -189,6 +198,15 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 volume_db = -10.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -37
+offset_left = -3399.0
+offset_top = -2143.0
+offset_right = -2413.0
+offset_bottom = -1528.0
+scale = Vector2(6.89, 6.89)
+color = Color(0.709804, 0.396078, 0.462745, 1)
 
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

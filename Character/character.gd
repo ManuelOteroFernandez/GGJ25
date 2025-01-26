@@ -38,6 +38,7 @@ func _process(_delta: float) -> void:
 			$AnimatedSprite2D.animation = "moveBubbleL" if current_dir < 0 else "moveBubbleR"
 		else:
 			$AnimatedSprite2D.animation = "runL" if current_dir < 0 else "runR"
+			$AnimatedSprite2D.play()
 	elif anim_state == ANIM_STATE_SET.JUMP and $AnimatedSprite2D.animation not in ["jumpL","jumpR"]:
 		$AnimatedSprite2D.animation = "jumpL" if current_dir < 0 else "jumpR"
 		$AnimatedSprite2D.play()

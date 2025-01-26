@@ -1,13 +1,13 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://c0spuf5fuqnr6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w75u0"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(1, 1, 1, 0)
 
 [resource]
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 60
 MarginContainer/constants/margin_right = 60
-MarginContainer/constants/margin_top = 10
+MarginContainer/constants/margin_top = 41
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_w75u0")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
