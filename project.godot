@@ -86,6 +86,15 @@ pause={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Jugador"
+2d_physics/layer_2="Muros"
+2d_physics/layer_3="Burbujas"
+2d_physics/layer_4="CheckPoints"
+2d_physics/layer_5="Enemigos"
+2d_physics/layer_6="Tuberias"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

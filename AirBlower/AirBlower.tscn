@@ -64,6 +64,7 @@ amount = 50
 lifetime = 1.75
 randomness = 1.0
 lifetime_randomness = 0.45
+local_coords = true
 texture = ExtResource("3_qm4r2")
 emission_shape = 3
 emission_rect_extents = Vector2(70, 0)

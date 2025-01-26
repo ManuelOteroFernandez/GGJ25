@@ -33,7 +33,6 @@ animations = [{
 
 [node name="Bubble" type="Node2D" groups=["Bubbles"]]
 script = ExtResource("1_5l2d8")
-direction = null
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Bubbles"]]
 collision_layer = 5

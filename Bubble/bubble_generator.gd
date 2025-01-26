@@ -13,6 +13,10 @@ func _ready() -> void:
 func spawn_bubble():
 	
 	var b = scene_bubble.instantiate()
+	if bubble_type == GameController.bubbleType.blue:
+		(b as Bubble).endurance = 0
+	else: 
+		(b as Bubble).endurance = 1
 	b.position = position
 	b.with_data(bubble_speed,bubble_type)
 	$BubbleList.add_child(b)
