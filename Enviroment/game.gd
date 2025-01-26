@@ -5,6 +5,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameController.end_game_signal.connect(_on_end_game)
 	GameController.init_game_signal.connect(_on_init_game)
 	$CanvasLayer/fade_screen.to_white()
 	$Music.play()
@@ -12,7 +13,11 @@ func _ready() -> void:
 func _on_init_game():
 	$Music.stream = music_game
 	$Music.play()
+	
+func _on_end_game():
+	$Music.stream = music_menu
+	$Music.play()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
+func _on_win(body: Node2D) -> void:
+	GameController.end_game()

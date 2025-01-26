@@ -3,6 +3,7 @@ extends Control
 @export var fade: FadeScreen
 
 func _ready() -> void:
+	GameController.end_game_signal.connect(_on_end_game)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_close_credits() -> void:
@@ -42,4 +43,13 @@ func _init_game():
 	fade.disconnect("end_fade_signal", _init_game)
 	visible = false
 	GameController.init_game()
+	fade.to_white()
+
+func _on_end_game():
+	fade.connect("end_fade_signal",	_end_game )
+	fade.to_black()
+	
+func _end_game():
+	fade.disconnect("end_fade_signal",	_end_game )
+	visible = true
 	fade.to_white()

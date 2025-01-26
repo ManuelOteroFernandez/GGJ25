@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyi2j7ofds4ko"]
+[gd_scene load_steps=9 format=3 uid="uid://dyi2j7ofds4ko"]
 
 [ext_resource type="Script" path="res://Enviroment/game.gd" id="1_7wl5m"]
 [ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://Character/Character.tscn" id="2_0r578"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dbcv57i5bh274" path="res://UI/fade_screen.tscn" id="8_wvjf0"]
 [ext_resource type="PackedScene" uid="uid://bnf2ne0knnysg" path="res://UI/MenuPause.tscn" id="9_10i7p"]
 [ext_resource type="AudioStream" uid="uid://bqebghrswe20x" path="res://Musica/2.Musica/Gatopompas_menu_loop.mp3" id="12_lqkq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0ri"]
+size = Vector2(136, 117)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7wl5m")
@@ -34,3 +37,12 @@ stream = ExtResource("12_lqkq0")
 volume_db = -20.0
 autoplay = true
 parameters/looping = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-258, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -16)
+shape = SubResource("RectangleShape2D_ck0ri")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_win"]

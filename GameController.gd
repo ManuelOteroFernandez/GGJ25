@@ -2,6 +2,7 @@ extends Node
 
 signal pause_signal
 signal init_game_signal
+signal end_game_signal
 
 # Enum para tipos de burbulla
 enum bubbleType {
@@ -31,4 +32,10 @@ func init_game():
 func pause():
 	get_tree().paused = not get_tree().paused
 	pause_signal.emit()
+	
+func end_game():
+	last_checkpoint_position = Vector2(0,0)
+	end_game_signal.emit()
+	get_tree().paused = true
+	
 	
