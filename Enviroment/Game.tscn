@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bqebghrswe20x" path="res://Musica/2.Musica/Gatopompas_menu_loop.mp3" id="12_lqkq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0ri"]
-size = Vector2(136, 117)
+size = Vector2(657, 385.5)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7wl5m")
@@ -39,10 +39,10 @@ autoplay = true
 parameters/looping = true
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-258, 88)
+position = Vector2(13692, -12964)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, -16)
+position = Vector2(14, -69)
 shape = SubResource("RectangleShape2D_ck0ri")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_win"]
