@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0ciq8i8jqgak"]
+[gd_scene load_steps=3 format=3 uid="uid://d2iqsec6j0llb"]
 
 [ext_resource type="PackedScene" uid="uid://baiqng55hvml" path="res://enemies/Porcoespiño/porcoespiño.tscn" id="1_6rdii"]
 [ext_resource type="Texture2D" uid="uid://bj4rhv1dccbvu" path="res://enemies/modelos_gamejam_origamigoose.png" id="2_nba07"]

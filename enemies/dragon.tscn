@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpxu4wmi42r1"]
+
+[ext_resource type="PackedScene" uid="uid://baiqng55hvml" path="res://enemies/Porcoespiño/porcoespiño.tscn" id="1_da50e"]
+[ext_resource type="Texture2D" uid="uid://cmghj2juysnl" path="res://enemies/dragonorigame.png" id="2_rjiky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyciw"]
+size = Vector2(234.286, 140)
+
+[node name="Porcoespiño" instance=ExtResource("1_da50e")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-2.85714, 1.42857)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fyciw")
+
+[node name="Porcoespiño" parent="." index="1"]
+texture = ExtResource("2_rjiky")
