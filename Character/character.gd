@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+signal on_dead_signal
+
 enum MOVE_SET { NORMAL, BURBUJA }
 enum ANIM_STATE_SET { JUMP, IDLE, RUN , FALL, WALL, JUMP_WALL }
 
@@ -192,10 +194,16 @@ func _is_on_wall() -> bool:
 	return false
 	
 func dead():
-	position = GameController.last_checkpoint_position
+	on_dead_signal.emit()
+	$RespawnTimer.start()
+	
 
 func _on_jump_timer_timeout() -> void:
 	if is_on_floor():
 		anim_state = ANIM_STATE_SET.RUN
 	else:
 		anim_state = ANIM_STATE_SET.FALL
+
+
+func _on_respawn_timer_timeout() -> void:
+	position = GameController.last_checkpoint_position

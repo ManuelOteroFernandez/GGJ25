@@ -223,5 +223,6 @@ fade = NodePath("../fade_screen")
 fade = NodePath("../fade_screen")
 metadata/_edit_use_anchors_ = true
 
-[node name="fade_screen" parent="CanvasLayer" instance=ExtResource("8_wvjf0")]
+[node name="fade_screen" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_wvjf0")]
+player = NodePath("../../CharacterBody2D")
 metadata/_edit_use_anchors_ = true

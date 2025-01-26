@@ -16,6 +16,7 @@ var in_menu = true
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	get_tree().paused = true
 
 func _input(event: InputEvent) -> void: 
 	if event.is_action_pressed("pause",true):
@@ -23,6 +24,7 @@ func _input(event: InputEvent) -> void:
 		
 func init_game():
 	in_menu = false
+	get_tree().paused = false
 	
 func pause():
 	get_tree().paused = not get_tree().paused
