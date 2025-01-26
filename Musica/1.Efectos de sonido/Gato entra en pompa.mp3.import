@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbboy22njue18"
+path="res://.godot/imported/Gato entra en pompa.mp3-044f181a3dd94f324316d66c0f219a0f.mp3str"
+
+[deps]
+
+source_file="res://Musica/1.Efectos de sonido/Gato entra en pompa.mp3"
+dest_files=["res://.godot/imported/Gato entra en pompa.mp3-044f181a3dd94f324316d66c0f219a0f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

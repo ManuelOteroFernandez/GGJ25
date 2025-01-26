@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://daeryhqpvi6u6"
+path="res://.godot/imported/Ventilador.mp3-8ef2bd15e4591ba46586a4e2f16a673f.mp3str"
+
+[deps]
+
+source_file="res://Musica/1.Efectos de sonido/Ventilador.mp3"
+dest_files=["res://.godot/imported/Ventilador.mp3-8ef2bd15e4591ba46586a4e2f16a673f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

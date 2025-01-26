@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hhxavs7i5ltn"
+path="res://.godot/imported/Pompero genera pompa.mp3-91e66a29c38b65e64f89fc1b2f7cc174.mp3str"
+
+[deps]
+
+source_file="res://Musica/1.Efectos de sonido/Pompero genera pompa.mp3"
+dest_files=["res://.godot/imported/Pompero genera pompa.mp3-91e66a29c38b65e64f89fc1b2f7cc174.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
