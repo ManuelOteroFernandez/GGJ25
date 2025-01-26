@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bchnsttsurq8c"]
+[gd_scene load_steps=6 format=3 uid="uid://bchnsttsurq8c"]
 
 [ext_resource type="Theme" uid="uid://c0spuf5fuqnr6" path="res://new_theme.tres" id="1_lwfic"]
 [ext_resource type="Texture2D" uid="uid://ccrlpljsdhna4" path="res://icon.svg" id="2_lbt2e"]
 [ext_resource type="Script" path="res://UI/mainMenu.gd" id="3_2ctia"]
+[ext_resource type="AudioStream" uid="uid://ci84c4sxdet7r" path="res://Musica/1.Efectos de sonido/Boton.mp3" id="3_yf550"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1l56y"]
 
@@ -14,6 +15,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_lwfic")
 script = ExtResource("3_2ctia")
+
+[node name="Boton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yf550")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

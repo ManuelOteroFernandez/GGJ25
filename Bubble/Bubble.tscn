@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3ylhln31lr80"]
+[gd_scene load_steps=7 format=3 uid="uid://b3ylhln31lr80"]
 
 [ext_resource type="Script" path="res://Bubble/bubble.gd" id="1_5l2d8"]
 [ext_resource type="Texture2D" uid="uid://mod8hta7xeju" path="res://Bubble/bubbleTemplate.png" id="2_28w11"]
+[ext_resource type="AudioStream" uid="uid://5rny7vcbefuw" path="res://Musica/1.Efectos de sonido/Pompa explota.mp3" id="3_3gr6d"]
 
 [sub_resource type="GDScript" id="GDScript_qlvm1"]
 script/source = "extends RigidBody2D
@@ -52,6 +53,10 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_yp2d7")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3gr6d")
+parameters/looping = false
 
 [connection signal="body_entered" from="RigidBody2D" to="." method="onCollisionEnter"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -194,16 +194,16 @@ tile_map_data = PackedByteArray("AAAEAAkAAgABAAAAAAAFAAoAAgABAAAAAAAGAAoAAgABAAA
 tile_set = SubResource("TileSet_ksxwn")
 
 [node name="BubbleGenerator" parent="Map" instance=ExtResource("3_y6ar3")]
-position = Vector2(3171, 1004)
+position = Vector2(2471, 1415)
 bubble_speed = Vector2(1, -500)
 
 [node name="BubbleGenerator" parent="." instance=ExtResource("3_y6ar3")]
-position = Vector2(1821, 209)
+position = Vector2(2131, 972)
 spawn_time = 5.0
-bubble_speed = Vector2(100, -100)
+bubble_speed = Vector2(100, 0)
 
 [node name="AirBlower" parent="." instance=ExtResource("4_r2p2q")]
-position = Vector2(1938, 380)
+position = Vector2(1947, 221)
 
 [node name="Checkpoint" parent="." instance=ExtResource("5_evd3c")]
 position = Vector2(1533, 467)
@@ -212,7 +212,7 @@ position = Vector2(1533, 467)
 position = Vector2(2233, 463)
 
 [node name="Porcoespiño" parent="." instance=ExtResource("6_2m7wg")]
-position = Vector2(1202, 517)
+position = Vector2(2454, 400)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

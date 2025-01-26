@@ -20,6 +20,7 @@ func spawn_bubble():
 	b.position = position
 	b.with_data(bubble_speed,bubble_type)
 	$BubbleList.add_child(b)
+	$AudioStreamPlayer2D.play()
 	
 
 

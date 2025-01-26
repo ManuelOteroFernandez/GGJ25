@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnn87aqvrb6mj"]
+[gd_scene load_steps=5 format=3 uid="uid://dnn87aqvrb6mj"]
 
 [ext_resource type="Script" path="res://Bubble/bubble_generator.gd" id="1_37rfm"]
 [ext_resource type="Texture2D" uid="uid://cj04840tox6ek" path="res://cousasescenario/tubería_basic.png" id="2_dq5bm"]
+[ext_resource type="AudioStream" uid="uid://hhxavs7i5ltn" path="res://Musica/1.Efectos de sonido/Pompero genera pompa.mp3" id="3_43ad8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f07jw"]
 size = Vector2(340, 269)
@@ -24,5 +25,8 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_f07jw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_43ad8")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

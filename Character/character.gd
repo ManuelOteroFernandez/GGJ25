@@ -18,6 +18,15 @@ var bubbleHP = 0
 @onready var shape_cat: CapsuleShape2D = load("res://Character/shapeCat.tres")
 @onready var shape_bubble: CircleShape2D = load("res://Character/shapeBubble.tres")
 
+@onready var sound_wall = load("res://Musica/1.Efectos de sonido/Arrastre pared.mp3")
+@onready var sound_landing = load("res://Musica/1.Efectos de sonido/Aterrizar.mp3")
+@onready var sound_in_bubble = load("res://Musica/1.Efectos de sonido/Gato entra en pompa.mp3")
+@onready var sound_dead_especial = load("res://Musica/1.Efectos de sonido/Gato muere por hélice.mp3")
+@onready var sound_dead = load("res://Musica/1.Efectos de sonido/Gato muere.mp3")
+@onready var sound_jump = load("res://Musica/1.Efectos de sonido/Saltar.mp3")
+@onready var sound_step = load("res://Musica/1.Efectos de sonido/Paso.mp3")
+
+
 var is_jumping:bool = false
 var move_mode:MOVE_SET = MOVE_SET.NORMAL
 var current_dir = 1
@@ -32,6 +41,7 @@ func _process(_delta: float) -> void:
 	elif anim_state == ANIM_STATE_SET.JUMP and $AnimatedSprite2D.animation not in ["jumpL","jumpR"]:
 		$AnimatedSprite2D.animation = "jumpL" if current_dir < 0 else "jumpR"
 		$AnimatedSprite2D.play()
+		play_sound(sound_jump)
 	elif anim_state == ANIM_STATE_SET.IDLE:
 		
 		if move_mode == MOVE_SET.BURBUJA:
@@ -39,11 +49,18 @@ func _process(_delta: float) -> void:
 		else:
 			$AnimatedSprite2D.animation = "idleL" if current_dir < 0 else "idleR"
 	elif anim_state == ANIM_STATE_SET.WALL:
+		play_sound(sound_wall)
 		$AnimatedSprite2D.animation = "slideL" if current_dir < 0 else "slideR"
 	elif anim_state in [ANIM_STATE_SET.FALL,ANIM_STATE_SET.JUMP_WALL]:
 		$AnimatedSprite2D.animation = "fallL" if current_dir < 0 else "fallR"
 		
-	
+	if anim_state != ANIM_STATE_SET.WALL and $AudioStreamPlayer2D.playing and $AudioStreamPlayer2D.stream == sound_wall:
+		$AudioStreamPlayer2D.stop()
+		
+func play_sound(sound):
+	if $AudioStreamPlayer2D.stream != sound:
+		$AudioStreamPlayer2D.stream = sound
+		$AudioStreamPlayer2D.play()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -82,11 +99,12 @@ func _physics_process(delta: float) -> void:
 					bubbleHP -= 1
 				else:
 					set_move_mode(MOVE_SET.NORMAL)
-	print(get_slide_collision_count())
+	#print(get_slide_collision_count())
 	
 func set_move_mode(new_mode:MOVE_SET):
 	move_mode = new_mode
 	if move_mode == MOVE_SET.BURBUJA:
+		play_sound(sound_in_bubble)
 		set_collision_layer_value(3,true)
 		set_collision_mask_value(3,true)
 		$BubbleTemplate.visible = true
@@ -193,9 +211,10 @@ func _is_on_wall() -> bool:
 		
 	return false
 	
-func dead():
+func dead(is_especial:bool = false):
 	on_dead_signal.emit()
 	$RespawnTimer.start()
+	play_sound(sound_dead if not is_especial else sound_dead_especial)
 	
 
 func _on_jump_timer_timeout() -> void:

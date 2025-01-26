@@ -22,6 +22,7 @@ func _show_pause_menu():
 	
 
 func _on_btn_continue_pressed() -> void:
+	$Boton.play()
 	GameController.pause()
 	
 func _continue_1():

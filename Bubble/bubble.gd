@@ -2,6 +2,10 @@ class_name Bubble
 extends Node2D
 
 @export var direction : Vector2 = Vector2(0,0)
+
+@onready var sound_explota = load("res://Musica/1.Efectos de sonido/Pompa explota.mp3")
+@onready var sound_union = load("res://Musica/1.Efectos de sonido/Fusion pompas.mp3")
+
 var bubbleT: GameController.bubbleType = GameController.bubbleType.blue
 # Numero de rebotes que puede resistir
 var endurance: float = 0
@@ -27,14 +31,21 @@ func _physics_process(delta: float) -> void:
 				bubbleT = GameController.bubbleType.blue
 				$RigidBody2D/AnimatedSprite2D.modulate = GameController.bubbleColor[bubbleT]
 				endurance = 0
+			#elif not $Audio.playing:
+				#$Audio.stream = sound_explota
+				#$Audio.connect("finished",_sound_explotion_finish)
+				#$Audio.play()
 			else:
 				queue_free()
+				
 		elif collider.is_in_group("Player"):
 			queue_free()
 		elif collider.is_in_group("Bubbles"):
 			bubbleT = GameController.bubbleType.purple
 			$RigidBody2D/AnimatedSprite2D.modulate = GameController.bubbleColor[bubbleT]
 			endurance = 1
+			$Audio.stream = sound_union
+			$Audio.play()
 			direction += (collider.get_parent() as Bubble).direction
 			collider.get_parent().free()
 		#print(endurance)
@@ -49,17 +60,6 @@ func changeType() -> void:
 		$RigidBody2D/AnimatedSprite2D.modulate = GameController.bubbleColor[bubbleT]
 		endurance = 0
 		
-
-#func onCollisionEnter(body: Node) -> void:
-	#if body.is_in_group("Player") or body.is_in_group("Muro"):
-		#print("patata")
-		#queue_free()
-	#if body.is_in_group("Bubbles"):
-		#endurance += (body.get_parent() as Bubble).endurance
-		#direction += (body.get_parent() as Bubble).direction
-		#bubbleT = GameController.bubbleType.purple
-		#body.get_parent().free()
-
-
-#func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	#queue_free()
+func _sound_explotion_finish():
+	$Audio.disconnect("finished",_sound_explotion_finish)
+	queue_free()

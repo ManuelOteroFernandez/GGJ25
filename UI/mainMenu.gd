@@ -6,6 +6,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_close_credits() -> void:
+	$Boton.play()
 	fade.connect("end_fade_signal",	_change_main_to_credits )
 	fade.to_black()
 	
@@ -16,6 +17,7 @@ func _change_main_to_credits():
 	fade.to_white()
 
 func _on_open_credits() -> void:
+	$Boton.play()
 	fade.connect("end_fade_signal",	_change_credits_to_main )
 	fade.to_black()
 	
@@ -27,10 +29,12 @@ func _change_credits_to_main():
 	
 
 func _on_exit_game() -> void:
+	$Boton.play()
 	get_tree().quit()
 
 
 func _on_init_game() -> void:
+	$Boton.play()
 	fade.connect("end_fade_signal",	_init_game )
 	fade.to_black()
 	
