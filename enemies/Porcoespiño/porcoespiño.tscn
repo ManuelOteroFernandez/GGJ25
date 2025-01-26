@@ -7,6 +7,7 @@
 radius = 101.079
 
 [node name="Porcoespiño" type="Area2D" groups=["Enemigo"]]
+scale = Vector2(0.35, 0.35)
 collision_layer = 17
 collision_mask = 17
 script = ExtResource("1_qi2il")
