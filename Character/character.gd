@@ -11,6 +11,8 @@ const GRAVITY_WALL = Vector2(0,200)
 const SPEED_BUBBLE = 200.0
 const GRAVITY_BUBBLE = 100.0
 
+var BubbleHP = 0
+
 @onready var shape_cat: CapsuleShape2D = load("res://Character/shapeCat.tres")
 @onready var shape_bubble: CircleShape2D = load("res://Character/shapeBubble.tres")
 
@@ -48,7 +50,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		_move_bubble(delta)
 	
-	
 	move_and_slide()
 	
 	for i in get_slide_collision_count():
@@ -56,10 +57,23 @@ func _physics_process(delta: float) -> void:
 		#print(collision.get_collider().name)
 		var node_collision = (collision.get_collider() as Node)
 		if node_collision.is_in_group("Bubbles"):
-			set_move_mode(MOVE_SET.BURBUJA)
+			if move_mode == MOVE_SET.BURBUJA:
+				$BubbleTemplate.modulate = GameController.bubbleColor[1]
+				BubbleHP = 1
+			else:
+				set_move_mode(MOVE_SET.BURBUJA)
+				$BubbleTemplate.modulate = GameController.bubbleColor[(node_collision.get_parent() as Bubble).bubbleT]
+				BubbleHP = 0
 	
-		if node_collision.is_in_group("Muro"):
-			set_move_mode(MOVE_SET.NORMAL)
+		elif node_collision.is_in_group("Muro"):
+			if BubbleHP == 0:
+				set_move_mode(MOVE_SET.NORMAL)
+			else:
+				velocity = collision.get_normal() * 100
+				$BubbleTemplate.modulate = GameController.bubbleColor[0]
+				BubbleHP = 0
+				
+		print($BubbleTemplate.modulate)
 	
 func set_move_mode(new_mode:MOVE_SET):
 	move_mode = new_mode

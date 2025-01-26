@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://Bubble/BubbleGenerator.tscn" id="3_y6ar3"]
 [ext_resource type="PackedScene" uid="uid://cuo8j65d6g5ep" path="res://AirBlower/AirBlower.tscn" id="4_r2p2q"]
 [ext_resource type="PackedScene" uid="uid://bikkpuuf1fguh" path="res://Checkpoints/checkpoint.tscn" id="5_evd3c"]
-[ext_resource type="PackedScene" uid="uid://c0ciq8i8jqgak" path="res://enemies/goose.tscn" id="6_2m7wg"]
+[ext_resource type="PackedScene" path="res://enemies/goose.tscn" id="6_2m7wg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urob0"]
 texture = ExtResource("3_t23de")

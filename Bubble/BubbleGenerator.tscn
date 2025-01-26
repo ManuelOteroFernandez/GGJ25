@@ -1,19 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnn87aqvrb6mj"]
+[gd_scene load_steps=4 format=3 uid="uid://dnn87aqvrb6mj"]
 
 [ext_resource type="Script" path="res://Bubble/bubble_generator.gd" id="1_37rfm"]
 [ext_resource type="Texture2D" uid="uid://cj04840tox6ek" path="res://cousasescenario/tubería_basic.png" id="2_dq5bm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f07jw"]
+size = Vector2(340, 269)
 
 [node name="BubbleGenerator" type="Node2D"]
 script = ExtResource("1_37rfm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(0, 150)
 texture = ExtResource("2_dq5bm")
 
 [node name="BubbleList" type="Node" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Muro"]]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_f07jw")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
