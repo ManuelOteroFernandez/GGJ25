@@ -17,7 +17,7 @@ func spawn_bubble():
 		(b as Bubble).endurance = 0
 	else: 
 		(b as Bubble).endurance = 1
-	b.position = position
+	
 	b.with_data(bubble_speed,bubble_type)
 	$BubbleList.add_child(b)
 	$AudioStreamPlayer2D.play()
