@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu2ue1kxbpc57"
-path="res://.godot/imported/gatete_walkingcicle_aversevai.png-80ab169a106ac9baaecd5accb82e9606.ctex"
+uid="uid://bk6e71ra0rdsv"
+path="res://.godot/imported/gatete_walkingcicle_der.png-199fd2382efa4ea5b1809ea416db014d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gatete/gatete_walkingcicle_aversevai.png"
-dest_files=["res://.godot/imported/gatete_walkingcicle_aversevai.png-80ab169a106ac9baaecd5accb82e9606.ctex"]
+source_file="res://gatete/gatete_walkingcicle_der.png"
+dest_files=["res://.godot/imported/gatete_walkingcicle_der.png-199fd2382efa4ea5b1809ea416db014d.ctex"]
 
 [params]
 
