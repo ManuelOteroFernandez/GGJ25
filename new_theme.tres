@@ -1,9 +1,16 @@
-[gd_resource type="Theme" format=3 uid="uid://c0spuf5fuqnr6"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c0spuf5fuqnr6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w75u0"]
+bg_color = Color(1, 1, 1, 1)
 
 [resource]
-MarginContainer/constants/margin_bottom = 30
+MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 60
 MarginContainer/constants/margin_right = 60
-MarginContainer/constants/margin_top = 100
+MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_w75u0")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 9
 RichTextLabel/font_sizes/bold_font_size = 60
 RichTextLabel/font_sizes/normal_font_size = 24

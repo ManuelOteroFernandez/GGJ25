@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://c0spuf5fuqnr6" path="res://new_theme.tres" id="1_r6o1r"]
 [ext_resource type="Script" path="res://UI/menu_pause.gd" id="2_f4kjv"]
-[ext_resource type="Texture2D" uid="uid://ccrlpljsdhna4" path="res://icon.svg" id="3_x86si"]
+[ext_resource type="Texture2D" uid="uid://buqm56ngq8aa5" path="res://UI/botons/boton_xenerico.png" id="3_6t57c"]
 [ext_resource type="AudioStream" uid="uid://ci84c4sxdet7r" path="res://Musica/1.Efectos de sonido/Boton.mp3" id="4_81m6b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tihdv"]
@@ -32,13 +32,30 @@ fit_content = true
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 260
+theme_override_constants/separation = 168
 theme_override_styles/separator = SubResource("StyleBoxEmpty_tihdv")
 
 [node name="btnContinue" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("3_x86si")
+texture_normal = ExtResource("3_6t57c")
+texture_pressed = ExtResource("3_6t57c")
+texture_hover = ExtResource("3_6t57c")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/btnContinue"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.262
+anchor_top = 0.383
+anchor_right = 0.721
+anchor_bottom = 0.736
+offset_left = -0.0400085
+offset_top = 0.0699997
+offset_right = 0.179993
+offset_bottom = -0.0600128
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Continuar"
 
 [node name="Boton" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_81m6b")
