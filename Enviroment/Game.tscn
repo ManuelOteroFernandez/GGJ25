@@ -34,7 +34,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_lqkq0")
-volume_db = -20.0
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
