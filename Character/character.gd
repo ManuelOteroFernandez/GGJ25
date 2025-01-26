@@ -58,7 +58,7 @@ func _process(_delta: float) -> void:
 		$AudioStreamPlayer2D.stop()
 		
 func play_sound(sound):
-	if $AudioStreamPlayer2D.stream != sound:
+	if (not $AudioStreamPlayer2D.playing and $AudioStreamPlayer2D.stream == sound) or $AudioStreamPlayer2D.stream != sound:
 		$AudioStreamPlayer2D.stream = sound
 		$AudioStreamPlayer2D.play()
 
