@@ -62,18 +62,23 @@ func _physics_process(delta: float) -> void:
 				BubbleHP = 1
 			else:
 				set_move_mode(MOVE_SET.BURBUJA)
-				$BubbleTemplate.modulate = GameController.bubbleColor[(node_collision.get_parent() as Bubble).bubbleT]
-				BubbleHP = 0
+				var bType = node_collision.get_parent() as Bubble
+				$BubbleTemplate.modulate = GameController.bubbleColor[bType.bubbleT]
+				print(GameController.bubbleColor[bType.bubbleT])
+				if bType.endurance > 0:
+					BubbleHP = 1
+				else:
+					BubbleHP = 0
 	
 		elif node_collision.is_in_group("Muro"):
-			if BubbleHP == 0:
-				set_move_mode(MOVE_SET.NORMAL)
-			else:
-				velocity = collision.get_normal() * 100
-				$BubbleTemplate.modulate = GameController.bubbleColor[0]
-				BubbleHP = 0
+			if move_mode == MOVE_SET.BURBUJA:
+				if BubbleHP == 0:
+					set_move_mode(MOVE_SET.NORMAL)
+				elif move_mode == MOVE_SET.BURBUJA:
+					velocity = collision.get_normal() * 100
+					$BubbleTemplate.modulate = GameController.bubbleColor[0]
+					BubbleHP = 0
 				
-		print($BubbleTemplate.modulate)
 	
 func set_move_mode(new_mode:MOVE_SET):
 	move_mode = new_mode
