@@ -212,6 +212,7 @@ func _is_on_wall() -> bool:
 	return false
 	
 func dead(is_especial:bool = false):
+	call_deferred("set_move_mode", MOVE_SET.NORMAL)
 	on_dead_signal.emit()
 	$RespawnTimer.start()
 	play_sound(sound_dead if not is_especial else sound_dead_especial)
