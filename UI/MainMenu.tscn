@@ -61,6 +61,14 @@ bbcode_enabled = true
 text = "Salir de burbuja: Salto + W A S D"
 fit_content = true
 
+[node name="RichTextLabel5" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lwfic")
+bbcode_enabled = true
+text = "Pause: Esc o P"
+fit_content = true
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_lwfic")
