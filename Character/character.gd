@@ -11,7 +11,7 @@ const GRAVITY_WALL = Vector2(0,200)
 const SPEED_BUBBLE = 200.0
 const GRAVITY_BUBBLE = 100.0
 
-var BubbleHP = 0
+var BubbleHP = -1
 
 @onready var shape_cat: CapsuleShape2D = load("res://Character/shapeCat.tres")
 @onready var shape_bubble: CircleShape2D = load("res://Character/shapeBubble.tres")
@@ -58,18 +58,18 @@ func _physics_process(delta: float) -> void:
 		var node_collision = (collision.get_collider() as Node)
 		if node_collision.is_in_group("Bubbles"):
 			if move_mode == MOVE_SET.BURBUJA:
-				$BubbleTemplate.modulate = GameController.bubbleColor[1]
+				$BubbleTemplate.modulate = GameController.bubbleColor[GameController.bubbleType.purple]
 				BubbleHP = 1
 			else:
 				set_move_mode(MOVE_SET.BURBUJA)
 				var bType = node_collision.get_parent() as Bubble
 				$BubbleTemplate.modulate = GameController.bubbleColor[bType.bubbleT]
-				print(GameController.bubbleColor[bType.bubbleT])
-				if bType.endurance > 0:
+				velocity = bType.direction
+				print(velocity)
+				if bType.bubbleT == GameController.bubbleType.purple:
 					BubbleHP = 1
 				else:
 					BubbleHP = 0
-	
 		elif node_collision.is_in_group("Muro"):
 			if move_mode == MOVE_SET.BURBUJA:
 				if BubbleHP == 0:
@@ -77,8 +77,7 @@ func _physics_process(delta: float) -> void:
 				elif move_mode == MOVE_SET.BURBUJA:
 					velocity = collision.get_normal() * 100
 					$BubbleTemplate.modulate = GameController.bubbleColor[0]
-					BubbleHP = 0
-				
+					BubbleHP -= 1
 	
 func set_move_mode(new_mode:MOVE_SET):
 	move_mode = new_mode
@@ -96,20 +95,24 @@ func set_move_mode(new_mode:MOVE_SET):
 		$CollisionShape2D.shape = shape_cat
 
 func _move_bubble(delta:float):
-	
 	anim_state = ANIM_STATE_SET.IDLE
 	var directionX := Input.get_axis("ui_left", "ui_right")
-	if directionX:
-		current_dir = directionX
-		velocity.x = directionX * SPEED_BUBBLE
-		anim_state = ANIM_STATE_SET.RUN
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED_BUBBLE)
-		
-	if Input.is_action_pressed("ui_down"):
-		velocity.y += SPEED_BUBBLE * 10 * delta
-		
 	var g = get_gravity()
+	if directionX:
+		if directionX > 0 and directionX * SPEED_BUBBLE > velocity.x:
+			velocity.x += directionX * SPEED_BUBBLE * delta * 10
+			
+		elif directionX < 0 and directionX * SPEED_BUBBLE < velocity.x:
+			velocity.x += directionX * SPEED_BUBBLE * delta * 10
+			
+		current_dir = directionX
+		anim_state = ANIM_STATE_SET.RUN
+	
+	velocity.x += g.x * delta
+	
+	if Input.is_action_pressed("ui_down"):
+		velocity.y += SPEED_BUBBLE * delta * 2
+	
 	velocity.y += GRAVITY_BUBBLE * delta if g.y > 0 else g.y * delta
 	
 	if Input.is_action_just_pressed("ui_accept"):
