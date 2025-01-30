@@ -13,7 +13,7 @@ const GRAVITY_WALL = Vector2(0,200)
 const SPEED_BUBBLE = 200.0
 const GRAVITY_BUBBLE = 100.0
 
-var bubbleHP = 0
+var b_type: GameController.bubbleType = GameController.bubbleType.none
 
 @onready var shape_cat: CapsuleShape2D = load("res://Character/shapeCat.tres")
 @onready var shape_bubble: CircleShape2D = load("res://Character/shapeBubble.tres")
@@ -33,6 +33,8 @@ var current_dir = 1
 var anim_state = ANIM_STATE_SET.IDLE
 
 func _process(_delta: float) -> void:
+	$BubbleTemplate.modulate = GameController.bubbleColor[b_type]
+	
 	if anim_state == ANIM_STATE_SET.RUN:
 		if move_mode == MOVE_SET.BURBUJA:
 			$AnimatedSprite2D.animation = "moveBubbleL" if current_dir < 0 else "moveBubbleR"
@@ -71,36 +73,32 @@ func _physics_process(delta: float) -> void:
 		_move_bubble(delta)
 	
 	move_and_slide()
-	
 	var wallCollided = false
-	
 	for i in get_slide_collision_count():
-		var collision = get_slide_collision(0)
-		#print(collision.get_collider().name)
+		var collision = get_slide_collision(i)
 		var node_collision = (collision.get_collider() as Node)
 		if node_collision.is_in_group("Bubbles"):
+			
+			var bubble = node_collision as Bubble
 			if move_mode == MOVE_SET.BURBUJA:
-				$BubbleTemplate.modulate = GameController.bubbleColor[GameController.bubbleType.purple]
-				bubbleHP = 1
+				b_type = GameController.next_bubble_type(b_type)
+				bubble.pop()
 			else:
+				b_type = bubble.bubbleT
+				velocity = bubble.direction
+				global_position = bubble.global_position
+					
+				bubble.pop()
 				set_move_mode(MOVE_SET.BURBUJA)
-				var bType = node_collision.get_parent() as Bubble
-				$BubbleTemplate.modulate = GameController.bubbleColor[bType.bubbleT]
-				velocity = bType.direction
-				if bType.bubbleT == GameController.bubbleType.purple:
-					bubbleHP = 1
-				else:
-					bubbleHP = 0
+				
 		elif node_collision.is_in_group("Muro") and !wallCollided:
 			wallCollided = true
 			if move_mode == MOVE_SET.BURBUJA:
-				if bubbleHP >= 0:
+				b_type = GameController.previous_bubble_type(b_type)
+				if b_type != GameController.bubbleType.none:
 					velocity = collision.get_normal() * 200
-					$BubbleTemplate.modulate = GameController.bubbleColor[0]
-					bubbleHP -= 1
 				else:
 					set_move_mode(MOVE_SET.NORMAL)
-	#print(get_slide_collision_count())
 	
 func set_move_mode(new_mode:MOVE_SET):
 	move_mode = new_mode
@@ -112,6 +110,7 @@ func set_move_mode(new_mode:MOVE_SET):
 		$CollisionShape2D.position = Vector2(0,-79)
 		$CollisionShape2D.shape = shape_bubble
 	else:
+		b_type = GameController.bubbleType.none
 		set_collision_layer_value(3,false)
 		set_collision_mask_value(3,false)
 		$BubbleTemplate.visible = false

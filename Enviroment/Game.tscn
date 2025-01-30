@@ -14,9 +14,10 @@ size = Vector2(657, 385.5)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7wl5m")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_0r578")]
-
 [node name="Nivel1" parent="." instance=ExtResource("7_3istj")]
+
+[node name="CharacterBody2D" parent="Nivel1" instance=ExtResource("2_0r578")]
+position = Vector2(100, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -29,12 +30,12 @@ fade = NodePath("../fade_screen")
 metadata/_edit_use_anchors_ = true
 
 [node name="fade_screen" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_wvjf0")]
-player = NodePath("../../CharacterBody2D")
+player = NodePath("../../Nivel1/CharacterBody2D")
 metadata/_edit_use_anchors_ = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_lqkq0")
-volume_db = -10.0
+volume_db = 10.0
 autoplay = true
 parameters/looping = true
 
