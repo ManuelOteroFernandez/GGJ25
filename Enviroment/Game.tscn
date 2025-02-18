@@ -16,7 +16,7 @@ script = ExtResource("1_7wl5m")
 
 [node name="Nivel1" parent="." instance=ExtResource("7_3istj")]
 
-[node name="CharacterBody2D" parent="Nivel1" instance=ExtResource("2_0r578")]
+[node name="CharacterBody2D2" parent="Nivel1" instance=ExtResource("2_0r578")]
 position = Vector2(100, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -25,8 +25,7 @@ position = Vector2(100, 0)
 visible = false
 fade = NodePath("../fade_screen")
 
-[node name="MainMenu" parent="CanvasLayer" node_paths=PackedStringArray("fade") instance=ExtResource("8_753ur")]
-fade = NodePath("../fade_screen")
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("8_753ur")]
 metadata/_edit_use_anchors_ = true
 
 [node name="fade_screen" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("8_wvjf0")]

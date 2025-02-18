@@ -1,33 +1,50 @@
 extends Control
 
-@export var fade: FadeScreen
+var tmc: TransitionManagerClass
+var scene_manager: SceneManager
+
+enum Actions { None, Credits_close , Credits_open, Game_start }
+
+var action: Actions = Actions.None
 
 func _ready() -> void:
-	GameController.end_game_signal.connect(_on_end_game)
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	scene_manager = get_tree().current_scene as SceneManager
+	#Se espera que el TransitionManager este como segundo nodo de la escena
+	tmc = scene_manager.get_child(1) as TransitionManagerClass
+	
+	tmc.mid_transition_signal.connect(self._on_mid_transition)
+	#tmc.end_transition_signal.connect(self._on_end_transition)
+
+#func _on_end_transition():
+	#pass
+
+func _on_mid_transition():
+	if action == Actions.Credits_close:
+		_change_credits_to_main()
+	elif action == Actions.Credits_open:
+		_change_main_to_credits()
+		
 
 func _on_close_credits() -> void:
 	$Boton.play()
-	fade.connect("end_fade_signal",	_change_main_to_credits )
-	fade.to_black()
+	action = Actions.Credits_close
+	tmc.start_transition()
 	
-func _change_main_to_credits():
-	fade.disconnect("end_fade_signal", _change_main_to_credits)
+func _change_credits_to_main():
 	$PanelContainer.visible = false
 	$MarginContainer.visible = true
-	fade.to_white()
+	tmc.end_transition()
 
 func _on_open_credits() -> void:
 	$Boton.play()
-	fade.connect("end_fade_signal",	_change_credits_to_main )
-	fade.to_black()
-	
-func _change_credits_to_main():
-	fade.disconnect("end_fade_signal", _change_credits_to_main)
+	action = Actions.Credits_open
+	tmc.start_transition()
+
+func _change_main_to_credits():
 	$PanelContainer.visible = true
 	$MarginContainer.visible = false
-	fade.to_white()
-	
+	tmc.end_transition()
 
 func _on_exit_game() -> void:
 	$Boton.play()
@@ -36,20 +53,6 @@ func _on_exit_game() -> void:
 
 func _on_init_game() -> void:
 	$Boton.play()
-	fade.connect("end_fade_signal",	_init_game )
-	fade.to_black()
+	action = Actions.Game_start
+	scene_manager.open_level(0)
 	
-func _init_game():
-	fade.disconnect("end_fade_signal", _init_game)
-	visible = false
-	GameController.init_game()
-	fade.to_white()
-
-func _on_end_game():
-	fade.connect("end_fade_signal",	_end_game )
-	fade.to_black()
-	
-func _end_game():
-	fade.disconnect("end_fade_signal",	_end_game )
-	visible = true
-	fade.to_white()

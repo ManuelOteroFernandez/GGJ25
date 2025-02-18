@@ -29,7 +29,7 @@ func previous_bubble_type(current:bubbleType) -> bubbleType:
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	get_tree().paused = true
+	#get_tree().paused = true
 
 func _input(event: InputEvent) -> void: 
 	if event.is_action_pressed("pause",true):
@@ -40,8 +40,8 @@ func init_game():
 	in_menu = false
 	get_tree().paused = false
 	
-func pause():
-	get_tree().paused = not get_tree().paused
+func pause(force_vale:bool = false, new_value:bool = false):
+	get_tree().paused = new_value if force_vale else not get_tree().paused
 	pause_signal.emit()
 	
 func end_game():
