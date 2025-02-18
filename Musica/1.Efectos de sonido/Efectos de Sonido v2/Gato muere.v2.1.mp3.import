@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bp8l2h82mf8aa"
+path="res://.godot/imported/Gato muere.v2.1.mp3-fe3619fb0d0c7be085acb7102799d201.mp3str"
+
+[deps]
+
+source_file="res://Musica/1.Efectos de sonido/Efectos de Sonido v2/Gato muere.v2.1.mp3"
+dest_files=["res://.godot/imported/Gato muere.v2.1.mp3-fe3619fb0d0c7be085acb7102799d201.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

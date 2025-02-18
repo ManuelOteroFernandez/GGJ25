@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://68tefa0r4fvg"
+path="res://.godot/imported/Rebote Pompa con gato.mp3-bcb18c92bc48857694ecd9a686305a76.mp3str"
+
+[deps]
+
+source_file="res://Musica/1.Efectos de sonido/Efectos de Sonido v2/Rebote Pompa con gato.mp3"
+dest_files=["res://.godot/imported/Rebote Pompa con gato.mp3-bcb18c92bc48857694ecd9a686305a76.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

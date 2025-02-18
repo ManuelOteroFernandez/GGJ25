@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://di7wx5vndqo6k"
+path="res://.godot/imported/Gato ronroneo.mp3-c98ccbbbf86d90c3a3a7ee821e9866cb.mp3str"
+
+[deps]
+
+source_file="res://Musica/1.Efectos de sonido/Efectos de Sonido v2/Gato ronroneo.mp3"
+dest_files=["res://.godot/imported/Gato ronroneo.mp3-c98ccbbbf86d90c3a3a7ee821e9866cb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
