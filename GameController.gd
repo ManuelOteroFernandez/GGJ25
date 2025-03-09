@@ -29,7 +29,6 @@ func previous_bubble_type(current:bubbleType) -> bubbleType:
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	#get_tree().paused = true
 
 func _input(event: InputEvent) -> void: 
 	if event.is_action_pressed("pause",true):
