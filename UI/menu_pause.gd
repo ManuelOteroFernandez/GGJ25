@@ -1,36 +1,29 @@
 extends PanelContainer
 
 
-@export var fade: FadeScreen
+@export var tmc: TransitionManagerClass
 
 func _ready() -> void:
 	GameController.pause_signal.connect(on_pause)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
-func on_pause():
-	if not get_tree().paused:
-		_continue_1()
+	tmc.mid_transition_signal.connect(self._on_mid_transition)
 	
+func on_pause():
+	if tmc.is_in_transition():
+		get_tree().paused = true
+		return
+		
+	if not get_tree().paused:
+		visible = false
 	else:
-		fade.connect("end_fade_signal",	_show_pause_menu )
-		fade.to_black()
+		tmc.start_transition(TransitionManagerClass.Transitions.FADE)
 
-func _show_pause_menu():
-	fade.disconnect("end_fade_signal", _show_pause_menu)
+func _on_mid_transition():
 	visible = true
-	fade.to_white()
+	tmc.end_transition()
 	
 
 func _on_btn_continue_pressed() -> void:
 	$Boton.play()
-	GameController.pause()
-	
-func _continue_1():
-	fade.connect("end_fade_signal",	_continue )
-	fade.to_black()
-
-
-func _continue() -> void:
-	fade.disconnect("end_fade_signal", _continue)
-	visible = false
-	fade.to_white()
+	GameController.pause(true,false)

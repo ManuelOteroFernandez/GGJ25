@@ -11,7 +11,7 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	scene_manager = get_tree().current_scene as SceneManager
 	#Se espera que el TransitionManager este como segundo nodo de la escena
-	tmc = scene_manager.get_child(1) as TransitionManagerClass
+	tmc = scene_manager.tsm
 	
 	tmc.mid_transition_signal.connect(self._on_mid_transition)
 	#tmc.end_transition_signal.connect(self._on_end_transition)
