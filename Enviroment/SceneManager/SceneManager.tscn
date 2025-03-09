@@ -28,6 +28,5 @@ visible = false
 tmc = NodePath("../TransitionManager")
 
 [node name="TouchControls" parent="UI" instance=ExtResource("4_s6oas")]
-visible = false
 
 [node name="TransitionManager" parent="UI" instance=ExtResource("3_5ufeb")]

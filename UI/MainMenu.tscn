@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bchnsttsurq8c"]
+[gd_scene load_steps=12 format=3 uid="uid://bchnsttsurq8c"]
 
 [ext_resource type="Theme" uid="uid://c0spuf5fuqnr6" path="res://new_theme.tres" id="1_lwfic"]
 [ext_resource type="Script" path="res://UI/mainMenu.gd" id="3_2ctia"]
@@ -7,6 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://buqm56ngq8aa5" path="res://UI/botons/boton_xenerico.png" id="4_oc78q"]
 [ext_resource type="Texture2D" uid="uid://dtgkw6smrf5nt" path="res://UI/botons/boton_pequeno_rojo_cruz.png" id="5_lpqwt"]
 [ext_resource type="Texture2D" uid="uid://blehdyrj68rh0" path="res://UI/botons/boton_pequeno_rojo.png" id="6_kp0p0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0i7b6"]
+size = Vector2(300, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nc7m"]
+size = Vector2(300, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8txc"]
+size = Vector2(300, 150)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1l56y"]
 
@@ -144,6 +153,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 59
 text = "Xogar"
 
+[node name="TbtnInit" type="TouchScreenButton" parent="MarginContainer/VBoxContainer3/btnInit"]
+position = Vector2(125.52, 114.275)
+shape = SubResource("RectangleShape2D_0i7b6")
+visibility_mode = 1
+
 [node name="btnCredits" type="TextureButton" parent="MarginContainer/VBoxContainer3"]
 layout_direction = 3
 layout_mode = 2
@@ -169,6 +183,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 59
 text = "Equipo"
 
+[node name="TbtnCredits" type="TouchScreenButton" parent="MarginContainer/VBoxContainer3/btnCredits"]
+position = Vector2(135.52, 109.275)
+shape = SubResource("RectangleShape2D_2nc7m")
+visibility_mode = 1
+
 [node name="btnExit" type="TextureButton" parent="MarginContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -191,6 +210,11 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 59
 text = "Sair"
+
+[node name="TbtnExit" type="TouchScreenButton" parent="MarginContainer/VBoxContainer3/btnExit"]
+position = Vector2(140.52, 112.275)
+shape = SubResource("RectangleShape2D_c8txc")
+visibility_mode = 1
 
 [node name="PanelContainer" type="Control" parent="."]
 visible = false
@@ -279,7 +303,16 @@ texture_pressed = ExtResource("6_kp0p0")
 texture_hover = ExtResource("5_lpqwt")
 texture_disabled = ExtResource("5_lpqwt")
 
+[node name="TbtnCloseCredits" type="TouchScreenButton" parent="PanelContainer/TextureButton"]
+position = Vector2(206.541, 114.095)
+shape = SubResource("RectangleShape2D_0i7b6")
+visibility_mode = 1
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer3/btnInit" to="." method="_on_init_game"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnInit/TbtnInit" to="." method="_on_init_game"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer3/btnCredits" to="." method="_on_open_credits"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnCredits/TbtnCredits" to="." method="_on_open_credits"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer3/btnExit" to="." method="_on_exit_game"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnExit/TbtnExit" to="." method="_on_exit_game"]
 [connection signal="pressed" from="PanelContainer/TextureButton" to="." method="_on_close_credits"]
+[connection signal="pressed" from="PanelContainer/TextureButton/TbtnCloseCredits" to="." method="_on_close_credits"]

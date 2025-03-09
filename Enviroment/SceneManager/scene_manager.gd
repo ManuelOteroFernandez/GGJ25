@@ -5,6 +5,8 @@ class_name SceneManager extends Node
 @onready var main_menu = preload("res://UI/MainMenu.tscn")
 @onready var tsm : TransitionManagerClass = $UI/TransitionManager
 
+signal open_level_end
+
 enum Transition_to { None, MainMenu, Level }
 
 var next_scene = null
@@ -48,10 +50,17 @@ func _on_mid_transition():
 	
 	if current_transition == Transition_to.Level:
 		$CurrentSceneStack.get_child(0).queue_free()
-		$CurrentSceneStack.add_child(load(next_scene).instantiate())
+		var scene_node:Node = load(next_scene).instantiate()
+		$CurrentSceneStack.add_child(scene_node)
+		$CurrentSceneStack.move_child(scene_node,0)
 
 func _on_end_transition():
 	if current_transition != Transition_to.None:
 		next_scene = null
 		current_transition = Transition_to.None
 		GameController.pause(true, false)
+		open_level_end.emit()
+		
+func is_open_main_menu():
+	var current_level_path = $CurrentSceneStack.get_child(0).scene_file_path
+	return current_level_path == main_menu.resource_path or current_level_path == ""
