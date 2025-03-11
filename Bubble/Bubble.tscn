@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3ylhln31lr80"]
+[gd_scene load_steps=7 format=3 uid="uid://b3ylhln31lr80"]
 
 [ext_resource type="Script" path="res://Bubble/bubble.gd" id="1_5l2d8"]
 [ext_resource type="Texture2D" uid="uid://mod8hta7xeju" path="res://Bubble/bubbleTemplate.png" id="2_28w11"]
 [ext_resource type="AudioStream" uid="uid://5rny7vcbefuw" path="res://Musica/1.Efectos de sonido/Pompa explota.mp3" id="3_3gr6d"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5xbdo"]
+bounce = 0.7
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5owta"]
 radius = 128.0
@@ -22,9 +25,12 @@ animations = [{
 collision_layer = 5
 collision_mask = 5
 mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_5xbdo")
 gravity_scale = 0.1
+can_sleep = false
 contact_monitor = true
-max_contacts_reported = 1
+max_contacts_reported = 10
+linear_damp_mode = 1
 script = ExtResource("1_5l2d8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -40,3 +46,5 @@ sprite_frames = SubResource("SpriteFrames_yp2d7")
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_3gr6d")
 parameters/looping = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

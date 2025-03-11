@@ -26,6 +26,7 @@ var b_type: GameController.bubbleType = GameController.bubbleType.none
 @onready var sound_jump = load("res://Musica/1.Efectos de sonido/Saltar.mp3")
 @onready var sound_step = load("res://Musica/1.Efectos de sonido/Paso.mp3")
 
+var _last_bubble_collided_id:int
 
 var is_jumping:bool = false
 var move_mode:MOVE_SET = MOVE_SET.NORMAL
@@ -79,15 +80,22 @@ func _physics_process(delta: float) -> void:
 		var node_collision = (collision.get_collider() as Node)
 		if node_collision.is_in_group("Bubbles"):
 			
+			var node_id = node_collision.get_instance_id()
+			if node_id == _last_bubble_collided_id:
+				continue
+				
+			_last_bubble_collided_id = node_id
+			
 			var bubble = node_collision as Bubble
 			if move_mode == MOVE_SET.BURBUJA:
 				b_type = GameController.next_bubble_type(b_type)
+				print("My velocity -> {0} || Bubble v -> {1} || Suma -> {2}".format([velocity,bubble.linear_velocity,velocity+bubble.linear_velocity]))
+				velocity += bubble.linear_velocity
 				bubble.pop()
 			else:
 				b_type = bubble.bubbleT
-				velocity = bubble.direction
 				global_position = bubble.global_position
-					
+				velocity = bubble.linear_velocity
 				bubble.pop()
 				set_move_mode(MOVE_SET.BURBUJA)
 				
