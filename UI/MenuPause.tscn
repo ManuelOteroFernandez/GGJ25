@@ -55,7 +55,7 @@ offset_right = 37.12
 offset_bottom = -1.56001
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "Continuar"
+text = "RESUME_TXT"
 
 [node name="Boton" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_81m6b")

@@ -8,6 +8,7 @@ enum Actions { None, Credits_close , Credits_open, Game_start }
 var action: Actions = Actions.None
 
 func _ready() -> void:
+	TranslationServer.set_locale("gal")
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	scene_manager = get_tree().current_scene as SceneManager
 	#Se espera que el TransitionManager este como segundo nodo de la escena

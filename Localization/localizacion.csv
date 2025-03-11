@@ -1,0 +1,13 @@
+key,en,gal,es
+TITTLE_TXT,Gatopompas,Gatopompas,Gatopompas
+PLAY_BTN,Play,Xogar,Jugar
+OPTIONS_BTN,Options,Opcións,Opciones
+CREDITS_BTN,Credits,Créditos,Créditos
+CLOSE_BTN,Close,Pechar,Cerrar
+MOVEMENT_TXT,Movement: WASD,Movemento: WASD,Movimiento: WASD
+JUMP_TXT,Jump: SPACE,Saltar: ESPACIO,Saltar: ESPACIO
+SPACE_KEY,SPACE,ESPACIO,ESPACIO
+EXIT_BUBBLE_TXT,Exit bubble: Direction + SPACE,Sair da pompa: Dirección + ESPACIO,Salir de la burbuja: Dirección + ESPACIO
+PAUSE_MENU_TXT,Pause Menu: Esc/P,Menú de pausa: Esc/P,Menú de pausa: Esc/P
+PAUSE_MENU_TITTLE,Pause,Pausa,Pausa
+RESUME_TXT,Resume,Reanudar,Reanudar

@@ -87,7 +87,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_lwfic")
 bbcode_enabled = true
-text = "Movemento: W A S D"
+text = "MOVEMENT_TXT"
 fit_content = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="MarginContainer/VBoxContainer2"]
@@ -95,7 +95,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_lwfic")
 bbcode_enabled = true
-text = "Salto: SPACE"
+text = "JUMP_TXT"
 fit_content = true
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="MarginContainer/VBoxContainer2"]
@@ -103,7 +103,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_lwfic")
 bbcode_enabled = true
-text = "Sair da pompa: Salto + W A S D"
+text = "EXIT_BUBBLE_TXT"
 fit_content = true
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="MarginContainer/VBoxContainer2"]
@@ -111,7 +111,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_lwfic")
 bbcode_enabled = true
-text = "Pause: Esc o P"
+text = "PAUSE_MENU_TXT"
 fit_content = true
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer"]
@@ -151,7 +151,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 59
-text = "Xogar"
+text = "PLAY_BTN"
 
 [node name="TbtnInit" type="TouchScreenButton" parent="MarginContainer/VBoxContainer3/btnInit"]
 position = Vector2(125.52, 114.275)
@@ -181,7 +181,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 59
-text = "Equipo"
+text = "CREDITS_BTN"
 
 [node name="TbtnCredits" type="TouchScreenButton" parent="MarginContainer/VBoxContainer3/btnCredits"]
 position = Vector2(135.52, 109.275)
@@ -209,7 +209,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 59
-text = "Sair"
+text = "CLOSE_BTN"
 
 [node name="TbtnExit" type="TouchScreenButton" parent="MarginContainer/VBoxContainer3/btnExit"]
 position = Vector2(140.52, 112.275)
