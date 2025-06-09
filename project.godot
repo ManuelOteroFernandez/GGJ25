@@ -23,6 +23,10 @@ GameController="*res://GameController.gd"
 
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="GGJ25"
+
 [global_group]
 
 Player=""

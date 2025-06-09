@@ -181,7 +181,7 @@ sources/1 = SubResource("TileSetAtlasSource_6sk5s")
 position = Vector2(1, 0)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("7_7eh40")]
-position = Vector2(-31, -138)
+position = Vector2(8089, 222)
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -224,12 +224,12 @@ position = Vector2(11384, 19)
 position = Vector2(7979, -138)
 rotation = 1.5708
 spawn_time = 3.0
-bubble_speed = Vector2(500, -20)
+bubble_speed = Vector2(50, -2)
 
 [node name="BubbleGenerator2" parent="Generators" instance=ExtResource("3_qkns2")]
 position = Vector2(10328, 693)
 spawn_time = 11.0
-bubble_speed = Vector2(0, -350)
+bubble_speed = Vector2(0, -35)
 
 [node name="BubbleGenerator3" parent="Generators" instance=ExtResource("3_qkns2")]
 position = Vector2(11704, 593)
