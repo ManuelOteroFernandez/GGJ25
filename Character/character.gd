@@ -6,7 +6,9 @@ enum MOVE_SET { NORMAL, BURBUJA }
 enum ANIM_STATE_SET { JUMP, IDLE, RUN , FALL, WALL, JUMP_WALL }
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -650.0
+# Constante de salto dende a burbulla
+const BUBBLE_JUMP_VELOCITY = -900.0
 const JUMP_WALL_VELOCITY = Vector2(JUMP_VELOCITY,0)
 const GRAVITY_WALL = Vector2(0,200)
 
@@ -147,21 +149,24 @@ func _move_bubble(delta:float):
 	velocity.y += GRAVITY_BUBBLE * delta if g.y > 0 else g.y * delta
 	
 	if Input.is_action_just_pressed("ui_accept"):
+#		Se prememos sen dirección indicada, deberá saltar hacia arriba
 		var exit = Vector2(0,0)
 		if Input.is_action_pressed("ui_up"):
-			exit = Vector2(0,1)
+			exit.y = 1
 		if Input.is_action_pressed("ui_down"):
-			exit = Vector2(0,-1)
-		if Input.is_action_pressed("ui_right"):
-			exit = Vector2(-1,0)
+			exit.y = -1
 		if Input.is_action_pressed("ui_left"):
-			exit = Vector2(1,0)
+			exit.x = 1
+		if Input.is_action_pressed("ui_right"):
+			exit.x = -1
+		if exit == Vector2(0,0):
+			exit = Vector2(0,1)
 		
-		if exit != Vector2(0,0):
-			anim_state = ANIM_STATE_SET.FALL
-			$JumpTimer.start()
-			velocity = exit * JUMP_VELOCITY
-			set_move_mode(MOVE_SET.NORMAL)
+		anim_state = ANIM_STATE_SET.JUMP
+		$JumpTimer.start()
+		velocity = exit * BUBBLE_JUMP_VELOCITY
+		#print_debug(velocity)
+		set_move_mode(MOVE_SET.NORMAL)
 		
 
 func _move_on_ground(delta:float) -> void:
@@ -181,7 +186,13 @@ func _move_on_ground(delta:float) -> void:
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction:
 			current_dir = direction
-			velocity.x = direction * SPEED
+			# Aplicamos a velocidade en x por defecto en caso de que non teña unha velocidade maior por terse impulsado dende a burbulla
+			if direction > 0:
+				if velocity.x < direction * SPEED:
+					velocity.x = direction * SPEED
+			if direction < 0:
+				if velocity.x > direction * SPEED:
+					velocity.x = direction * SPEED
 			if is_on_floor():
 				anim_state = ANIM_STATE_SET.RUN
 		else:
