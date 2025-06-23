@@ -26,11 +26,17 @@ func _ready() -> void:
 func open_level(level_index:int):
 	
 	if level_index < len(level_list):
+		
+		if SaveSystem.get_level_index() < level_index:
+			SaveSystem.set_level_index(level_index)
+			SaveSystem.save_game()
+			
 		GameController.pause(true, true)
 		next_scene = level_list[level_index]
 		current_level_index = level_index
 		current_transition = Transition_to.Level
 		tsm.start_transition(transition)
+		
 	else:
 		current_level_index = 0
 		open_main_menu()

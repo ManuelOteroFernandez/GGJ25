@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameController="*res://GameController.gd"
+SaveSystem="*res://SaveSystem/SaveSystem.gd"
 
 [display]
 
@@ -32,6 +33,7 @@ project/assembly_name="GGJ25"
 Player=""
 Muro=""
 Enemigo=""
+Persist="Objeto persistente, debe tener el metodo save -> dict que devuelve los parametros que se guardan"
 
 [input]
 

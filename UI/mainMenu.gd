@@ -16,6 +16,8 @@ func _ready() -> void:
 	
 	tmc.mid_transition_signal.connect(self._on_mid_transition)
 	#tmc.end_transition_signal.connect(self._on_end_transition)
+	
+	$MarginContainer/VBoxContainer3/btnContinue.visible = SaveSystem.get_level_index() > 0
 
 #func _on_end_transition():
 	#pass
@@ -53,7 +55,15 @@ func _on_exit_game() -> void:
 
 
 func _on_init_game() -> void:
+	SaveSystem.set_level_index(0)
+	SaveSystem.save_game()
+	
 	$Boton.play()
 	action = Actions.Game_start
 	scene_manager.open_level(0)
+	
+func _on_continue_game():
+	$Boton.play()
+	action = Actions.Game_start
+	scene_manager.open_level(SaveSystem.get_level_index())
 	

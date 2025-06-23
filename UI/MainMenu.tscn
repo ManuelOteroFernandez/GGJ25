@@ -115,37 +115,38 @@ text = "PAUSE_MENU_TXT"
 fit_content = true
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer"]
-clip_contents = true
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -293.52
-offset_top = -362.775
-offset_right = -13.52
-offset_bottom = 275.225
+offset_left = -294.0
+offset_top = -400.5
+offset_right = -14.0
+offset_bottom = 319.5
 grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("1_lwfic")
+theme_override_constants/separation = -50
 
 [node name="btnInit" type="TextureButton" parent="MarginContainer/VBoxContainer3"]
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 texture_normal = ExtResource("4_oc78q")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer3/btnInit"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.29
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.667
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 10.2
-offset_top = -38.0
-offset_right = 19.86
+offset_left = -143.0
+offset_top = -41.0
+offset_right = 143.0
 offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -158,24 +159,54 @@ position = Vector2(125.52, 114.275)
 shape = SubResource("RectangleShape2D_0i7b6")
 visibility_mode = 1
 
+[node name="btnContinue" type="TextureButton" parent="MarginContainer/VBoxContainer3"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("4_oc78q")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer3/btnContinue"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -41.0
+offset_right = 224.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 59
+text = "CONTINUE_BTN"
+
+[node name="TbtnContinue" type="TouchScreenButton" parent="MarginContainer/VBoxContainer3/btnContinue"]
+position = Vector2(125.52, 114.275)
+shape = SubResource("RectangleShape2D_0i7b6")
+visibility_mode = 1
+
 [node name="btnCredits" type="TextureButton" parent="MarginContainer/VBoxContainer3"]
 layout_direction = 3
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 texture_normal = ExtResource("4_oc78q")
 texture_pressed = ExtResource("4_oc78q")
 texture_hover = ExtResource("4_oc78q")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer3/btnCredits"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.29
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.667
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 10.2
-offset_top = -38.0
-offset_right = 19.86
+offset_left = -189.5
+offset_top = -41.0
+offset_right = 189.5
 offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -191,20 +222,21 @@ visibility_mode = 1
 [node name="btnExit" type="TextureButton" parent="MarginContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 texture_normal = ExtResource("4_oc78q")
 texture_pressed = ExtResource("4_oc78q")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer3/btnExit"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.29
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.667
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -2.20004
-offset_top = -42.0
-offset_right = 7.45996
-offset_bottom = 40.0
+offset_left = -162.5
+offset_top = -41.0
+offset_right = 162.5
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -310,6 +342,8 @@ visibility_mode = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer3/btnInit" to="." method="_on_init_game"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer3/btnInit/TbtnInit" to="." method="_on_init_game"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnContinue" to="." method="_on_continue_game"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnContinue/TbtnContinue" to="." method="_on_continue_game"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer3/btnCredits" to="." method="_on_open_credits"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer3/btnCredits/TbtnCredits" to="." method="_on_open_credits"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer3/btnExit" to="." method="_on_exit_game"]
