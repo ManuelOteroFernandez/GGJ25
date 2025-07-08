@@ -307,6 +307,150 @@ rotation = 1.344
 position = Vector2(10043, -1082)
 rotation = -1.16025
 
+[node name="Porcoespiño23" parent="Enemies" instance=ExtResource("6_e6cjc")]
+position = Vector2(4988, 514)
+rotation = 0.283075
+
+[node name="Porcoespiño29" parent="Enemies" instance=ExtResource("5_ed7oo")]
+position = Vector2(4761, 531)
+rotation = 0.351975
+
+[node name="Porcoespiño40" parent="Enemies" instance=ExtResource("5_ed7oo")]
+position = Vector2(4909, 533)
+rotation = 0.351975
+
+[node name="Porcoespiño34" parent="Enemies" instance=ExtResource("7_yy6mv")]
+position = Vector2(4524, 533)
+rotation = 0.143915
+
+[node name="Porcoespiño35" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(4838, 534)
+rotation = 0.154105
+
+[node name="Porcoespiño36" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(4445, 530)
+rotation = 0.154105
+
+[node name="Porcoespiño37" parent="Enemies" instance=ExtResource("7_yy6mv")]
+position = Vector2(4685, 538)
+rotation = 0.0882049
+
+[node name="Porcoespiño38" parent="Enemies" instance=ExtResource("6_e6cjc")]
+position = Vector2(4612, 514)
+rotation = 0.364535
+
+[node name="Porcoespiño39" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(5053, 531)
+rotation = 0.513285
+
+[node name="Porcoespiño41" parent="Enemies" instance=ExtResource("6_e6cjc")]
+position = Vector2(5668, 514)
+rotation = 0.283075
+
+[node name="Porcoespiño42" parent="Enemies" instance=ExtResource("5_ed7oo")]
+position = Vector2(5441, 531)
+rotation = 0.351975
+
+[node name="Porcoespiño43" parent="Enemies" instance=ExtResource("5_ed7oo")]
+position = Vector2(5589, 533)
+rotation = 0.351975
+
+[node name="Porcoespiño44" parent="Enemies" instance=ExtResource("7_yy6mv")]
+position = Vector2(5204, 533)
+rotation = 0.143915
+
+[node name="Porcoespiño45" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(5518, 534)
+rotation = 0.154105
+
+[node name="Porcoespiño46" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(5125, 530)
+rotation = 0.154105
+
+[node name="Porcoespiño47" parent="Enemies" instance=ExtResource("7_yy6mv")]
+position = Vector2(5365, 538)
+rotation = 0.0882049
+
+[node name="Porcoespiño48" parent="Enemies" instance=ExtResource("6_e6cjc")]
+position = Vector2(5292, 514)
+rotation = 0.364535
+
+[node name="Porcoespiño49" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(5733, 531)
+rotation = 0.513285
+
+[node name="Porcoespiño50" parent="Enemies" instance=ExtResource("6_e6cjc")]
+position = Vector2(6355, 508)
+rotation = 0.283075
+
+[node name="Porcoespiño51" parent="Enemies" instance=ExtResource("5_ed7oo")]
+position = Vector2(6128, 525)
+rotation = 0.351975
+
+[node name="Porcoespiño52" parent="Enemies" instance=ExtResource("5_ed7oo")]
+position = Vector2(6276, 527)
+rotation = 0.351975
+
+[node name="Porcoespiño53" parent="Enemies" instance=ExtResource("7_yy6mv")]
+position = Vector2(5891, 527)
+rotation = 0.143915
+
+[node name="Porcoespiño54" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(6205, 528)
+rotation = 0.154105
+
+[node name="Porcoespiño55" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(5812, 524)
+rotation = 0.154105
+
+[node name="Porcoespiño56" parent="Enemies" instance=ExtResource("7_yy6mv")]
+position = Vector2(6052, 532)
+rotation = 0.0882049
+
+[node name="Porcoespiño57" parent="Enemies" instance=ExtResource("6_e6cjc")]
+position = Vector2(5979, 508)
+rotation = 0.364535
+
+[node name="Porcoespiño58" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(6420, 525)
+rotation = 0.513285
+
+[node name="Porcoespiño59" parent="Enemies" instance=ExtResource("6_e6cjc")]
+position = Vector2(7389, 510)
+rotation = 0.283075
+
+[node name="Porcoespiño60" parent="Enemies" instance=ExtResource("5_ed7oo")]
+position = Vector2(7162, 527)
+rotation = 0.351975
+
+[node name="Porcoespiño61" parent="Enemies" instance=ExtResource("5_ed7oo")]
+position = Vector2(7310, 529)
+rotation = 0.351975
+
+[node name="Porcoespiño62" parent="Enemies" instance=ExtResource("7_yy6mv")]
+position = Vector2(6925, 529)
+rotation = 0.143915
+
+[node name="Porcoespiño63" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(7239, 530)
+rotation = 0.154105
+
+[node name="Porcoespiño64" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(6846, 526)
+rotation = 0.154105
+
+[node name="Porcoespiño65" parent="Enemies" instance=ExtResource("7_yy6mv")]
+position = Vector2(7086, 534)
+rotation = 0.0882049
+
+[node name="Porcoespiño66" parent="Enemies" instance=ExtResource("6_e6cjc")]
+position = Vector2(7013, 510)
+rotation = 0.364535
+
+[node name="Porcoespiño67" parent="Enemies" instance=ExtResource("4_2bbbo")]
+position = Vector2(7454, 527)
+rotation = 0.513285
+
 [node name="Porcoespiño32" parent="Enemies" instance=ExtResource("5_ed7oo")]
 position = Vector2(9978, 3533)
 rotation = 0.27613
