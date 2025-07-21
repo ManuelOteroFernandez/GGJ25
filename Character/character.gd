@@ -84,6 +84,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
+		if not collision: continue
+		
 		var node_collision = (collision.get_collider() as Node)
 		if node_collision.is_in_group("Bubbles"):
 			
