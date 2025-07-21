@@ -6,26 +6,21 @@ signal end_game_signal
 
 # Enum para tipos de burbulla
 enum bubbleType {
-	none, blue, purple
+	none, free, lineal, floating
 }
 
 #Diccionario de valores para a cor das burbullas
-var bubbleColor = { bubbleType.none: Color.ALICE_BLUE, bubbleType.blue: Color.CORNFLOWER_BLUE, bubbleType.purple: Color.PURPLE }
+var bubbleColor = { 
+	bubbleType.none: Color.ALICE_BLUE, 
+	bubbleType.free: Color.CORNFLOWER_BLUE, 
+	bubbleType.lineal: Color.YELLOW,
+	bubbleType.floating: Color.HOT_PINK
+}
 
 var last_checkpoint_position = Vector2(0,0)
 
 var in_menu = true
 
-func next_bubble_type(current:bubbleType) -> bubbleType:
-	if current+1 < bubbleType.size():
-		return current+1 
-	
-	return current
-	
-func previous_bubble_type(current:bubbleType) -> bubbleType:
-	if current > bubbleType.values()[1]:
-		return current-1
-	return bubbleType.none
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

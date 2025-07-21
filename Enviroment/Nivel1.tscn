@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://yjsnsbva02am"]
+[gd_scene load_steps=14 format=4 uid="uid://yjsnsbva02am"]
 
 [ext_resource type="Texture2D" uid="uid://b4leua1gagwx3" path="res://Enviroment/tiles_sheet.png" id="1_miv8u"]
 [ext_resource type="Texture2D" uid="uid://dp62ci6mbdecx" path="res://Enviroment/altas.png" id="2_7beni"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cettndp5gem4o" path="res://enemies/grulla.tscn" id="8_atyce"]
 [ext_resource type="PackedScene" uid="uid://cpxu4wmi42r1" path="res://enemies/dragon.tscn" id="9_we8re"]
 [ext_resource type="PackedScene" uid="uid://bikkpuuf1fguh" path="res://Checkpoints/checkpoint.tscn" id="10_g1hf5"]
+[ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://Character/Character.tscn" id="10_htkqe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4elkm"]
 texture = ExtResource("1_miv8u")
@@ -833,3 +834,6 @@ position = Vector2(5677, -678)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("10_g1hf5")]
 position = Vector2(11904, -5917)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("10_htkqe")]
+position = Vector2(-39, -38)

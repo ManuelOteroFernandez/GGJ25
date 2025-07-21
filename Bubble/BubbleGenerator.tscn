@@ -17,7 +17,6 @@ texture = ExtResource("2_dq5bm")
 [node name="BubbleList" type="Node2D" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Muro"]]
 collision_layer = 32
