@@ -108,8 +108,9 @@ func set_move_mode(new_mode:MOVE_SET, bubble: Bubble = null):
 		
 		$CollisionShape2D.disabled = true
 		reparent(bubble)
+		bubble.add_to_group("Player")
 		motion_mode = MotionMode.MOTION_MODE_FLOATING
-		position = Vector2(79,0)
+		position = Vector2(0,79)
 		z_index = -1
 		velocity = Vector2.ZERO
 		

@@ -13,6 +13,7 @@ var bubbleT: BubleTypeRes
 var endurance: float = 0
 
 func _enter_tree() -> void:
+	global_rotation = 0
 	apply_force(direction)
 
 func with_data(dir, type: BubleTypeRes):
@@ -46,7 +47,7 @@ func _on_body_entered(body: Node) -> void:
 			pop_signal.emit()
 			queue_free()
 			
-	elif body.is_in_group("Bubbles"):
+	elif body.is_in_group("Bubbles") and not body.is_in_group("Player"):
 		_change_endurance(1)
 		$Audio.stream = sound_union
 		$Audio.play()
