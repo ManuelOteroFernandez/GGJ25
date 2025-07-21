@@ -7,4 +7,4 @@ script = ExtResource("1_06rdq")
 color_array = Array[Color]([Color(0.46, 0.360333, 0, 1), Color(0.52, 0.407333, 0, 1), Color(0.58, 0.454333, 0, 1), Color(0.64, 0.501333, 0, 1), Color(0.7, 0.548333, 0, 1), Color(0.76, 0.595333, 0, 1), Color(0.82, 0.642333, 0, 1), Color(0.88, 0.689333, 0, 1), Color(0.94, 0.736333, 0, 1), Color(1, 0.783333, 0, 1)])
 type = 2
 gravity = 0.0
-endurance = 5
+endurance = 1
