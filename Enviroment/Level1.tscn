@@ -473,29 +473,24 @@ position = Vector2(9620, -1943)
 position = Vector2(-3, 137)
 spawn_time = 2.0
 bubble_speed = Vector2(0, -20)
-bubble_gravity_scale = 0.0
 
 [node name="BubbleGenerator3" parent="Generators" instance=ExtResource("9_khqs5")]
 position = Vector2(561, -449)
 spawn_time = 2.0
 bubble_speed = Vector2(0, -20)
-bubble_gravity_scale = 0.0
 
 [node name="BubbleGenerator4" parent="Generators" instance=ExtResource("9_khqs5")]
 position = Vector2(1148, -1014)
 spawn_time = 2.0
 bubble_speed = Vector2(0, -20)
-bubble_gravity_scale = 0.0
 
 [node name="BubbleGenerator6" parent="Generators" instance=ExtResource("9_khqs5")]
 position = Vector2(6656, 698)
 spawn_time = 3.0
 bubble_speed = Vector2(0, -20)
-bubble_gravity_scale = 0.0
 
 [node name="BubbleGenerator5" parent="Generators" instance=ExtResource("9_khqs5")]
 position = Vector2(4274, -414)
 rotation = 1.5708
 spawn_time = 3.0
 bubble_speed = Vector2(30, 0)
-bubble_gravity_scale = 0.0

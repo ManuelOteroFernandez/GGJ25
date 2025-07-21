@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cvjm1f158glye"]
+[gd_scene load_steps=16 format=4 uid="uid://cvjm1f158glye"]
 
 [ext_resource type="PackedScene" uid="uid://bml6auaaybttx" path="res://Character/follower.tscn" id="1_80ccf"]
 [ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://Character/Character.tscn" id="1_iks6m"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bikkpuuf1fguh" path="res://Checkpoints/checkpoint.tscn" id="8_lsnlv"]
 [ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://Bubble/BubbleGenerator.tscn" id="9_83g8b"]
 [ext_resource type="Resource" uid="uid://dpxq3xlefq2od" path="res://Bubble/burbuja_lineal.tres" id="10_gx4dd"]
+[ext_resource type="Resource" uid="uid://cxlkmwcditdhh" path="res://Bubble/burbuja_libre.tres" id="12_0b3fi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4elkm"]
 texture = ExtResource("2_1636a")
@@ -186,7 +187,7 @@ position = Vector2(1, 0)
 target = NodePath("../CharacterBody2D")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_iks6m")]
-position = Vector2(-707, -42)
+position = Vector2(9555, -1543)
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -589,7 +590,7 @@ position = Vector2(3818, 92)
 rotation = 0.364535
 
 [node name="Porcoespiño149" parent="Enemies" instance=ExtResource("5_innnp")]
-position = Vector2(10467, 4023)
+position = Vector2(10466, 4031)
 rotation = 0.351975
 
 [node name="Porcoespiño152" parent="Enemies" instance=ExtResource("5_innnp")]
@@ -674,14 +675,14 @@ bubble_speed = Vector2(30, 0)
 position = Vector2(7134, -1255)
 rotation = 0.785398
 spawn_time = 3.0
-bubble_type = ExtResource("10_gx4dd")
+bubble_type = ExtResource("12_0b3fi")
 bubble_speed = Vector2(30, -30)
 
 [node name="BubbleGenerator11" parent="Generators" instance=ExtResource("9_83g8b")]
 position = Vector2(10638, -1953)
 rotation = -1.5708
 spawn_time = 5.0
-bubble_type = ExtResource("10_gx4dd")
+bubble_type = ExtResource("12_0b3fi")
 bubble_speed = Vector2(-20, 0)
 
 [node name="BubbleGenerator7" parent="Generators" instance=ExtResource("9_83g8b")]
