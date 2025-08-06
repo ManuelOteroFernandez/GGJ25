@@ -53,20 +53,27 @@ func _input(event: InputEvent) -> void:
 		
 		if bubble.bubbleT.type == GameController.bubbleType.lineal: return
 		
-		if event.is_action_pressed("ui_up") or event.is_action_released("ui_down"):
+		if event.is_action_pressed("ui_up"):
 			bubble.add_constant_central_force(Vector2.UP * FORCE_BUBBLE)
+		
+		if event.is_action_released("ui_down") or event.is_action_released("ui_up"):
+			bubble.add_constant_central_force(Vector2.UP * bubble.constant_force)
 			
-		if event.is_action_pressed("ui_down") or event.is_action_released("ui_up"):
+		if event.is_action_pressed("ui_down"):
 			bubble.add_constant_central_force(Vector2.DOWN * FORCE_BUBBLE)
 		
 		if bubble.bubbleT.type == GameController.bubbleType.floating: return
 		
-		if event.is_action_pressed("ui_right") or event.is_action_released("ui_left"):
+		if event.is_action_pressed("ui_right"):
 			bubble.add_constant_central_force(Vector2.RIGHT * FORCE_BUBBLE)
+		
+		if event.is_action_released("ui_left") or event.is_action_released("ui_right"):
+			bubble.add_constant_central_force(Vector2.LEFT * bubble.constant_force)
 			
-		if event.is_action_pressed("ui_left") or event.is_action_released("ui_right"):
+		if event.is_action_pressed("ui_left"):
 			bubble.add_constant_central_force(Vector2.LEFT * FORCE_BUBBLE)
-	
+		
+		
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -97,14 +104,16 @@ func _physics_process(delta: float) -> void:
 			
 			var bubble = node_collision as Bubble
 			set_move_mode(MOVE_SET.BURBUJA,bubble)
+			return
 	
 func set_move_mode(new_mode:MOVE_SET, bubble: Bubble = null):
-	move_mode = new_mode
-	if move_mode == MOVE_SET.BURBUJA:
+	
+	if new_mode == MOVE_SET.BURBUJA:
 		if not bubble: return
 		
-		audio_comp.play_sound(audio_comp.sound_in_bubble)
+		move_mode = new_mode
 		
+		audio_comp.play_sound(audio_comp.sound_in_bubble)
 		
 		$CollisionShape2D.disabled = true
 		reparent(bubble)
@@ -119,6 +128,7 @@ func set_move_mode(new_mode:MOVE_SET, bubble: Bubble = null):
 		bubble.pop_signal.connect(_bubble_pop)
 		
 	else:
+		move_mode = new_mode
 		reparent(first_parent)
 		
 		z_index = 0
