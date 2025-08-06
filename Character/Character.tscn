@@ -167,14 +167,12 @@ animation = &"idleR"
 script = ExtResource("21_7fhq0")
 
 [node name="RayCastDer" type="RayCast2D" parent="."]
-position = Vector2(63, 0)
-target_position = Vector2(5, 0)
+target_position = Vector2(73, 0)
 collision_mask = 2
 collide_with_areas = true
 
 [node name="RayCastIzq" type="RayCast2D" parent="."]
-position = Vector2(-63, 0)
-target_position = Vector2(-5, 0)
+target_position = Vector2(-73, 0)
 collision_mask = 2
 collide_with_areas = true
 
@@ -190,11 +188,12 @@ volume_db = -10.0
 script = ExtResource("24_538os")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = -37
-offset_left = -3399.0
-offset_top = -2143.0
-offset_right = -2413.0
-offset_bottom = -1528.0
+offset_left = -3429.0
+offset_top = -2169.0
+offset_right = -2443.0
+offset_bottom = -1554.0
 scale = Vector2(6.89, 6.89)
 color = Color(0.709804, 0.396078, 0.462745, 1)
 

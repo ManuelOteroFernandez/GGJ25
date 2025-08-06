@@ -14,8 +14,9 @@ const GRAVITY_WALL = Vector2(0,200)
 
 const FORCE_BUBBLE = 0.5
 
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var shape_cat: CapsuleShape2D = load("res://Character/shapeCat.tres")
-@onready var shape_bubble: CircleShape2D = load("res://Character/shapeBubble.tres")
+@onready var shape_slide: CapsuleShape2D = load("res://Character/shape_slide.tres")
 
 @onready var audio_comp = $AudioStreamPlayer2D
 @onready var first_parent = get_parent()
@@ -138,15 +139,38 @@ func set_move_mode(new_mode:MOVE_SET, bubble: Bubble = null):
 func _bubble_pop():
 	call_deferred("set_move_mode",MOVE_SET.NORMAL)
 
+func _change_shape():
+	if anim_state == ANIM_STATE_SET.WALL:
+		if collision_shape.shape != shape_slide:
+			
+			collision_shape.shape = shape_slide
+			collision_shape.rotation_degrees = 0
+			collision_shape.position = Vector2(-37 if current_dir < 0 else 37,-29)
+			
+	elif collision_shape.shape != shape_cat:
+				
+		collision_shape.shape = shape_cat
+		collision_shape.rotation_degrees = 90
+		collision_shape.position = Vector2.ZERO
+		
+
 func _move_on_ground(delta:float, direction:float) -> void:
 	if not is_on_floor():
-		if _is_on_wall():
+		
+		var space_state = get_world_2d().direct_space_state
+		var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 256))
+		var result = space_state.intersect_ray(query)
+		
+		if _is_on_wall() and not result:
 			if velocity.y < 0: 
 				velocity.y = 0
 			velocity += GRAVITY_WALL * delta 
 			anim_state = ANIM_STATE_SET.WALL
+			
 		else:
 			velocity += get_gravity() * delta
+			
+	_change_shape()
 
 	
 	if anim_state != ANIM_STATE_SET.JUMP_WALL:
