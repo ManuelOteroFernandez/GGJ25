@@ -10,7 +10,7 @@ const JUMP_VELOCITY = -650.0
 # Constante de salto dende a burbulla
 const BUBBLE_JUMP_VELOCITY = -900.0
 const JUMP_WALL_VELOCITY = Vector2(JUMP_VELOCITY,0)
-const GRAVITY_WALL = Vector2(0,200)
+const GRAVITY_WALL = Vector2(0,600)
 
 const FORCE_BUBBLE = 0.5
 
@@ -146,8 +146,12 @@ func _change_shape():
 			collision_shape.shape = shape_slide
 			collision_shape.rotation_degrees = 0
 			collision_shape.position = Vector2(-37 if current_dir < 0 else 37,-29)
+		
+		elif bool(collision_shape.position.x < 0) != bool(current_dir < 0):
+			collision_shape.position = Vector2(-37 if current_dir < 0 else 37,-29)
 			
-	elif collision_shape.shape != shape_cat:
+			
+	elif collision_shape.shape != shape_cat and not _is_on_wall():
 				
 		collision_shape.shape = shape_cat
 		collision_shape.rotation_degrees = 90
@@ -162,8 +166,7 @@ func _move_on_ground(delta:float, direction:float) -> void:
 		var result = space_state.intersect_ray(query)
 		
 		if _is_on_wall() and not result:
-			if velocity.y < 0: 
-				velocity.y = 0
+			velocity.y = 0
 			velocity += GRAVITY_WALL * delta 
 			anim_state = ANIM_STATE_SET.WALL
 			
@@ -217,10 +220,10 @@ func _is_on_wall() -> bool:
 		return false
 		
 	if $RayCastDer.is_colliding():
-		return true
+		return current_dir == 1 and anim_state != ANIM_STATE_SET.IDLE
 		
 	if $RayCastIzq.is_colliding():
-		return true
+		return current_dir == -1 and anim_state != ANIM_STATE_SET.IDLE
 		
 	return false
 	
