@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6qnmkq7twwde"
+path="res://.godot/imported/Fusion pompas.mp3-f28e9999d75bca0b53d0fa6e625e81b6.mp3str"
+
+[deps]
+
+source_file="res://bubble/sfx/Fusion pompas.mp3"
+dest_files=["res://.godot/imported/Fusion pompas.mp3-f28e9999d75bca0b53d0fa6e625e81b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

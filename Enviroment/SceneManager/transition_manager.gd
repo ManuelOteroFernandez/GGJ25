@@ -17,7 +17,7 @@ func _ready() -> void:
 func is_in_transition() -> bool:
 	return current_transition != Transitions.None
 
-func _animation_finish(anim_name:StringName):
+func _animation_finish(_anim_name:StringName):
 	if current_transition == Transitions.None:
 		end_transition_signal.emit()
 	else:

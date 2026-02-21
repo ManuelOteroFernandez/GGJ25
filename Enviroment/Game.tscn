@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyi2j7ofds4ko"]
+[gd_scene format=3 uid="uid://dyi2j7ofds4ko"]
 
-[ext_resource type="Script" path="res://Enviroment/game.gd" id="1_7wl5m"]
-[ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://Character/Character.tscn" id="2_0r578"]
-[ext_resource type="PackedScene" uid="uid://yjsnsbva02am" path="res://Enviroment/Nivel1.tscn" id="7_3istj"]
-[ext_resource type="PackedScene" uid="uid://bchnsttsurq8c" path="res://UI/MainMenu.tscn" id="8_753ur"]
-[ext_resource type="PackedScene" uid="uid://dbcv57i5bh274" path="res://UI/fade_screen.tscn" id="8_wvjf0"]
-[ext_resource type="PackedScene" uid="uid://bnf2ne0knnysg" path="res://UI/MenuPause.tscn" id="9_10i7p"]
-[ext_resource type="AudioStream" uid="uid://bqebghrswe20x" path="res://Musica/2.Musica/Gatopompas_menu_loop.mp3" id="12_lqkq0"]
+[ext_resource type="Script" uid="uid://bydwb1ctg3ih8" path="res://enviroment/game.gd" id="1_7wl5m"]
+[ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://character/Character.tscn" id="2_0r578"]
+[ext_resource type="PackedScene" uid="uid://yjsnsbva02am" path="res://enviroment/Nivel1.tscn" id="7_3istj"]
+[ext_resource type="PackedScene" uid="uid://bchnsttsurq8c" path="res://ui/MainMenu.tscn" id="8_753ur"]
+[ext_resource type="PackedScene" uid="uid://dbcv57i5bh274" path="res://ui/fade_screen.tscn" id="8_wvjf0"]
+[ext_resource type="PackedScene" uid="uid://bnf2ne0knnysg" path="res://ui/MenuPause.tscn" id="9_10i7p"]
+[ext_resource type="AudioStream" uid="uid://bqebghrswe20x" path="res://music/Gatopompas_menu_loop.mp3" id="12_lqkq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0ri"]
 size = Vector2(657, 385.5)

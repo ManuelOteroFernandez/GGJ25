@@ -29,6 +29,17 @@ var current_dir = 1
 var anim_state = ANIM_STATE_SET.IDLE
 
 
+func _process(delta: float) -> void:
+	
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 120))
+	var result = space_state.intersect_ray(query)
+	
+	var normal = result.get("normal", Vector2.UP)
+	var angulo_personaje = normal.angle() + deg_to_rad(90)
+	rotation = lerp_angle(rotation, angulo_personaje, 0.5)
+	
+
 func _input(event: InputEvent) -> void:
 	if move_mode == MOVE_SET.BURBUJA:
 		var bubble = get_parent() as Bubble
@@ -162,15 +173,17 @@ func _move_on_ground(delta:float, direction:float) -> void:
 	if not is_on_floor():
 		
 		var space_state = get_world_2d().direct_space_state
-		var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 256))
+		var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 64))
 		var result = space_state.intersect_ray(query)
 		
 		if _is_on_wall() and not result:
+			print("Wall")
 			velocity.y = 0
 			velocity += GRAVITY_WALL * delta 
 			anim_state = ANIM_STATE_SET.WALL
 			
 		else:
+			print("Move normal")
 			velocity += get_gravity() * delta
 			
 	_change_shape()
@@ -184,10 +197,10 @@ func _move_on_ground(delta:float, direction:float) -> void:
 			# Aplicamos a velocidade en x por defecto en caso de que non teña unha velocidade maior por terse impulsado dende a burbulla
 			if direction > 0:
 				if velocity.x < direction * SPEED:
-					velocity.x = direction * SPEED
+					velocity = direction * SPEED * transform.x.normalized()
 			if direction < 0:
 				if velocity.x > direction * SPEED:
-					velocity.x = direction * SPEED
+					velocity = direction * SPEED * transform.x.normalized()
 			if is_on_floor():
 				anim_state = ANIM_STATE_SET.RUN
 		else:
@@ -208,7 +221,7 @@ func _move_on_ground(delta:float, direction:float) -> void:
 			velocity.y = JUMP_WALL_VELOCITY.y
 			velocity.x = JUMP_WALL_VELOCITY.x if $RayCastDer.is_colliding() else -JUMP_WALL_VELOCITY.x
 	
-	if velocity.y > 0 and anim_state not in [ANIM_STATE_SET.JUMP_WALL, ANIM_STATE_SET.WALL]:
+	if not is_on_floor() and velocity.y > 0 and anim_state not in [ANIM_STATE_SET.JUMP_WALL, ANIM_STATE_SET.WALL]:
 		anim_state = ANIM_STATE_SET.FALL
 	
 	if velocity == Vector2(0,0):

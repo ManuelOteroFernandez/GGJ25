@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bselyc7o5vsy"]
+[gd_scene format=3 uid="uid://bselyc7o5vsy"]
 
-[ext_resource type="Script" path="res://Enviroment/SceneManager/scene_manager.gd" id="1_5ijvd"]
-[ext_resource type="PackedScene" uid="uid://b0xw3rx0tqpat" path="res://Enviroment/SceneManager/TransitionManager.tscn" id="3_5ufeb"]
-[ext_resource type="AudioStream" uid="uid://bqebghrswe20x" path="res://Musica/2.Musica/Gatopompas_menu_loop.mp3" id="3_pnilw"]
-[ext_resource type="PackedScene" uid="uid://cyqnvbwnivkbj" path="res://UI/tactil/touch_controls.tscn" id="4_s6oas"]
-[ext_resource type="PackedScene" uid="uid://bnf2ne0knnysg" path="res://UI/MenuPause.tscn" id="5_h7141"]
+[ext_resource type="Script" uid="uid://6c6ie3f1sg63" path="res://enviroment/SceneManager/scene_manager.gd" id="1_5ijvd"]
+[ext_resource type="PackedScene" uid="uid://b0xw3rx0tqpat" path="res://enviroment/SceneManager/TransitionManager.tscn" id="3_5ufeb"]
+[ext_resource type="AudioStream" uid="uid://bqebghrswe20x" path="res://music/Gatopompas_menu_loop.mp3" id="3_pnilw"]
+[ext_resource type="PackedScene" uid="uid://cyqnvbwnivkbj" path="res://ui/tactil/touch_controls.tscn" id="4_s6oas"]
+[ext_resource type="PackedScene" uid="uid://bnf2ne0knnysg" path="res://ui/MenuPause.tscn" id="5_h7141"]
 
 [node name="SceneManager" type="Node"]
 process_mode = 3

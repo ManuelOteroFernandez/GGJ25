@@ -6,12 +6,14 @@ uid="uid://biy7aohon0pna"
 
 [deps]
 
-files=["res://Localization/localizacion.en.translation", "res://Localization/localizacion.gal.translation", "res://Localization/localizacion.es.translation"]
+files=["res://localization/localizacion.en.translation", "res://localization/localizacion.gal.translation", "res://localization/localizacion.es.translation"]
 
-source_file="res://Localization/localizacion.csv"
-dest_files=["res://Localization/localizacion.en.translation", "res://Localization/localizacion.gal.translation", "res://Localization/localizacion.es.translation"]
+source_file="res://localization/localizacion.csv"
+dest_files=["res://localization/localizacion.en.translation", "res://localization/localizacion.gal.translation", "res://localization/localizacion.es.translation"]
 
 [params]
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

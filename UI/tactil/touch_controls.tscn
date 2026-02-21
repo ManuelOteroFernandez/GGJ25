@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyqnvbwnivkbj"]
+[gd_scene format=3 uid="uid://cyqnvbwnivkbj"]
 
-[ext_resource type="Script" path="res://UI/tactil/touch_controls.gd" id="1_qsqm1"]
+[ext_resource type="Script" uid="uid://bq513qk0cfnen" path="res://ui/tactil/touch_controls.gd" id="1_qsqm1"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_vxlae"]
 [ext_resource type="Texture2D" uid="uid://ccrlpljsdhna4" path="res://icon.svg" id="2_8vxd5"]
 

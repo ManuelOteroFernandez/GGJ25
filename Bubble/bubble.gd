@@ -45,6 +45,7 @@ func _on_body_entered(body: Node) -> void:
 			_change_endurance(-1)
 		else:
 			pop_signal.emit()
+			print("pop signal emited")
 			queue_free()
 			
 	elif body.is_in_group("Bubbles") and not body.is_in_group("Player"):

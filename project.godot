@@ -8,17 +8,21 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="GGJ25"
-run/main_scene="res://Enviroment/SceneManager/SceneManager.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+run/main_scene="res://enviroment/SceneManager/SceneManager.tscn"
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameController="*res://GameController.gd"
-SaveSystem="*res://SaveSystem/SaveSystem.gd"
+SaveSystem="*res://save_system/SaveSystem.gd"
 
 [display]
 

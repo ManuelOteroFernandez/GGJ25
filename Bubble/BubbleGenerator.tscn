@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnn87aqvrb6mj"]
+[gd_scene format=3 uid="uid://dnn87aqvrb6mj"]
 
-[ext_resource type="Script" path="res://Bubble/bubble_generator.gd" id="1_37rfm"]
-[ext_resource type="Texture2D" uid="uid://cj04840tox6ek" path="res://cousasescenario/tubería_basic.png" id="2_dq5bm"]
-[ext_resource type="AudioStream" uid="uid://hhxavs7i5ltn" path="res://Musica/1.Efectos de sonido/Pompero genera pompa.mp3" id="3_43ad8"]
+[ext_resource type="Script" uid="uid://ba3oocwh8agph" path="res://bubble/bubble_generator.gd" id="1_37rfm"]
+[ext_resource type="Texture2D" uid="uid://cj04840tox6ek" path="res://bubble/tubería_basic.png" id="2_dq5bm"]
+[ext_resource type="AudioStream" uid="uid://hhxavs7i5ltn" path="res://bubble/sfx/Pompero genera pompa.mp3" id="3_43ad8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f07jw"]
 size = Vector2(340, 269)
