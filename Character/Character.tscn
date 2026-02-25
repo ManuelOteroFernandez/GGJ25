@@ -11,9 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b8qnts5h7sqn1" path="res://character/sprites/movement/gatete_salto_der.png" id="5_7mogr"]
 [ext_resource type="Texture2D" uid="uid://bclva8ilklcja" path="res://character/sprites/in_bubble/gatete_idlebuceo_der.png" id="5_vx43l"]
 [ext_resource type="Texture2D" uid="uid://c1hvr10w0dqck" path="res://character/sprites/movement/gatete_correr_esq.png" id="6_imtfn"]
-[ext_resource type="Texture2D" uid="uid://rc5mw6mxwcfy" path="res://character/sprites/movement/gatete_impulso_esq.png" id="6_yc0q3"]
 [ext_resource type="Texture2D" uid="uid://j7kv7pmg8y4v" path="res://character/sprites/movement/gatete_correr_der.png" id="7_74yhw"]
-[ext_resource type="Texture2D" uid="uid://cqx4yqll5qavv" path="res://character/sprites/movement/gatete_impulso_der.png" id="8_m3l3y"]
 [ext_resource type="Texture2D" uid="uid://dxaneln1uybmp" path="res://character/sprites/slide/gatete_slide_esq.png" id="12_myy5u"]
 [ext_resource type="Texture2D" uid="uid://sjm73mk85eh5" path="res://character/sprites/in_bubble/gatete_buceo_esq.png" id="12_tyqac"]
 [ext_resource type="Texture2D" uid="uid://dlsmnc3soapol" path="res://character/sprites/slide/gatete_slide_der.png" id="13_3ooec"]
@@ -74,9 +72,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.4,
-"texture": ExtResource("6_yc0q3")
-}, {
 "duration": 1.0,
 "texture": ExtResource("4_t500s")
 }],
@@ -85,9 +80,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.4,
-"texture": ExtResource("8_m3l3y")
-}, {
 "duration": 1.0,
 "texture": ExtResource("5_7mogr")
 }],
@@ -153,13 +145,16 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1617658442 groups=["Player"]]
 collision_layer = 9
 collision_mask = 57
+floor_max_angle = 0.80285144
+platform_floor_layers = 4294901794
+platform_wall_layers = 34
 script = ExtResource("1_p7qbp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=656479624]
 position = Vector2(1, -35)
 scale = Vector2(0.59, 0.59)
 sprite_frames = SubResource("SpriteFrames_ktwkg")
-animation = &"jumpR"
+animation = &"slideR"
 script = ExtResource("21_7fhq0")
 
 [node name="RayCastDer" type="RayCast2D" parent="." unique_id=321678592]
@@ -172,19 +167,11 @@ target_position = Vector2(-73, 0)
 collision_mask = 2
 collide_with_areas = true
 
-[node name="JumpTimer" type="Timer" parent="." unique_id=1158785899]
-wait_time = 0.2
-
-[node name="RespawnTimer" type="Timer" parent="." unique_id=1477062386]
-wait_time = 0.5
-one_shot = true
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1737886777]
 volume_db = -10.0
 script = ExtResource("24_538os")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1550282345]
-visible = false
 z_index = -37
 offset_left = -3429.0
 offset_top = -2169.0
@@ -196,6 +183,3 @@ color = Color(0.709804, 0.396078, 0.462745, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=147457482]
 rotation = 1.5708
 shape = ExtResource("2_7wa33")
-
-[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
-[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

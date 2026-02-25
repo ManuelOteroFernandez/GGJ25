@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://c6l4b2yahyfjj"]
 
-[ext_resource type="Texture2D" uid="uid://b2j7n4abnqtf1" path="res://test/Tileset_terrain.png" id="1_h5nwe"]
+[ext_resource type="Texture2D" uid="uid://b2j7n4abnqtf1" path="res://test/Tileset_terrain.png" id="1_i47im"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_h5nwe"]
 tile_data = PackedInt32Array(0, 262144, 7, 65536, 0, 5, 131072, 131072, 1, 196608, 131072, 1, 262144, 131072, 1, 65537, 262144, 7, 131073, 0, 5, 196609, 131072, 1, 262145, 131072, 1, 131074, 262144, 7, 196610, 0, 5, 262146, 131072, 1, 196611, 262144, 7, 262147, 0, 5, 262148, 262144, 7)
@@ -19,7 +19,7 @@ tile_data = PackedInt32Array(0, 131072, 0, 65536, 131072, 1, 131072, 131072, 1, 
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6nva"]
 resource_name = "Tileset_template"
-texture = ExtResource("1_h5nwe")
+texture = ExtResource("1_i47im")
 margins = Vector2i(28, 28)
 separation = Vector2i(28, 28)
 texture_region_size = Vector2i(128, 128)

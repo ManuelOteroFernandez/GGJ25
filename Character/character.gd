@@ -2,110 +2,118 @@ class_name Player extends CharacterBody2D
 
 signal on_dead_signal
 
-enum MOVE_SET { NORMAL, BURBUJA }
-enum ANIM_STATE_SET { JUMP, IDLE, RUN , FALL, WALL, JUMP_WALL }
+enum MOVE_SET { GROUND, BURBUJA }
+enum ANIM_STATE_SET { 
+	JUMP, 
+	IDLE, 
+	RUN , 
+	FALL, 
+	SLICE, 
+	JUMP_SLICE,
+	BUBBLE_IDLE,
+	BUBBLE_MOVE,
+	BUBBLE_JUMP,
+}
 
-const SPEED = 500.0
+
+const SPEED = 30000.0
 const JUMP_VELOCITY = -650.0
-# Constante de salto dende a burbulla
-const BUBBLE_JUMP_VELOCITY = -900.0
-const JUMP_WALL_VELOCITY = Vector2(JUMP_VELOCITY,0)
-const GRAVITY_WALL = Vector2(0,600)
 
-const FORCE_BUBBLE = 0.5
+const MIN_HEIGHT_SLICE = 128
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var shape_cat: CapsuleShape2D = load("res://Character/shapeCat.tres")
 @onready var shape_slide: CapsuleShape2D = load("res://Character/shape_slide.tres")
 
+@onready var ray_der: RayCast2D = $RayCastDer
+@onready var ray_izq: RayCast2D = $RayCastIzq
+
 @onready var audio_comp = $AudioStreamPlayer2D
 @onready var first_parent = get_parent()
+
+@onready var state_machine: StateMachine = StateMachine.new(self)
 
 var _last_bubble_collided_id:int
 
 var is_jumping:bool = false
-var move_mode:MOVE_SET = MOVE_SET.NORMAL
+var move_mode:MOVE_SET = MOVE_SET.GROUND
 var current_dir = 1
 var anim_state = ANIM_STATE_SET.IDLE
 
 
-func _process(delta: float) -> void:
-	
+func rotate_with_surface(full_rotate: bool = false) -> void:
+	var ray_start: Vector2 = global_position + current_dir * Vector2(collision_shape.shape.mid_height / 2,0).rotated(rotation)
+	var ray_end := ray_start + Vector2(0,128).rotated(rotation)
 	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 120))
+	var query = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
+	query.exclude = [self]
 	var result = space_state.intersect_ray(query)
 	
-	var normal = result.get("normal", Vector2.UP)
-	var angulo_personaje = normal.angle() + deg_to_rad(90)
-	rotation = lerp_angle(rotation, angulo_personaje, 0.5)
+	if not result.is_empty():
+		var normal = result.get("normal", Vector2.UP)
+		var angulo_personaje = normal.angle() + deg_to_rad(90)
+
+		if full_rotate:
+			rotation = angulo_personaje
+			var dist_to_floor = calculate_floor_distance()
+			if dist_to_floor > 1 and dist_to_floor != INF:
+				global_position += Vector2(0, dist_to_floor).rotated(rotation)
+
+		else:
+			rotation = lerp_angle(rotation, angulo_personaje, 0.5)
+
+func calculate_floor_distance() -> float:
+	var ray_start := global_position
+	var ray_end := ray_start + Vector2(0,64).rotated(rotation)
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
+	query.exclude = [self]
+	query.hit_from_inside = true
+	var result := space_state.intersect_ray(query)
+			
+	if not result.is_empty():
+		var collision_point = result.get("position", Vector2.ZERO)
+		return global_position.distance_to(collision_point) - collision_shape.shape.radius
 	
+	return INF
+
+
+func is_near_floor() -> bool:
+	var ray_start := global_position + Vector2(-collision_shape.shape.mid_height,64).rotated(rotation)
+	var ray_end := global_position + Vector2(collision_shape.shape.mid_height,64).rotated(rotation)
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
+	query.exclude = [self]
+	query.hit_from_inside = true
+	var result := space_state.intersect_ray(query)
+			
+	return not result.is_empty()
+
+
+func get_bubble() -> Bubble:
+	var bubble = get_parent() as Bubble
+	return bubble if bubble else null
+
 
 func _input(event: InputEvent) -> void:
-	if move_mode == MOVE_SET.BURBUJA:
-		var bubble = get_parent() as Bubble
-		if not bubble: return
-		
-		if event.is_action_pressed("ui_accept"):
-			var exit = Vector2(0,0)
-			if Input.is_action_pressed("ui_up"):
-				exit.y = 1
-			if Input.is_action_pressed("ui_down"):
-				exit.y = -1
-			if Input.is_action_pressed("ui_left"):
-				exit.x = 1
-			if Input.is_action_pressed("ui_right"):
-				exit.x = -1
-			if exit == Vector2(0,0):
-				exit = Vector2(0,1)
-			
-			anim_state = ANIM_STATE_SET.JUMP
-			bubble.pop()
-			set_move_mode(MOVE_SET.NORMAL)
-			velocity = exit * BUBBLE_JUMP_VELOCITY
-		
-		if bubble.bubbleT.type == GameController.bubbleType.lineal: return
-		
-		if event.is_action_pressed("ui_up"):
-			bubble.add_constant_central_force(Vector2.UP * FORCE_BUBBLE)
-		
-		if event.is_action_released("ui_down") or event.is_action_released("ui_up"):
-			bubble.add_constant_central_force(Vector2.UP * bubble.constant_force)
-			
-		if event.is_action_pressed("ui_down"):
-			bubble.add_constant_central_force(Vector2.DOWN * FORCE_BUBBLE)
-		
-		if bubble.bubbleT.type == GameController.bubbleType.floating: return
-		
-		if event.is_action_pressed("ui_right"):
-			bubble.add_constant_central_force(Vector2.RIGHT * FORCE_BUBBLE)
-		
-		if event.is_action_released("ui_left") or event.is_action_released("ui_right"):
-			bubble.add_constant_central_force(Vector2.LEFT * bubble.constant_force)
-			
-		if event.is_action_pressed("ui_left"):
-			bubble.add_constant_central_force(Vector2.LEFT * FORCE_BUBBLE)
+	state_machine.input(event)
 		
 		
 func _physics_process(delta: float) -> void:
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		current_dir = direction
-		if move_mode == MOVE_SET.BURBUJA:
-			anim_state = ANIM_STATE_SET.RUN
-	else:
-		anim_state = ANIM_STATE_SET.IDLE
-		
-	if move_mode != MOVE_SET.NORMAL: return 
+	state_machine.physics_process(delta)
+	#print(velocity)
+
+
+func _process(delta: float) -> void:
+	state_machine.process(delta)
 	
-		
-	_move_on_ground(delta,direction)
-	
-	move_and_slide()
+
+func check_collision_with_bubble() -> Bubble:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if not collision: continue
 		
-		var node_collision = (collision.get_collider() as Node)
+		var node_collision = collision.get_collider() as Node
 		if node_collision.is_in_group("Bubbles"):
 			
 			var node_id = node_collision.get_instance_id()
@@ -114,20 +122,18 @@ func _physics_process(delta: float) -> void:
 				
 			_last_bubble_collided_id = node_id
 			
-			var bubble = node_collision as Bubble
-			set_move_mode(MOVE_SET.BURBUJA,bubble)
-			return
-	
-func set_move_mode(new_mode:MOVE_SET, bubble: Bubble = null):
-	
-	if new_mode == MOVE_SET.BURBUJA:
+			return node_collision as Bubble
+
+	return null
+
+
+func set_move_bubble(bubble: Bubble) -> void:
+	if move_mode == MOVE_SET.GROUND:
 		if not bubble: return
-		
-		move_mode = new_mode
-		
+				
 		audio_comp.play_sound(audio_comp.sound_in_bubble)
 		
-		$CollisionShape2D.disabled = true
+		collision_shape.disabled = true
 		reparent(bubble)
 		bubble.add_to_group("Player")
 		motion_mode = MotionMode.MOTION_MODE_FLOATING
@@ -137,21 +143,29 @@ func set_move_mode(new_mode:MOVE_SET, bubble: Bubble = null):
 		
 		anim_state = ANIM_STATE_SET.IDLE
 		
-		bubble.pop_signal.connect(_bubble_pop)
-		
-	else:
-		move_mode = new_mode
+		bubble.pop_signal.connect(bubble_pop)
+
+		state_machine.change_state(StateMachine.State.BUBBLE_IDLE)
+		move_mode = MOVE_SET.BURBUJA
+
+
+func bubble_pop():
+	reparent(first_parent)
+	state_machine.change_state(StateMachine.State.FALL)
+
+func set_move_ground() -> void:
+	if move_mode == MOVE_SET.BURBUJA:
 		reparent(first_parent)
 		
 		z_index = 0
 		motion_mode = MotionMode.MOTION_MODE_GROUNDED
-		$CollisionShape2D.disabled = false
+		collision_shape.disabled = false
+		move_mode = MOVE_SET.GROUND
 
-func _bubble_pop():
-	call_deferred("set_move_mode",MOVE_SET.NORMAL)
+
 
 func _change_shape():
-	if anim_state == ANIM_STATE_SET.WALL:
+	if anim_state == ANIM_STATE_SET.SLICE:
 		if collision_shape.shape != shape_slide:
 			
 			collision_shape.shape = shape_slide
@@ -162,97 +176,57 @@ func _change_shape():
 			collision_shape.position = Vector2(-37 if current_dir < 0 else 37,-29)
 			
 			
-	elif collision_shape.shape != shape_cat and not _is_on_wall():
+	elif collision_shape.shape != shape_cat and not check_is_on_wall():
 				
 		collision_shape.shape = shape_cat
 		collision_shape.rotation_degrees = 90
 		collision_shape.position = Vector2.ZERO
-		
-
-func _move_on_ground(delta:float, direction:float) -> void:
-	if not is_on_floor():
-		
-		var space_state = get_world_2d().direct_space_state
-		var query = PhysicsRayQueryParameters2D.create(global_position, global_position + Vector2(0, 64))
-		var result = space_state.intersect_ray(query)
-		
-		if _is_on_wall() and not result:
-			print("Wall")
-			velocity.y = 0
-			velocity += GRAVITY_WALL * delta 
-			anim_state = ANIM_STATE_SET.WALL
-			
-		else:
-			print("Move normal")
-			velocity += get_gravity() * delta
-			
-	_change_shape()
-
 	
-	if anim_state != ANIM_STATE_SET.JUMP_WALL:
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-		
-		if direction:
-			# Aplicamos a velocidade en x por defecto en caso de que non teña unha velocidade maior por terse impulsado dende a burbulla
-			if direction > 0:
-				if velocity.x < direction * SPEED:
-					velocity = direction * SPEED * transform.x.normalized()
-			if direction < 0:
-				if velocity.x > direction * SPEED:
-					velocity = direction * SPEED * transform.x.normalized()
-			if is_on_floor():
-				anim_state = ANIM_STATE_SET.RUN
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept"):
-		audio_comp.play_sound(audio_comp.sound_jump)
-		if is_on_floor():
-			velocity.y = JUMP_VELOCITY
-			anim_state = ANIM_STATE_SET.JUMP
-
-		elif _is_on_wall():
-			anim_state = ANIM_STATE_SET.JUMP_WALL
-			current_dir *= -1
-				
-			$JumpTimer.start()
-			velocity.y = JUMP_WALL_VELOCITY.y
-			velocity.x = JUMP_WALL_VELOCITY.x if $RayCastDer.is_colliding() else -JUMP_WALL_VELOCITY.x
 	
-	if not is_on_floor() and velocity.y > 0 and anim_state not in [ANIM_STATE_SET.JUMP_WALL, ANIM_STATE_SET.WALL]:
-		anim_state = ANIM_STATE_SET.FALL
-	
-	if velocity == Vector2(0,0):
-		anim_state = ANIM_STATE_SET.IDLE
-		
-	
-func _is_on_wall() -> bool:
+func check_is_on_wall() -> bool:
 	if is_on_floor(): 
 		return false
+	
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(
+		global_position, 
+		global_position + Vector2(0, MIN_HEIGHT_SLICE)
+	)
+	var result = space_state.intersect_ray(query)
+	if result and result.get("collider", null) and result["collider"].is_in_group("Ground"):
+		return false
 		
-	if $RayCastDer.is_colliding():
-		return current_dir == 1 and anim_state != ANIM_STATE_SET.IDLE
+	if ray_der.is_colliding():
+		return current_dir == 1 
 		
-	if $RayCastIzq.is_colliding():
-		return current_dir == -1 and anim_state != ANIM_STATE_SET.IDLE
+	if ray_izq.is_colliding():
+		return current_dir == -1
 		
 	return false
 	
+	
 func dead(is_especial:bool = false):
-	call_deferred("set_move_mode", MOVE_SET.NORMAL)
 	on_dead_signal.emit()
 	$RespawnTimer.start()
 	audio_comp.play_sound(audio_comp.sound_dead if not is_especial else audio_comp.sound_dead_especial)
+
+
+func apply_move_horizontal(delta: float) -> void:
+	var reduce_velocity = false
+	var direction := Input.get_axis("move_left", "move_right")
+		
+	if direction:
+		current_dir = direction
+		
+		var new_velocity_x = direction * SPEED * delta
+		if abs(new_velocity_x) < abs(velocity.x):
+			reduce_velocity = true
+		else:
+			velocity.x = new_velocity_x
 	
-
-func _on_jump_timer_timeout() -> void:
-	if is_on_floor():
-		anim_state = ANIM_STATE_SET.RUN
-	else:
-		anim_state = ANIM_STATE_SET.FALL
+	if not direction or reduce_velocity:
+		velocity.x = move_toward(velocity.x, 0, (SPEED/20) * delta)
 
 
-func _on_respawn_timer_timeout() -> void:
-	position = GameController.last_checkpoint_position
+func apply_gravity(delta: float) -> void:
+	velocity += get_gravity() * delta

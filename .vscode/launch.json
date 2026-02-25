@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Test_level",
+            "type": "godot",
+            "request": "launch",
+            "scene": "res://test/Test_level.tscn",
+            "port": 6007
+        },
+        {
+            "name": "Attach Godot 4.6",
+            "type": "godot",
+            "request": "attach",
+            "address": "127.0.0.1",
+            "port": 6005
+        }
+    ]
+}

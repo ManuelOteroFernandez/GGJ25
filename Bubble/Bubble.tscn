@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://5rny7vcbefuw" path="res://bubble/sfx/Pompa explota.mp3" id="3_3gr6d"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5xbdo"]
+friction = 0.0
 bounce = 0.7
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5owta"]
@@ -26,7 +27,6 @@ collision_layer = 5
 collision_mask = 5
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_5xbdo")
-gravity_scale = 0.1
 can_sleep = false
 lock_rotation = true
 contact_monitor = true
@@ -49,3 +49,4 @@ stream = ExtResource("3_3gr6d")
 parameters/looping = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
