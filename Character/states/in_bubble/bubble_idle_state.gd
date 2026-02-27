@@ -17,12 +17,12 @@ func on_input(event: InputEvent) -> void:
 	
 	# Detectar input de movimiento y cambiar a bubble_move
 	if bubble.bubbleT.type != GameController.bubbleType.lineal:
-		if event.is_action_pressed("move_up") or event.is_action_pressed("move_down"):
+		if event.is_action_pressed("move_left") or event.is_action_pressed("move_right"):
 			character.state_machine.change_state(StateMachine.State.BUBBLE_MOVE)
 			return
 	
 	if bubble.bubbleT.type == GameController.bubbleType.free:
-		if event.is_action_pressed("move_left") or event.is_action_pressed("move_right"):
+		if event.is_action_pressed("move_up") or event.is_action_pressed("move_down"):
 			character.state_machine.change_state(StateMachine.State.BUBBLE_MOVE)
 			return
 
