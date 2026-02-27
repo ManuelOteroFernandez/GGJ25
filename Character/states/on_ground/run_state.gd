@@ -1,6 +1,8 @@
 class_name RunState
 extends BaseState
 
+var direction: float = 0
+
 func on_start(_data: Dictionary = {}) -> void:
 	character.set_move_ground()
 	
@@ -26,12 +28,13 @@ func on_physics_process(delta: float) -> void:
 		character.state_machine.change_state(StateMachine.State.FALL)
 		return
 
-		
-	move(delta)
+	direction = Input.get_axis("move_left", "move_right")
 	
-	if character.velocity.x == 0:
+	if character.velocity.x == 0 and direction == 0:
 		character.state_machine.change_state(StateMachine.State.IDLE)
 		return
+		
+	move(delta)
 
 
 func move(delta: float) -> void:
@@ -42,7 +45,6 @@ func move(delta: float) -> void:
 		if character.calculate_floor_distance() > 1:
 			character.apply_gravity(delta)
 	else:
-		var direction := Input.get_axis("move_left", "move_right")
 			
 		var movement_direction = Vector2.RIGHT.rotated(character.rotation)
 			
@@ -64,7 +66,6 @@ func move(delta: float) -> void:
 		character.set_move_bubble(bubble_collided)
 
 
-
 func check_floor_is_horizontal() -> bool:
 	var ray_start := character.global_position
 	var ray_end := character.global_position + Vector2(0,64)
@@ -79,6 +80,7 @@ func check_floor_is_horizontal() -> bool:
 		return abs(normal.angle_to(Vector2.UP)) < deg_to_rad(10) # Considera el suelo horizontal si el ángulo es menor a 10 grados
 	
 	return false
+
 
 func on_process(_delta: float) -> void:
 	pass
