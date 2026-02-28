@@ -53,13 +53,13 @@ func change_state(state_name: State, data: Dictionary = {}) -> void:
 	# Guardar datos para el nuevo estado
 	state_data = data
 	
-	var current_state_name = get_current_state_name()
-	if old_state != current_state_name:
-		print("State changed to: %s" % State.keys()[current_state_name])
-		old_state = current_state_name
-		
 	# Cambiar al nuevo estado
 	current_state = states[state_name]
+	
+	var current_state_name = get_current_state_name()
+	if old_state != current_state_name:
+		old_state = current_state_name
+		
 	current_state.on_start(state_data)
 
 

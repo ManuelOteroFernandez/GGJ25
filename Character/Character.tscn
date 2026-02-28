@@ -145,7 +145,7 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1617658442 groups=["Player"]]
 collision_layer = 9
 collision_mask = 57
-floor_max_angle = 0.80285144
+floor_max_angle = 0.87266463
 platform_floor_layers = 4294901794
 platform_wall_layers = 34
 script = ExtResource("1_p7qbp")

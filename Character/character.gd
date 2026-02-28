@@ -53,7 +53,7 @@ func rotate_with_surface(full_rotate: bool = false) -> void:
 	if not result.is_empty():
 		var normal = result.get("normal", Vector2.UP)
 		var angulo_personaje = normal.angle() + deg_to_rad(90)
-
+		
 		if full_rotate:
 			rotation = angulo_personaje
 			var dist_to_floor = calculate_floor_distance()
@@ -61,11 +61,11 @@ func rotate_with_surface(full_rotate: bool = false) -> void:
 				global_position += Vector2(0, dist_to_floor).rotated(rotation)
 
 		else:
-			rotation = lerp_angle(rotation, angulo_personaje, 0.5)
+			rotation = lerp_angle(rotation, angulo_personaje, 0.2)
 
 func calculate_floor_distance() -> float:
 	var ray_start := global_position
-	var ray_end := ray_start + Vector2(0,64).rotated(rotation)
+	var ray_end := ray_start + Vector2(0,128).rotated(rotation)
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
 	query.exclude = [self]

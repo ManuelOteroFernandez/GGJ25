@@ -2,12 +2,12 @@ class_name BubbleJumpState
 extends BaseState
 
 const JUMP_DECELERATION = 100
-const JUMP_VELOCITY = -900.0
+const JUMP_VELOCITY = -2200.0
 const JUMP_MIN_DISTANCE = 256
 
 var global_position_at_start: Vector2
 
-func on_start(_data: Dictionary = {}) -> void:	
+func on_start(_data: Dictionary = {}) -> void:
 	character.anim_state = Player.ANIM_STATE_SET.BUBBLE_JUMP
 
 	var bubble = character.get_bubble()
@@ -15,13 +15,13 @@ func on_start(_data: Dictionary = {}) -> void:
 	
 	var exit = Vector2(0,0)
 	if Input.is_action_pressed("move_up"):
-		exit.y = 1
+		exit = Vector2(0, 1)
 	if Input.is_action_pressed("move_down"):
-		exit.y = -1
+		exit = Vector2(0, -1)
 	if Input.is_action_pressed("move_left"):
-		exit.x = 1
+		exit = Vector2(1, 0.2)
 	if Input.is_action_pressed("move_right"):
-		exit.x = -1
+		exit = Vector2(-1 , 0.2)
 	if exit == Vector2(0,0):
 		exit = Vector2(0,1)
 		
@@ -42,9 +42,7 @@ func on_input(_event: InputEvent) -> void:
 	pass
 
 
-func on_physics_process(delta: float) -> void:
-	print(character.velocity)
-	
+func on_physics_process(delta: float) -> void:	
 	if character.velocity.y == 0 and character.is_on_floor():
 		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 			character.state_machine.change_state(StateMachine.State.RUN)

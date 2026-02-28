@@ -44,6 +44,7 @@ func move(delta: float) -> void:
 		character.apply_move_horizontal(delta)
 		if character.calculate_floor_distance() > 1:
 			character.apply_gravity(delta)
+			
 	else:
 			
 		var movement_direction = Vector2.RIGHT.rotated(character.rotation)
@@ -51,11 +52,13 @@ func move(delta: float) -> void:
 		if direction:
 			character.current_dir = direction
 			character.velocity = movement_direction * direction * Player.SPEED * delta
+			
 			if character.calculate_floor_distance() > 1:
 				if character.velocity.y < 0:
 					character.velocity.y = 0
 				elif character.velocity.y > 0:
 					character.apply_gravity(delta)
+			
 		else:
 			character.velocity = character.velocity.move_toward(Vector2.ZERO, Player.SPEED * delta)
 	
