@@ -16,10 +16,11 @@ enum ANIM_STATE_SET {
 }
 
 
-const SPEED = 30000.0
-const JUMP_VELOCITY = -650.0
+const SPEED = 50000.0
+const JUMP_VELOCITY = -1650.0
+const WEIGTH = 2.6
 
-const MIN_HEIGHT_SLICE = 128
+const MIN_HEIGHT_SLICE = 256
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var shape_cat: CapsuleShape2D = load("res://Character/shapeCat.tres")
@@ -43,7 +44,7 @@ var anim_state = ANIM_STATE_SET.IDLE
 
 func rotate_with_surface(full_rotate: bool = false) -> void:
 	var ray_start: Vector2 = global_position + current_dir * Vector2(collision_shape.shape.mid_height / 2,0).rotated(rotation)
-	var ray_end := ray_start + Vector2(0,128).rotated(rotation)
+	var ray_end := ray_start + Vector2(0,256).rotated(rotation)
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
 	query.exclude = [self]
@@ -79,8 +80,8 @@ func calculate_floor_distance() -> float:
 
 
 func is_near_floor() -> bool:
-	var ray_start := global_position + Vector2(-collision_shape.shape.mid_height,64).rotated(rotation)
-	var ray_end := global_position + Vector2(collision_shape.shape.mid_height,64).rotated(rotation)
+	var ray_start := global_position + Vector2(-collision_shape.shape.mid_height,128).rotated(rotation)
+	var ray_end := global_position + Vector2(collision_shape.shape.mid_height,128).rotated(rotation)
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
 	query.exclude = [self]
@@ -162,26 +163,6 @@ func set_move_ground() -> void:
 		collision_shape.disabled = false
 		move_mode = MOVE_SET.GROUND
 
-
-
-func _change_shape():
-	if anim_state == ANIM_STATE_SET.SLICE:
-		if collision_shape.shape != shape_slide:
-			
-			collision_shape.shape = shape_slide
-			collision_shape.rotation_degrees = 0
-			collision_shape.position = Vector2(-37 if current_dir < 0 else 37,-29)
-		
-		elif bool(collision_shape.position.x < 0) != bool(current_dir < 0):
-			collision_shape.position = Vector2(-37 if current_dir < 0 else 37,-29)
-			
-			
-	elif collision_shape.shape != shape_cat and not check_is_on_wall():
-				
-		collision_shape.shape = shape_cat
-		collision_shape.rotation_degrees = 90
-		collision_shape.position = Vector2.ZERO
-	
 	
 func check_is_on_wall() -> bool:
 	if is_on_floor(): 
@@ -229,4 +210,4 @@ func apply_move_horizontal(delta: float) -> void:
 
 
 func apply_gravity(delta: float) -> void:
-	velocity += get_gravity() * delta
+	velocity += get_gravity() * WEIGTH * delta

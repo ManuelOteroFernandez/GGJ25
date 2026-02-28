@@ -68,7 +68,7 @@ func move(delta: float) -> void:
 
 func check_floor_is_horizontal() -> bool:
 	var ray_start := character.global_position
-	var ray_end := character.global_position + Vector2(0,64)
+	var ray_end := character.global_position + Vector2(0,128)
 	var space_state = character.get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(ray_start, ray_end)
 	query.exclude = [character]

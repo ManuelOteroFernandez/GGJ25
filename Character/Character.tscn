@@ -151,10 +151,9 @@ platform_wall_layers = 34
 script = ExtResource("1_p7qbp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=656479624]
-position = Vector2(1, -35)
-scale = Vector2(0.59, 0.59)
+position = Vector2(0, -53.455)
 sprite_frames = SubResource("SpriteFrames_ktwkg")
-animation = &"slideR"
+animation = &"idleR"
 script = ExtResource("21_7fhq0")
 
 [node name="RayCastDer" type="RayCast2D" parent="." unique_id=321678592]
@@ -173,13 +172,13 @@ script = ExtResource("24_538os")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1550282345]
 z_index = -37
-offset_left = -3429.0
-offset_top = -2169.0
-offset_right = -2443.0
-offset_bottom = -1554.0
+offset_left = -3441.0
+offset_top = -2248.0
+offset_right = -2455.0
+offset_bottom = -1633.0
 scale = Vector2(6.89, 6.89)
 color = Color(0.709804, 0.396078, 0.462745, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=147457482]
-rotation = 1.5708
+rotation = 1.5707964
 shape = ExtResource("2_7wa33")

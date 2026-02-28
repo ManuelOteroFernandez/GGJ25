@@ -1,0 +1,49 @@
+[gd_scene format=4 uid="uid://dxpc7y5f0eonr"]
+
+[ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://enviroment/floor_tile_set.tres" id="1_xr26a"]
+[ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://character/Character.tscn" id="4_5q4wn"]
+[ext_resource type="PackedScene" uid="uid://bml6auaaybttx" path="res://character/follower.tscn" id="5_oma07"]
+
+[node name="TestLevel" type="Node2D" unique_id=497673803]
+
+[node name="Map" type="Node2D" parent="." unique_id=2071613670]
+position = Vector2(548, -491)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Map" unique_id=2087395679 groups=["Ground"]]
+position = Vector2(-1206, 244)
+tile_map_data = PackedByteArray("AAAfAAEAAAACAAMAAAAeAAEAAAABAAMAAAAdAAEAAAABAAMAAAAcAAEAAAABAAMAAAAbAAEAAAABAAMAAAAaAAEAAAABAAMAAAAZAAEAAAABAAMAAAAYAAEAAAABAAMAAAAXAAEAAAABAAMAAAAWAAEAAAABAAMAAAAVAAEAAAABAAMAAAAUAAEAAAABAAMAAAATAAEAAAAGAAEAAAASAAEAAAABAAIAAAARAAEAAAABAAIAAAAQAAEAAAAHAAEAAAAPAAEAAAABAAMAAAAOAAEAAAABAAMAAAANAAEAAAABAAMAAAAMAAEAAAABAAMAAAALAAEAAAABAAMAAAAKAAEAAAAGAAEAAAAJAAEAAAABAAIAAAAIAAEAAAABAAIAAAAHAAEAAAAHAAEAAAAGAAEAAAABAAMAAAAFAAEAAAABAAMAAAAEAAEAAAABAAMAAAADAAEAAAABAAMAAAACAAEAAAAGAAEAAAABAAEAAAABAAIAAAAAAAEAAAABAAIAAAD//wEAAAABAAIAAAD+/wEAAAABAAIAAAD9/wEAAAABAAIAAAACAAAAAAACAAAAAAABAAAAAAABAAAAAAAAAAAAAAAAAAUAAAD//wAAAAABAAUAAAD+/wAAAAABAAAAAAD9/wAAAAABAAAAAAAKAAAAAAACAAAAAAAQAAAAAAAAAAAAAAAJAAAAAAABAAAAAAAAAP//AAACAAEAAAAAAP7/AAACAAAAAAD///7/AAAAAAAAAAD/////AAAAAAEAAAAHAAAAAAAAAAAAAAAIAAAAAAABAAAAAAARAAAAAAABAAAAAAASAAAAAAABAAAAAAATAAAAAAACAAAAAAD8/wAAAAABAAAAAAD8/wEAAAABAAIAAAD7/wEAAAABAAIAAAD6/wEAAAAAAAIAAAD6/wAAAAAAAAAAAAD7/wAAAAABAAAAAAA=")
+tile_set = ExtResource("1_xr26a")
+
+[node name="CharacterBody2D" parent="." unique_id=1748748497 instance=ExtResource("4_5q4wn")]
+position = Vector2(-167, -340)
+collision_layer = 43
+
+[node name="Follower" parent="." unique_id=1653171669 node_paths=PackedStringArray("target") instance=ExtResource("5_oma07")]
+target = NodePath("../CharacterBody2D")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=849804383]
+follow_viewport_enabled = true
+
+[node name="Label3" type="Label" parent="CanvasLayer" unique_id=2076631821]
+offset_left = -1112.0
+offset_top = -1192.0
+offset_right = -55.0
+offset_bottom = -885.0
+theme_override_font_sizes/font_size = 99
+text = "Salta 2 tiles verticales"
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1970762866]
+offset_left = 96.0
+offset_top = -549.0
+offset_right = 1153.0
+offset_bottom = -242.0
+theme_override_font_sizes/font_size = 99
+text = "Salta 4 tiles horizontal"
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=34543571]
+offset_left = 2404.0
+offset_top = -592.0
+offset_right = 3461.0
+offset_bottom = -285.0
+theme_override_font_sizes/font_size = 99
+text = "No llega a 5 tiles"

@@ -20,7 +20,7 @@ func on_start(_data: Dictionary = {}) -> void:
 	
 	character.collision_shape.shape = character.shape_slide
 	character.collision_shape.rotation_degrees = 0
-	character.collision_shape.position = Vector2(-37 if character.current_dir < 0 else 37,-29)
+	character.collision_shape.position = Vector2(-64 if character.current_dir < 0 else 64,-47)
 
 
 func on_end() -> void:
@@ -70,9 +70,9 @@ func move(delta: float) -> void:
 func change_slice_mode(mode: SLICE_MODE) -> void:
 	current_slice_mode = mode
 	if mode == SLICE_MODE.FAST:
-		slice_gravity = character.get_gravity() / 1.3
+		slice_gravity = (character.get_gravity()  * character.WEIGHT) / 1.3
 	elif mode == SLICE_MODE.SLOW:
-		slice_gravity = character.get_gravity() / 4
+		slice_gravity = (character.get_gravity()  * character.WEIGHT) / 4
 
 
 func on_process(_delta: float) -> void:
