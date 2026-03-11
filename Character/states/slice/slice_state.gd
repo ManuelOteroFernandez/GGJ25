@@ -70,9 +70,9 @@ func move(delta: float) -> void:
 func change_slice_mode(mode: SLICE_MODE) -> void:
 	current_slice_mode = mode
 	if mode == SLICE_MODE.FAST:
-		slice_gravity = (character.get_gravity()  * character.WEIGHT) / 1.3
+		slice_gravity = (character.get_gravity()  * Player.WEIGHT) / 1.3
 	elif mode == SLICE_MODE.SLOW:
-		slice_gravity = (character.get_gravity()  * character.WEIGHT) / 4
+		slice_gravity = (character.get_gravity()  * Player.WEIGHT) / 4
 
 
 func on_process(_delta: float) -> void:

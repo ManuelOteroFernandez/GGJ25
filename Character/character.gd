@@ -18,9 +18,9 @@ enum ANIM_STATE_SET {
 
 const SPEED = 50000.0
 const JUMP_VELOCITY = -1650.0
-const WEIGTH = 2.6
+const WEIGHT = 2.6
 
-const MIN_HEIGHT_SLICE = 256
+const MIN_HEIGHT_SLICE = 384
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var shape_cat: CapsuleShape2D = load("res://Character/shapeCat.tres")
@@ -210,4 +210,4 @@ func apply_move_horizontal(delta: float) -> void:
 
 
 func apply_gravity(delta: float) -> void:
-	velocity += get_gravity() * WEIGTH * delta
+	velocity += get_gravity() * WEIGHT * delta
