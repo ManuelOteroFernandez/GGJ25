@@ -170,15 +170,6 @@ collide_with_areas = true
 volume_db = -10.0
 script = ExtResource("24_538os")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1550282345]
-z_index = -37
-offset_left = -3441.0
-offset_top = -2248.0
-offset_right = -2455.0
-offset_bottom = -1633.0
-scale = Vector2(6.89, 6.89)
-color = Color(0.709804, 0.396078, 0.462745, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=147457482]
 rotation = 1.5707964
 shape = ExtResource("2_7wa33")
