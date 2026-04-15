@@ -1,56 +1,51 @@
 extends Control
 
-var tmc: TransitionManagerClass
-var scene_manager: SceneManager
+const TRANSITION_TIME: float = 1
 
-enum Actions { None, Credits_close , Credits_open, Game_start }
+@onready var btn_continue: Button = $MainMenu/VBoxContainer3/BtnContinue
 
-var action: Actions = Actions.None
+@onready var btn_close: TextureButton = $Credits/BtnClose
+
+@onready var btn_audio: AudioStreamPlayer = $BtnAudio
+@onready var color_rect: ColorRect = $ColorRect
+
+@onready var main_menu: Control = $MainMenu
+@onready var credits: Control = $Credits
+
 
 func _ready() -> void:
-	TranslationServer.set_locale("gal")
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	scene_manager = get_tree().current_scene as SceneManager
-	#Se espera que el TransitionManager este como segundo nodo de la escena
-	tmc = scene_manager.tsm
 	
-	tmc.mid_transition_signal.connect(self._on_mid_transition)
-	#tmc.end_transition_signal.connect(self._on_end_transition)
+	btn_continue.visible = SaveSystem.get_level_index() > 0
 	
-	$MarginContainer/VBoxContainer3/btnContinue.visible = SaveSystem.get_level_index() > 0
+	color_rect.fade_out(TRANSITION_TIME)
 
-#func _on_end_transition():
-	#pass
 
-func _on_mid_transition():
-	if action == Actions.Credits_close:
-		_change_credits_to_main()
-	elif action == Actions.Credits_open:
-		_change_main_to_credits()
-		
-
-func _on_close_credits() -> void:
-	$Boton.play()
-	action = Actions.Credits_close
-	tmc.start_transition()
-	
 func _change_credits_to_main():
-	$PanelContainer.visible = false
-	$MarginContainer.visible = true
-	tmc.end_transition()
-
-func _on_open_credits() -> void:
-	$Boton.play()
-	action = Actions.Credits_open
-	tmc.start_transition()
+	credits.visible = false
+	main_menu.visible = true
 
 func _change_main_to_credits():
-	$PanelContainer.visible = true
-	$MarginContainer.visible = false
-	tmc.end_transition()
+	credits.visible = true
+	main_menu.visible = false
+
+
+func _on_close_credits() -> void:
+	btn_audio.play()
+	await  color_rect.fade_in(TRANSITION_TIME)
+	_change_credits_to_main()
+	color_rect.fade_out(TRANSITION_TIME)
+
+
+func _on_open_credits() -> void:
+	btn_audio.play()
+	await  color_rect.fade_in(TRANSITION_TIME)
+	_change_main_to_credits()
+	color_rect.fade_out(TRANSITION_TIME)
+
 
 func _on_exit_game() -> void:
-	$Boton.play()
+	btn_audio.play()
 	get_tree().quit()
 
 
@@ -58,12 +53,12 @@ func _on_init_game() -> void:
 	SaveSystem.set_level_index(0)
 	SaveSystem.save_game()
 	
-	$Boton.play()
-	action = Actions.Game_start
-	scene_manager.open_level(0)
+	btn_audio.play()
+	LevelTransition.current_level_index = -1
+	LevelTransition.request_transition_next("expo")
 	
 func _on_continue_game():
-	$Boton.play()
-	action = Actions.Game_start
-	scene_manager.open_level(SaveSystem.get_level_index())
+	btn_audio.play()
+	LevelTransition.current_level_index = SaveSystem.get_level_index()
+	LevelTransition.request_transition_next("expo")
 	

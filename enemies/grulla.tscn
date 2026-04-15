@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cettndp5gem4o"]
+[gd_scene format=3 uid="uid://cettndp5gem4o"]
 
 [ext_resource type="PackedScene" uid="uid://baiqng55hvml" path="res://enemies/Porcoespiño/porcoespiño.tscn" id="1_nlk23"]
 [ext_resource type="Texture2D" uid="uid://cuh57eq2a3p77" path="res://enemies/grulla.png" id="2_hvc1v"]
@@ -6,12 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwyog"]
 size = Vector2(180, 171.429)
 
-[node name="Porcoespiño" instance=ExtResource("1_nlk23")]
+[node name="Porcoespiño" unique_id=437895811 instance=ExtResource("1_nlk23")]
+scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-5.71429, 48.5714)
 rotation = 1.13446
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bwyog")
 
 [node name="Porcoespiño" parent="." index="1"]

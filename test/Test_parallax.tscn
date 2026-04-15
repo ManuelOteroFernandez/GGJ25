@@ -1,7 +1,5 @@
 [gd_scene format=4 uid="uid://dmjrl26ropqt0"]
 
-[ext_resource type="Texture2D" uid="uid://b85scy110ukpa" path="res://enviroment/Fondo.png" id="1_j0beh"]
-[ext_resource type="Texture2D" uid="uid://bsmq7mykpni32" path="res://enviroment/Background.png" id="2_egagl"]
 [ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://enviroment/floor_tile_set.tres" id="3_0sj7p"]
 [ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://character/Character.tscn" id="6_bqhur"]
 [ext_resource type="PackedScene" uid="uid://bml6auaaybttx" path="res://character/follower.tscn" id="7_kr4tk"]
@@ -13,77 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://6h8mkdxyg8xu" path="res://enviroment/foreground/fosil_02.tres" id="12_qlpo1"]
 [ext_resource type="Resource" uid="uid://cxlkmwcditdhh" path="res://bubble/types/burbuja_libre.tres" id="13_8467r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7kks8"]
-atlas = ExtResource("2_egagl")
-region = Rect2(0, 0, 4096, 1460)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bcus5"]
-atlas = ExtResource("2_egagl")
-region = Rect2(0, 3030.408, 4096, 980.62915)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bjb7c"]
-atlas = ExtResource("2_egagl")
-region = Rect2(0, 1482.25, 4096, 1448.971)
-
 [node name="TestLevel" type="Node2D" unique_id=497673803]
-
-[node name="Background" type="Node" parent="." unique_id=324592460]
-
-[node name="Layer04" type="Parallax2D" parent="Background" unique_id=233775699]
-z_index = -100
-scroll_scale = Vector2(0.9, 0)
-scroll_offset = Vector2(1024, 700)
-repeat_size = Vector2(2048, 2048)
-autoscroll = Vector2(2, 0)
-repeat_times = 5
-metadata/_edit_lock_ = true
-
-[node name="Cielo" type="Sprite2D" parent="Background/Layer04" unique_id=1179283825]
-position = Vector2(207, -322)
-texture = ExtResource("1_j0beh")
-metadata/_edit_lock_ = true
-
-[node name="Layer03" type="Parallax2D" parent="Background" unique_id=550802571]
-z_index = -100
-scroll_scale = Vector2(0.8, 0)
-scroll_offset = Vector2(0, -520.64)
-repeat_size = Vector2(4096, 0)
-autoscroll = Vector2(2, 0)
-repeat_times = 5
-metadata/_edit_lock_ = true
-
-[node name="Montañas" type="Sprite2D" parent="Background/Layer03" unique_id=1683931394]
-position = Vector2(1024, 1348)
-texture = SubResource("AtlasTexture_7kks8")
-metadata/_edit_lock_ = true
-
-[node name="Layer02" type="Parallax2D" parent="Background" unique_id=1790893191]
-z_index = -100
-scroll_scale = Vector2(0.75, 0)
-scroll_offset = Vector2(0, 396.5)
-repeat_size = Vector2(4096, 0)
-autoscroll = Vector2(2, 0)
-repeat_times = 5
-metadata/_edit_lock_ = true
-
-[node name="Loma" type="Sprite2D" parent="Background/Layer02" unique_id=897095729]
-position = Vector2(0, 489.06006)
-texture = SubResource("AtlasTexture_bcus5")
-metadata/_edit_lock_ = true
-
-[node name="Layer01" type="Parallax2D" parent="Background" unique_id=434695192]
-z_index = -100
-scroll_scale = Vector2(0.7, 0)
-scroll_offset = Vector2(0, 1689.06)
-repeat_size = Vector2(4096, 0)
-autoscroll = Vector2(2, 0)
-repeat_times = 5
-metadata/_edit_lock_ = true
-
-[node name="Llanuras" type="Sprite2D" parent="Background/Layer01" unique_id=219854280]
-position = Vector2(0, -189.06006)
-texture = SubResource("AtlasTexture_bjb7c")
-metadata/_edit_lock_ = true
 
 [node name="BubbleGenerator" parent="." unique_id=1436191769 instance=ExtResource("9_wijih")]
 position = Vector2(16923, 9513)

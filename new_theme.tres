@@ -1,9 +1,42 @@
 [gd_resource type="Theme" format=3 uid="uid://c0spuf5fuqnr6"]
 
+[ext_resource type="Texture2D" uid="uid://buqm56ngq8aa5" path="res://ui/botons/boton_xenerico.png" id="1_amlv4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i7eh4"]
+texture = ExtResource("1_amlv4")
+modulate_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78ylj"]
+texture = ExtResource("1_amlv4")
+modulate_color = Color(1.0789914, 1.0789914, 1.0789914, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aggjg"]
+texture = ExtResource("1_amlv4")
+modulate_color = Color(1.1638972, 1.1638972, 1.1638972, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i66g5"]
+texture = ExtResource("1_amlv4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nft0o"]
+texture = ExtResource("1_amlv4")
+modulate_color = Color(1.1638972, 1.1638972, 1.1638972, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w75u0"]
 bg_color = Color(1, 1, 1, 0)
 
 [resource]
+BtnMenu/base_type = &"Button"
+BtnMenu/colors/font_color = Color(0, 0, 0, 1)
+BtnMenu/colors/font_disabled_color = Color(0.11858138, 0.11858138, 0.11858138, 1)
+BtnMenu/colors/font_hover_color = Color(0, 0, 0, 1)
+BtnMenu/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+BtnMenu/colors/font_pressed_color = Color(0, 0, 0, 1)
+BtnMenu/font_sizes/font_size = 85
+BtnMenu/styles/disabled = SubResource("StyleBoxTexture_i7eh4")
+BtnMenu/styles/hover = SubResource("StyleBoxTexture_78ylj")
+BtnMenu/styles/hover_pressed = SubResource("StyleBoxTexture_aggjg")
+BtnMenu/styles/normal = SubResource("StyleBoxTexture_i66g5")
+BtnMenu/styles/pressed = SubResource("StyleBoxTexture_nft0o")
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 60
 MarginContainer/constants/margin_right = 60
@@ -11,6 +44,6 @@ MarginContainer/constants/margin_top = 41
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_w75u0")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
-RichTextLabel/constants/outline_size = 9
-RichTextLabel/font_sizes/bold_font_size = 60
-RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/constants/outline_size = 30
+RichTextLabel/font_sizes/bold_font_size = 190
+RichTextLabel/font_sizes/normal_font_size = 90

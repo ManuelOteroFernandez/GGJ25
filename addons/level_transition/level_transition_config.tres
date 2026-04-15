@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LevelTransitionConfigRes" format=3 uid="uid://rgf7tdevnnyj"]
+
+[ext_resource type="Script" uid="uid://mbtf7kcaw8th" path="res://addons/level_transition/level_transition_config_res.gd" id="1_5vbsr"]
+
+[resource]
+script = ExtResource("1_5vbsr")
+lists = {
+"expo": Array[String](["res://enviroment/Tutorial.tscn", "res://enviroment/Level1.tscn", "res://enviroment/Level2.tscn"])
+}
+main_menu_path = "res://ui/MainMenu.tscn"
+output_path = "res://enviroment/levels"

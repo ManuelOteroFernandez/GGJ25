@@ -11,6 +11,12 @@ tile_data = PackedInt32Array(0, 131072, 6, 65536, 65536, 1, 1, 196608, 6, 65537,
 [sub_resource type="TileMapPattern" id="TileMapPattern_s8aw7"]
 tile_data = PackedInt32Array(0, 131072, 7, 65536, 0, 7, 1, 196608, 7, 65537, 65536, 1)
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_qyy73"]
+tile_data = PackedInt32Array(0, 0, 6, 65536, 0, 7, 1, 65536, 0, 65537, 65536, 1)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_d2ogk"]
+tile_data = PackedInt32Array(0, 65536, 0, 65536, 65536, 1, 131072, 458752, 5, 1, 65536, 6, 65537, 65536, 7, 131073, 65536, 1, 65538, 65536, 6, 131074, 65536, 7, 131075, 65536, 0)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6nva"]
 resource_name = "tileset_campo"
 texture = ExtResource("1_i47im")
@@ -449,3 +455,5 @@ sources/0 = SubResource("TileSetAtlasSource_h6nva")
 pattern_0 = SubResource("TileMapPattern_5kh72")
 pattern_1 = SubResource("TileMapPattern_i47im")
 pattern_2 = SubResource("TileMapPattern_s8aw7")
+pattern_3 = SubResource("TileMapPattern_qyy73")
+pattern_4 = SubResource("TileMapPattern_d2ogk")

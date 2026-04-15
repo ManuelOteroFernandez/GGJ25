@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://fwrs5b9qtn4mc"]
+
+[ext_resource type="Script" path="res://addons/level_transition/dock/list_item.gd" id="1_lsit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_separator"]
+bg_color = Color(0.3, 0.3, 0.35, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="ListItem" type="VBoxContainer"]
+script = ExtResource("1_lsit")
+
+[node name="HeaderRow" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_separator")
+
+[node name="LineEditName" type="LineEdit" parent="HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "List name (e.g. world1)"
+
+[node name="BtnAddLevel" type="Button" parent="HeaderRow"]
+layout_mode = 2
+text = "+ Level"
+tooltip_text = "Add a level to this list"
+
+[node name="BtnTrash" type="Button" parent="HeaderRow"]
+layout_mode = 2
+tooltip_text = "Remove this list"
+
+[node name="LevelList" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[connection signal="button_up" from="HeaderRow/BtnAddLevel" to="." method="_on_btn_add_level_button_up"]
+[connection signal="button_up" from="HeaderRow/BtnTrash" to="." method="_on_btn_trash_button_up"]

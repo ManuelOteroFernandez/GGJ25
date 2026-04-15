@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2iqsec6j0llb"]
+[gd_scene format=3 uid="uid://d2iqsec6j0llb"]
 
 [ext_resource type="PackedScene" uid="uid://baiqng55hvml" path="res://enemies/Porcoespiño/porcoespiño.tscn" id="1_6rdii"]
 [ext_resource type="Texture2D" uid="uid://bj4rhv1dccbvu" path="res://enemies/modelos_gamejam_origamigoose.png" id="2_nba07"]
 
-[node name="Porcoespiño" instance=ExtResource("1_6rdii")]
+[node name="Porcoespiño" unique_id=1921189522 instance=ExtResource("1_6rdii")]
 
-[node name="Porcoespiño" parent="." index="1"]
+[node name="Porcoespiño" parent="." index="1" unique_id=630229497]
 texture = ExtResource("2_nba07")

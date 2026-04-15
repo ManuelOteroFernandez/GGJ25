@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MusicTrackRes" format=3 uid="uid://c3wit44taoobg"]
+
+[ext_resource type="Script" uid="uid://b7msw3tdexixh" path="res://addons/music_manager/music_track_res.gd" id="1_qldbb"]
+[ext_resource type="AudioStream" uid="uid://cm027u458fpft" path="res://music/Gatopompas_completo_loop.mp3" id="2_bs002"]
+
+[resource]
+script = ExtResource("1_qldbb")
+stems = Array[AudioStream]([ExtResource("2_bs002")])
+stem_names = Array[String](["main"])
+initial_volumes_db = Array[float]([10.0])
+metadata/_custom_type_script = "uid://b7msw3tdexixh"

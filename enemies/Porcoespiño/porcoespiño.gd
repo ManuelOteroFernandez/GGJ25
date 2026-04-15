@@ -4,4 +4,5 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		(body as Player).dead(im_special)
+		if body.has_method("dead"):
+			body.dead(im_special)

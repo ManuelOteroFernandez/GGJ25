@@ -1,8 +1,10 @@
 [gd_scene format=4 uid="uid://ie8dvhm08a1g"]
 
+[ext_resource type="PackedScene" uid="uid://bpsaj6k3ar60m" path="res://addons/music_manager/music_track_node.tscn" id="1_i24uw"]
 [ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://character/Character.tscn" id="1_l7ng4"]
 [ext_resource type="PackedScene" uid="uid://bml6auaaybttx" path="res://character/follower.tscn" id="2_4kt54"]
 [ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://enviroment/floor_tile_set.tres" id="2_wtb0m"]
+[ext_resource type="Resource" uid="uid://c3wit44taoobg" path="res://music/levels_track.tres" id="2_wynit"]
 [ext_resource type="PackedScene" uid="uid://baiqng55hvml" path="res://enemies/Porcoespiño/porcoespiño.tscn" id="4_2bbbo"]
 [ext_resource type="PackedScene" uid="uid://d2iqsec6j0llb" path="res://enemies/goose.tscn" id="5_ed7oo"]
 [ext_resource type="PackedScene" uid="uid://cettndp5gem4o" path="res://enemies/grulla.tscn" id="6_e6cjc"]
@@ -10,8 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://bikkpuuf1fguh" path="res://enviroment/Checkpoints/checkpoint.tscn" id="8_t0onb"]
 [ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://bubble/BubbleGenerator.tscn" id="9_khqs5"]
 [ext_resource type="Resource" uid="uid://dpxq3xlefq2od" path="res://bubble/types/burbuja_lineal.tres" id="9_u0uaa"]
+[ext_resource type="PackedScene" uid="uid://hqqsnr6nn7ga" path="res://enviroment/EndLevelArea.tscn" id="11_yw4hd"]
 
 [node name="Nivel1" type="Node2D" unique_id=1709731757]
+
+[node name="MusicTrackNode" parent="." unique_id=1850352206 instance=ExtResource("1_i24uw")]
+track = ExtResource("2_wynit")
 
 [node name="CharacterBody2D" parent="." unique_id=1795255368 instance=ExtResource("1_l7ng4")]
 position = Vector2(-540, -39)
@@ -333,3 +339,6 @@ rotation = 1.5708
 spawn_time = 3.0
 bubble_type = ExtResource("9_u0uaa")
 bubble_speed = Vector2(30, 0)
+
+[node name="EndLevelArea" parent="." unique_id=1248092690 instance=ExtResource("11_yw4hd")]
+position = Vector2(-1457, -130)

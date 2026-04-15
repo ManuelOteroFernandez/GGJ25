@@ -4,22 +4,26 @@
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_vxlae"]
 [ext_resource type="Texture2D" uid="uid://ccrlpljsdhna4" path="res://icon.svg" id="2_8vxd5"]
 
-[node name="TouchControls" type="CanvasLayer"]
+[node name="TouchControls" type="CanvasLayer" unique_id=991015397]
 script = ExtResource("1_qsqm1")
 
-[node name="Virtual Joystick" parent="." instance=ExtResource("1_vxlae")]
+[node name="Virtual Joystick" parent="." unique_id=1708968143 instance=ExtResource("1_vxlae")]
+offset_left = 304.0
+offset_top = -624.0
+offset_right = 604.0
+offset_bottom = -324.0
 joystick_mode = 1
 visibility_mode = 1
 
-[node name="TBtnPause" type="TouchScreenButton" parent="."]
-position = Vector2(980, 37)
+[node name="TBtnPause" type="TouchScreenButton" parent="." unique_id=2011717004]
+position = Vector2(3337, 1344)
 texture_normal = ExtResource("2_8vxd5")
 texture_pressed = ExtResource("2_8vxd5")
 action = "pause"
 visibility_mode = 1
 
-[node name="TBtnJump" type="TouchScreenButton" parent="."]
-position = Vector2(891, 423)
+[node name="TBtnJump" type="TouchScreenButton" parent="." unique_id=2437708]
+position = Vector2(3248, 1730)
 texture_normal = ExtResource("2_8vxd5")
 texture_pressed = ExtResource("2_8vxd5")
 action = "ui_accept"

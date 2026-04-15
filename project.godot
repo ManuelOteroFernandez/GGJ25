@@ -15,14 +15,21 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="GGJ25"
-run/main_scene="res://enviroment/SceneManager/SceneManager.tscn"
+run/main_scene="uid://bchnsttsurq8c"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://bf07tokape003"
 
 [autoload]
 
 GameController="*res://GameController.gd"
 SaveSystem="*res://save_system/SaveSystem.gd"
+LevelTransition="*uid://cmd6nm53q10xj"
+MusicManager="*uid://dc13obmud38c0"
+HudManager="*uid://be4f0mgm8ve2m"
 
 [display]
 
@@ -33,6 +40,10 @@ window/stretch/mode="viewport"
 [dotnet]
 
 project/assembly_name="GGJ25"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/level_transition/plugin.cfg", "res://addons/music_manager/plugin.cfg")
 
 [global_group]
 
@@ -136,6 +147,10 @@ jump={
 pointing/emulate_touch_from_mouse=true
 pointing/emulate_mouse_from_touch=false
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/localizacion.en.translation", "res://localization/localizacion.es.translation", "res://localization/localizacion.gl.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Jugador"
@@ -144,6 +159,15 @@ pointing/emulate_mouse_from_touch=false
 2d_physics/layer_4="CheckPoints"
 2d_physics/layer_5="Enemigos"
 2d_physics/layer_6="Tuberias"
+
+[level_transition]
+
+level_list_path="res://enviroment/levels/level_list.tres"
+transition_timeout=2.0
+
+[music_manager]
+
+pitch_follows_time_scale=false
 
 [rendering]
 

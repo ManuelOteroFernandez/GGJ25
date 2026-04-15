@@ -4,22 +4,23 @@
 [ext_resource type="Script" uid="uid://jwy20oucjbdb" path="res://ui/mainMenu.gd" id="3_2ctia"]
 [ext_resource type="Texture2D" uid="uid://wd2v6p3mn1ub" path="res://ui/botons/fondo_menu.png" id="3_6jst3"]
 [ext_resource type="AudioStream" uid="uid://ci84c4sxdet7r" path="res://ui/sfx/Boton.mp3" id="3_yf550"]
-[ext_resource type="Texture2D" uid="uid://buqm56ngq8aa5" path="res://ui/botons/boton_xenerico.png" id="4_oc78q"]
 [ext_resource type="Texture2D" uid="uid://dtgkw6smrf5nt" path="res://ui/botons/boton_pequeno_rojo_cruz.png" id="5_lpqwt"]
 [ext_resource type="Texture2D" uid="uid://blehdyrj68rh0" path="res://ui/botons/boton_pequeno_rojo.png" id="6_kp0p0"]
+[ext_resource type="Script" uid="uid://ccs5kqd0tnyy4" path="res://ui/transition_screen.gd" id="7_g5fyd"]
+[ext_resource type="PackedScene" uid="uid://bpsaj6k3ar60m" path="res://addons/music_manager/music_track_node.tscn" id="8_youui"]
+[ext_resource type="Script" uid="uid://b7msw3tdexixh" path="res://addons/music_manager/music_track_res.gd" id="9_58pe3"]
+[ext_resource type="AudioStream" uid="uid://bqebghrswe20x" path="res://music/Gatopompas_menu_loop.mp3" id="10_g6r01"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0i7b6"]
-size = Vector2(300, 150)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nc7m"]
-size = Vector2(300, 150)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8txc"]
-size = Vector2(300, 150)
+[sub_resource type="Resource" id="Resource_t3nb0"]
+script = ExtResource("9_58pe3")
+stems = Array[AudioStream]([ExtResource("10_g6r01")])
+stem_names = Array[String](["main"])
+initial_volumes_db = Array[float]([10.0])
+metadata/_custom_type_script = "uid://b7msw3tdexixh"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1l56y"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=694376829]
 custom_minimum_size = Vector2(-0.295, 0)
 layout_mode = 3
 anchors_preset = 15
@@ -30,7 +31,14 @@ grow_vertical = 2
 theme = ExtResource("1_lwfic")
 script = ExtResource("3_2ctia")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MusicTrackNode" parent="." unique_id=1850352206 instance=ExtResource("8_youui")]
+track = SubResource("Resource_t3nb0")
+
+[node name="BtnAudio" type="AudioStreamPlayer" parent="." unique_id=2040066751]
+stream = ExtResource("3_yf550")
+bus = &"Interface"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=961028396]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,10 +54,7 @@ texture = ExtResource("3_6jst3")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="Boton" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_yf550")
-
-[node name="MarginContainer" type="Control" parent="."]
+[node name="MainMenu" type="Control" parent="." unique_id=202944908]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,30 +64,36 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_lwfic")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
-layout_mode = 2
-offset_left = 60.0
-offset_top = 24.0
-offset_right = 1092.0
-offset_bottom = 107.0
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu" unique_id=550297183]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.071
+anchor_right = 0.99700004
+anchor_bottom = 0.17300001
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_lwfic")
 bbcode_enabled = true
 text = "[center][b]GATOPOMPAS[/b][/center]"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MainMenu" unique_id=1198211362]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 215.445
-offset_top = -146.12
-offset_right = 793.445
-offset_bottom = 1.88
+offset_left = 195.0
+offset_top = -326.12
+offset_right = 2071.0
+offset_bottom = 181.88
 grow_vertical = 2
 size_flags_horizontal = 3
+alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer2"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="MainMenu/VBoxContainer2" unique_id=542790631]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_lwfic")
@@ -90,7 +101,8 @@ bbcode_enabled = true
 text = "MOVEMENT_TXT"
 fit_content = true
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="MarginContainer/VBoxContainer2"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="MainMenu/VBoxContainer2" unique_id=1872931392]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_lwfic")
@@ -98,7 +110,8 @@ bbcode_enabled = true
 text = "JUMP_TXT"
 fit_content = true
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="MarginContainer/VBoxContainer2"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="MainMenu/VBoxContainer2" unique_id=1462765807]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_lwfic")
@@ -106,7 +119,8 @@ bbcode_enabled = true
 text = "EXIT_BUBBLE_TXT"
 fit_content = true
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="MarginContainer/VBoxContainer2"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="MainMenu/VBoxContainer2" unique_id=1551054214]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_lwfic")
@@ -114,200 +128,141 @@ bbcode_enabled = true
 text = "PAUSE_MENU_TXT"
 fit_content = true
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="MainMenu" unique_id=1948124275]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -294.0
-offset_top = -400.5
-offset_right = -14.0
-offset_bottom = 319.5
+offset_left = -1025.0
+offset_top = -592.5
+offset_right = -175.0
+offset_bottom = 990.5
 grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("1_lwfic")
 theme_override_constants/separation = -50
 
-[node name="btnInit" type="TextureButton" parent="MarginContainer/VBoxContainer3"]
-layout_direction = 3
+[node name="BtnInit" type="Button" parent="MainMenu/VBoxContainer3" unique_id=130857477]
+custom_minimum_size = Vector2(560, 420)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource("4_oc78q")
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer3/btnInit"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -143.0
-offset_top = -41.0
-offset_right = 143.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 59
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_lwfic")
+theme_type_variation = &"BtnMenu"
 text = "PLAY_BTN"
+autowrap_trim_flags = 192
+clip_text = true
 
-[node name="TbtnInit" type="TouchScreenButton" parent="MarginContainer/VBoxContainer3/btnInit"]
-position = Vector2(125.52, 114.275)
-shape = SubResource("RectangleShape2D_0i7b6")
-visibility_mode = 1
-
-[node name="btnContinue" type="TextureButton" parent="MarginContainer/VBoxContainer3"]
-layout_direction = 3
+[node name="BtnContinue" type="Button" parent="MainMenu/VBoxContainer3" unique_id=253439637]
+custom_minimum_size = Vector2(560, 420)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource("4_oc78q")
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer3/btnContinue"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -224.0
-offset_top = -41.0
-offset_right = 224.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 59
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_lwfic")
+theme_type_variation = &"BtnMenu"
 text = "CONTINUE_BTN"
+autowrap_trim_flags = 192
+clip_text = true
 
-[node name="TbtnContinue" type="TouchScreenButton" parent="MarginContainer/VBoxContainer3/btnContinue"]
-position = Vector2(125.52, 114.275)
-shape = SubResource("RectangleShape2D_0i7b6")
-visibility_mode = 1
-
-[node name="btnCredits" type="TextureButton" parent="MarginContainer/VBoxContainer3"]
-layout_direction = 3
+[node name="BtnCredits" type="Button" parent="MainMenu/VBoxContainer3" unique_id=169435805]
+custom_minimum_size = Vector2(560, 420)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource("4_oc78q")
-texture_pressed = ExtResource("4_oc78q")
-texture_hover = ExtResource("4_oc78q")
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer3/btnCredits"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -189.5
-offset_top = -41.0
-offset_right = 189.5
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 59
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_lwfic")
+theme_type_variation = &"BtnMenu"
 text = "CREDITS_BTN"
+autowrap_trim_flags = 192
+clip_text = true
 
-[node name="TbtnCredits" type="TouchScreenButton" parent="MarginContainer/VBoxContainer3/btnCredits"]
-position = Vector2(135.52, 109.275)
-shape = SubResource("RectangleShape2D_2nc7m")
-visibility_mode = 1
-
-[node name="btnExit" type="TextureButton" parent="MarginContainer/VBoxContainer3"]
+[node name="BtnClose" type="Button" parent="MainMenu/VBoxContainer3" unique_id=1694374332]
+custom_minimum_size = Vector2(560, 420)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource("4_oc78q")
-texture_pressed = ExtResource("4_oc78q")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_lwfic")
+theme_type_variation = &"BtnMenu"
+text = "CLOSE_BTN"
+autowrap_trim_flags = 192
+clip_text = true
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer3/btnExit"]
+[node name="Credits" type="Control" parent="." unique_id=794237225]
+visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -162.5
-offset_top = -41.0
-offset_right = 162.5
-offset_bottom = 41.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 59
-text = "CLOSE_BTN"
 
-[node name="TbtnExit" type="TouchScreenButton" parent="MarginContainer/VBoxContainer3/btnExit"]
-position = Vector2(140.52, 112.275)
-shape = SubResource("RectangleShape2D_c8txc")
-visibility_mode = 1
-
-[node name="PanelContainer" type="Control" parent="."]
-visible = false
-layout_mode = 2
-anchors_preset = 0
-offset_right = 1215.0
-offset_bottom = 810.0
-
-[node name="Credits" type="MarginContainer" parent="PanelContainer"]
-layout_mode = 2
-offset_right = 1152.0
-offset_bottom = 699.0
+[node name="Credits" type="MarginContainer" parent="Credits" unique_id=1179358923]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_lwfic")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Credits"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/Credits" unique_id=1580434072]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Credits/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/Credits/VBoxContainer" unique_id=1329876388]
 layout_mode = 2
 theme = ExtResource("1_lwfic")
 bbcode_enabled = true
 text = "[center][b]CREDITOS[/b][/center]"
 fit_content = true
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Credits/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Credits/Credits/VBoxContainer" unique_id=981137465]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Credits/VBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/Credits/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/Credits/VBoxContainer/MarginContainer" unique_id=589097391]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_lwfic")
-bbcode_enabled = true
-text = "[font_size=28]Equipo[/font_size]"
-fit_content = true
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/Credits/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Credits/Credits/VBoxContainer/MarginContainer/VBoxContainer" unique_id=640552312]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_lwfic")
 bbcode_enabled = true
-text = "Manuel Otero, Xabier Villanueva Loureiro, Antia Seoane y Andrés Piñeiro"
+text = "[font_size=120]Equipo[/font_size]"
 fit_content = true
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/Credits/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="Credits/Credits/VBoxContainer/MarginContainer/VBoxContainer" unique_id=707853271]
 layout_mode = 2
-theme_override_constants/separation = 11
+theme_override_constants/separation = 30
 theme_override_styles/separator = SubResource("StyleBoxEmpty_1l56y")
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="PanelContainer/Credits/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="Credits/Credits/VBoxContainer/MarginContainer/VBoxContainer" unique_id=141577015]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_lwfic")
 bbcode_enabled = true
-text = "[font_size=28]Recursos FX [/font_size]"
+text = "Manuel Otero, Xabier Villanueva Loureiro, Antia Seoane, Andrés Piñeiro y Roxo"
 fit_content = true
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="PanelContainer/Credits/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Credits/Credits/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1017095505]
+layout_mode = 2
+theme_override_constants/separation = 200
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1l56y")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Credits/Credits/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1969327612]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lwfic")
+bbcode_enabled = true
+text = "[font_size=120]Recursos FX [/font_size]"
+fit_content = true
+
+[node name="HSeparator3" type="HSeparator" parent="Credits/Credits/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1175955332]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1l56y")
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Credits/Credits/VBoxContainer/MarginContainer/VBoxContainer" unique_id=70637922]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_lwfic")
@@ -319,34 +274,38 @@ Procomun
 "
 fit_content = true
 
-[node name="TextureButton" type="TextureButton" parent="PanelContainer"]
-layout_mode = 2
+[node name="BtnClose" type="TextureButton" parent="Credits" unique_id=702018072]
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.996
 anchor_top = 0.059
 anchor_right = 0.996
 anchor_bottom = 0.059
-offset_left = -273.392
-offset_top = 0.0479965
-offset_right = 146.608
-offset_bottom = 210.048
+offset_left = -554.6399
+offset_top = 0.04799652
+offset_right = 298.04858
+offset_bottom = 460.83575
 scale = Vector2(0.65, 0.65)
 texture_normal = ExtResource("5_lpqwt")
 texture_pressed = ExtResource("6_kp0p0")
 texture_hover = ExtResource("5_lpqwt")
 texture_disabled = ExtResource("5_lpqwt")
+stretch_mode = 0
 
-[node name="TbtnCloseCredits" type="TouchScreenButton" parent="PanelContainer/TextureButton"]
-position = Vector2(206.541, 114.095)
-shape = SubResource("RectangleShape2D_0i7b6")
-visibility_mode = 1
+[node name="ColorRect" type="ColorRect" parent="." unique_id=660507261]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+script = ExtResource("7_g5fyd")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnInit" to="." method="_on_init_game"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnInit/TbtnInit" to="." method="_on_init_game"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnContinue" to="." method="_on_continue_game"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnContinue/TbtnContinue" to="." method="_on_continue_game"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnCredits" to="." method="_on_open_credits"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnCredits/TbtnCredits" to="." method="_on_open_credits"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnExit" to="." method="_on_exit_game"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer3/btnExit/TbtnExit" to="." method="_on_exit_game"]
-[connection signal="pressed" from="PanelContainer/TextureButton" to="." method="_on_close_credits"]
-[connection signal="pressed" from="PanelContainer/TextureButton/TbtnCloseCredits" to="." method="_on_close_credits"]
+[connection signal="pressed" from="MainMenu/VBoxContainer3/BtnInit" to="." method="_on_init_game"]
+[connection signal="pressed" from="MainMenu/VBoxContainer3/BtnContinue" to="." method="_on_continue_game"]
+[connection signal="pressed" from="MainMenu/VBoxContainer3/BtnCredits" to="." method="_on_open_credits"]
+[connection signal="pressed" from="MainMenu/VBoxContainer3/BtnClose" to="." method="_on_exit_game"]
+[connection signal="pressed" from="Credits/BtnClose" to="." method="_on_close_credits"]

@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var textureInactive: Texture2D = load("res://cousasescenario/checkpoint_active.png")
+@onready var textureInactive: Texture2D = load("res://enviroment/Checkpoints/checkpoint_active.png")
 
 var actived = false
 
