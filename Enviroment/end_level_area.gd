@@ -10,6 +10,11 @@ extends Area2D
 			return
 		collision_shape_2d.shape = shape
 
+
+func _ready() -> void:
+	shape = shape
+
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		LevelTransition.request_transition_next("expo")
+		GameController.end_game()
