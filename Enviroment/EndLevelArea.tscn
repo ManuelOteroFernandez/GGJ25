@@ -5,11 +5,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhvt5"]
 size = Vector2(148, 62)
 
-[node name="EndLevelArea" type="Area2D"]
+[node name="EndLevelArea" type="Area2D" unique_id=236600621]
 script = ExtResource("1_s0aih")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(74, 31)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=58745426]
 shape = SubResource("RectangleShape2D_jhvt5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
