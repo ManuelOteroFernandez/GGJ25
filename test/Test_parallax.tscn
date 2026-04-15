@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dmjrl26ropqt0"]
 
+[ext_resource type="PackedScene" uid="uid://cksqk72kh6thc" path="res://Enviroment/Background/background_pradera.tscn" id="1_l3cij"]
 [ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://enviroment/floor_tile_set.tres" id="3_0sj7p"]
 [ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://character/Character.tscn" id="6_bqhur"]
 [ext_resource type="PackedScene" uid="uid://bml6auaaybttx" path="res://character/follower.tscn" id="7_kr4tk"]
@@ -12,6 +13,8 @@
 [ext_resource type="Resource" uid="uid://cxlkmwcditdhh" path="res://bubble/types/burbuja_libre.tres" id="13_8467r"]
 
 [node name="TestLevel" type="Node2D" unique_id=497673803]
+
+[node name="Background" parent="." unique_id=1948444696 instance=ExtResource("1_l3cij")]
 
 [node name="BubbleGenerator" parent="." unique_id=1436191769 instance=ExtResource("9_wijih")]
 position = Vector2(16923, 9513)

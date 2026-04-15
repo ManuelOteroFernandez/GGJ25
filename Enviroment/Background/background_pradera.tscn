@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cksqk72kh6thc"]
+
+[ext_resource type="Texture2D" uid="uid://b85scy110ukpa" path="res://enviroment/Fondo.png" id="1_bjitq"]
+[ext_resource type="Texture2D" uid="uid://bsmq7mykpni32" path="res://enviroment/Background.png" id="2_doplw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2t6g"]
+atlas = ExtResource("2_doplw")
+region = Rect2(0, 0, 4096, 1460)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85q47"]
+atlas = ExtResource("2_doplw")
+region = Rect2(0, 3030.408, 4096, 980.62915)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pvn3"]
+atlas = ExtResource("2_doplw")
+region = Rect2(0, 1482.25, 4096, 1448.971)
+
+[node name="Background" type="Node" unique_id=1948444696]
+
+[node name="Layer04" type="Parallax2D" parent="." unique_id=1645151330]
+z_index = -100
+scroll_scale = Vector2(0.9, 0)
+scroll_offset = Vector2(1024, 700)
+repeat_size = Vector2(2048, 2048)
+autoscroll = Vector2(2, 0)
+repeat_times = 5
+metadata/_edit_lock_ = true
+
+[node name="Cielo" type="Sprite2D" parent="Layer04" unique_id=1234759649]
+position = Vector2(207, -322)
+texture = ExtResource("1_bjitq")
+metadata/_edit_lock_ = true
+
+[node name="Layer03" type="Parallax2D" parent="." unique_id=2028463890]
+z_index = -100
+scroll_scale = Vector2(0.8, 0)
+scroll_offset = Vector2(0, -520.64)
+repeat_size = Vector2(4096, 0)
+autoscroll = Vector2(2, 0)
+repeat_times = 5
+metadata/_edit_lock_ = true
+
+[node name="Montañas" type="Sprite2D" parent="Layer03" unique_id=687950039]
+position = Vector2(1024, 1348)
+texture = SubResource("AtlasTexture_o2t6g")
+metadata/_edit_lock_ = true
+
+[node name="Layer02" type="Parallax2D" parent="." unique_id=30573174]
+z_index = -100
+scroll_scale = Vector2(0.75, 0)
+scroll_offset = Vector2(0, 396.5)
+repeat_size = Vector2(4096, 0)
+autoscroll = Vector2(2, 0)
+repeat_times = 5
+metadata/_edit_lock_ = true
+
+[node name="Loma" type="Sprite2D" parent="Layer02" unique_id=995398529]
+position = Vector2(0, 489.06006)
+texture = SubResource("AtlasTexture_85q47")
+metadata/_edit_lock_ = true
+
+[node name="Layer01" type="Parallax2D" parent="." unique_id=1517961773]
+z_index = -100
+scroll_scale = Vector2(0.7, 0)
+scroll_offset = Vector2(0, 1689.06)
+repeat_size = Vector2(4096, 0)
+autoscroll = Vector2(2, 0)
+repeat_times = 5
+metadata/_edit_lock_ = true
+
+[node name="Llanuras" type="Sprite2D" parent="Layer01" unique_id=125168167]
+position = Vector2(0, -189.06006)
+texture = SubResource("AtlasTexture_7pvn3")
+metadata/_edit_lock_ = true
