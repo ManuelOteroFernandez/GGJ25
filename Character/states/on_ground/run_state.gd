@@ -24,7 +24,7 @@ func on_input(event: InputEvent) -> void:
 
 func on_physics_process(delta: float) -> void:
 
-	if not character.is_near_floor() and character.velocity.y >= 0:
+	if not character.is_near_floor() and character.velocity.y > 0:
 		character.state_machine.change_state(StateMachine.State.FALL)
 		return
 
