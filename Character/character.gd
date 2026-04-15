@@ -35,12 +35,20 @@ const MIN_HEIGHT_SLICE = 384
 @onready var state_machine: StateMachine = StateMachine.new(self)
 
 var _last_bubble_collided_id:int
+var _block_input: bool = false
 
 var is_jumping:bool = false
 var move_mode:MOVE_SET = MOVE_SET.GROUND
 var current_dir = 1
 var anim_state = ANIM_STATE_SET.IDLE
 
+
+func _ready() -> void:
+	if GameController.last_checkpoint_position != Vector2.ZERO:
+		global_position = GameController.last_checkpoint_position
+	
+	LevelTransition.level_ready.connect(func(): _block_input = false )
+	LevelTransition.transition_started.connect(func(): _block_input = true )
 
 func rotate_with_surface(full_rotate: bool = false) -> void:
 	var ray_start: Vector2 = global_position + current_dir * Vector2(collision_shape.shape.mid_height / 2,0).rotated(rotation)
@@ -97,15 +105,20 @@ func get_bubble() -> Bubble:
 
 
 func _input(event: InputEvent) -> void:
+	if _block_input:
+		return
 	state_machine.input(event)
 		
 		
 func _physics_process(delta: float) -> void:
+	if _block_input:
+		return
 	state_machine.physics_process(delta)
-	#print(velocity)
 
 
 func _process(delta: float) -> void:
+	if _block_input:
+		return
 	state_machine.process(delta)
 	
 
@@ -188,7 +201,6 @@ func check_is_on_wall() -> bool:
 	
 func dead(is_especial:bool = false):
 	on_dead_signal.emit()
-	$RespawnTimer.start()
 	audio_comp.play_sound(audio_comp.sound_dead if not is_especial else audio_comp.sound_dead_especial)
 
 
