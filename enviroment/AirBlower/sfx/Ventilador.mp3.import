@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://daeryhqpvi6u6"
-path="res://.godot/imported/Ventilador.mp3-2daaca64c61ee5d890857e882d7b8b2f.mp3str"
+path="res://.godot/imported/Ventilador.mp3-25f2a319fd22504dac956c5776925214.mp3str"
 
 [deps]
 
-source_file="res://enviroment/AirBlower/sfx/Ventilador.mp3"
-dest_files=["res://.godot/imported/Ventilador.mp3-2daaca64c61ee5d890857e882d7b8b2f.mp3str"]
+source_file="res://Enviroment/AirBlower/sfx/Ventilador.mp3"
+dest_files=["res://.godot/imported/Ventilador.mp3-25f2a319fd22504dac956c5776925214.mp3str"]
 
 [params]
 

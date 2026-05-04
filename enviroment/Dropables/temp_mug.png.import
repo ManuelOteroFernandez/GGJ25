@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b31rb42fajols"
-path="res://.godot/imported/temp_mug.png-c9f57291a055818f0c270779b3aefc7d.ctex"
+path="res://.godot/imported/temp_mug.png-4e605a6631507037d9e2c7386461b518.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enviroment/Dropables/temp_mug.png"
-dest_files=["res://.godot/imported/temp_mug.png-c9f57291a055818f0c270779b3aefc7d.ctex"]
+source_file="res://Enviroment/Dropables/temp_mug.png"
+dest_files=["res://.godot/imported/temp_mug.png-4e605a6631507037d9e2c7386461b518.ctex"]
 
 [params]
 

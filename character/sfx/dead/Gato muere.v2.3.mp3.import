@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://c1dxxu1kplnch"
-path="res://.godot/imported/Gato muere.v2.3.mp3-d9f5cda8be1aaab61cc497a644132e25.mp3str"
+path="res://.godot/imported/Gato muere.v2.3.mp3-b4a86ea251455decdd9859c5e7c00d01.mp3str"
 
 [deps]
 
-source_file="res://character/sfx/dead/Gato muere.v2.3.mp3"
-dest_files=["res://.godot/imported/Gato muere.v2.3.mp3-d9f5cda8be1aaab61cc497a644132e25.mp3str"]
+source_file="res://Character/sfx/dead/Gato muere.v2.3.mp3"
+dest_files=["res://.godot/imported/Gato muere.v2.3.mp3-b4a86ea251455decdd9859c5e7c00d01.mp3str"]
 
 [params]
 

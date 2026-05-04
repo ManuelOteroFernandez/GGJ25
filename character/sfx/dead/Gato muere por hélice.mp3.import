@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cajg3b18uok25"
-path="res://.godot/imported/Gato muere por hélice.mp3-f9f22ce4205a11c647d17c307797a135.mp3str"
+path="res://.godot/imported/Gato muere por hélice.mp3-afe65b8409925bd3e0cc9fe9caebd503.mp3str"
 
 [deps]
 
-source_file="res://character/sfx/dead/Gato muere por hélice.mp3"
-dest_files=["res://.godot/imported/Gato muere por hélice.mp3-f9f22ce4205a11c647d17c307797a135.mp3str"]
+source_file="res://Character/sfx/dead/Gato muere por hélice.mp3"
+dest_files=["res://.godot/imported/Gato muere por hélice.mp3-afe65b8409925bd3e0cc9fe9caebd503.mp3str"]
 
 [params]
 

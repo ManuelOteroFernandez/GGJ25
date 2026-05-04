@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clqpolreqw6d7"
-path="res://.godot/imported/gatete_falling_esq.png-25c412e62ad7342d190bb6e67591c393.ctex"
+path="res://.godot/imported/gatete_falling_esq.png-ae25d7bdab1055c97236770a360fa186.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/sprites/movement/gatete_falling_esq.png"
-dest_files=["res://.godot/imported/gatete_falling_esq.png-25c412e62ad7342d190bb6e67591c393.ctex"]
+source_file="res://Character/sprites/movement/gatete_falling_esq.png"
+dest_files=["res://.godot/imported/gatete_falling_esq.png-ae25d7bdab1055c97236770a360fa186.ctex"]
 
 [params]
 

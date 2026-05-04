@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dbboy22njue18"
-path="res://.godot/imported/Gato entra en pompa.mp3-9ad7331474d1c1e39112a6bdb5572198.mp3str"
+path="res://.godot/imported/Gato entra en pompa.mp3-98abf8f8e79f5fc040648cb2946412c3.mp3str"
 
 [deps]
 
-source_file="res://character/sfx/Gato entra en pompa.mp3"
-dest_files=["res://.godot/imported/Gato entra en pompa.mp3-9ad7331474d1c1e39112a6bdb5572198.mp3str"]
+source_file="res://Character/sfx/Gato entra en pompa.mp3"
+dest_files=["res://.godot/imported/Gato entra en pompa.mp3-98abf8f8e79f5fc040648cb2946412c3.mp3str"]
 
 [params]
 

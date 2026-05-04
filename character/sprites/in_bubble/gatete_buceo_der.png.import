@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dih1c3csshh4v"
-path="res://.godot/imported/gatete_buceo_der.png-7bd2bc832750773b3c4556fb052f7984.ctex"
+path="res://.godot/imported/gatete_buceo_der.png-01632d42d28dc15dadfad2557084870f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/sprites/in_bubble/gatete_buceo_der.png"
-dest_files=["res://.godot/imported/gatete_buceo_der.png-7bd2bc832750773b3c4556fb052f7984.ctex"]
+source_file="res://Character/sprites/in_bubble/gatete_buceo_der.png"
+dest_files=["res://.godot/imported/gatete_buceo_der.png-01632d42d28dc15dadfad2557084870f.ctex"]
 
 [params]
 

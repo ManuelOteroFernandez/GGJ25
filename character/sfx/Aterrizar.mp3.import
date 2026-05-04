@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://x06ob4ma0hni"
-path="res://.godot/imported/Aterrizar.mp3-d4958a2e84c9d3c412bfd18a8cda14e6.mp3str"
+path="res://.godot/imported/Aterrizar.mp3-4d85c532bb0112202617e29a348a7baf.mp3str"
 
 [deps]
 
-source_file="res://character/sfx/Aterrizar.mp3"
-dest_files=["res://.godot/imported/Aterrizar.mp3-d4958a2e84c9d3c412bfd18a8cda14e6.mp3str"]
+source_file="res://Character/sfx/Aterrizar.mp3"
+dest_files=["res://.godot/imported/Aterrizar.mp3-4d85c532bb0112202617e29a348a7baf.mp3str"]
 
 [params]
 

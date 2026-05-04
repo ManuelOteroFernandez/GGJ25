@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://di7wx5vndqo6k"
-path="res://.godot/imported/Gato ronroneo.mp3-9dfc8389f9b6a9809c922f90d2c512bd.mp3str"
+path="res://.godot/imported/Gato ronroneo.mp3-e7084a2539572c03f96fe80cecfedcba.mp3str"
 
 [deps]
 
-source_file="res://character/sfx/Gato ronroneo.mp3"
-dest_files=["res://.godot/imported/Gato ronroneo.mp3-9dfc8389f9b6a9809c922f90d2c512bd.mp3str"]
+source_file="res://Character/sfx/Gato ronroneo.mp3"
+dest_files=["res://.godot/imported/Gato ronroneo.mp3-e7084a2539572c03f96fe80cecfedcba.mp3str"]
 
 [params]
 

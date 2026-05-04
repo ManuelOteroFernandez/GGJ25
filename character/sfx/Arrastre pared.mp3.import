@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://d0gygde717gct"
-path="res://.godot/imported/Arrastre pared.mp3-9670bebdd8e16269242745506e6a3436.mp3str"
+path="res://.godot/imported/Arrastre pared.mp3-16988fd4541e61c6d39d5fbd3ac640ea.mp3str"
 
 [deps]
 
-source_file="res://character/sfx/Arrastre pared.mp3"
-dest_files=["res://.godot/imported/Arrastre pared.mp3-9670bebdd8e16269242745506e6a3436.mp3str"]
+source_file="res://Character/sfx/Arrastre pared.mp3"
+dest_files=["res://.godot/imported/Arrastre pared.mp3-16988fd4541e61c6d39d5fbd3ac640ea.mp3str"]
 
 [params]
 

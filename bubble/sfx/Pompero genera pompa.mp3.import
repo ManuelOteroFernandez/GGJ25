@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://hhxavs7i5ltn"
-path="res://.godot/imported/Pompero genera pompa.mp3-c49187858a11b5451e0157698a85c8f7.mp3str"
+path="res://.godot/imported/Pompero genera pompa.mp3-77593bd8cd2ea73ead9b43d6289dba6f.mp3str"
 
 [deps]
 
-source_file="res://bubble/sfx/Pompero genera pompa.mp3"
-dest_files=["res://.godot/imported/Pompero genera pompa.mp3-c49187858a11b5451e0157698a85c8f7.mp3str"]
+source_file="res://Bubble/sfx/Pompero genera pompa.mp3"
+dest_files=["res://.godot/imported/Pompero genera pompa.mp3-77593bd8cd2ea73ead9b43d6289dba6f.mp3str"]
 
 [params]
 

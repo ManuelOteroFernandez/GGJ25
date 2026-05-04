@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://qhp1g30t6rvk"
-path="res://.godot/imported/Castillo.v2.mp3-7e267ce246e56f6d3b596f664e706958.mp3str"
+path="res://.godot/imported/Castillo.v2.mp3-d649e54ccaa916e9d68f35844fff6ce5.mp3str"
 
 [deps]
 
-source_file="res://enviroment/Checkpoints/Castillo.v2.mp3"
-dest_files=["res://.godot/imported/Castillo.v2.mp3-7e267ce246e56f6d3b596f664e706958.mp3str"]
+source_file="res://Enviroment/Checkpoints/Castillo.v2.mp3"
+dest_files=["res://.godot/imported/Castillo.v2.mp3-d649e54ccaa916e9d68f35844fff6ce5.mp3str"]
 
 [params]
 

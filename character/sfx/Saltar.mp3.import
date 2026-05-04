@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://mrtlogihq75u"
-path="res://.godot/imported/Saltar.mp3-0feddc73597d59794b96b42582aa4bfc.mp3str"
+path="res://.godot/imported/Saltar.mp3-8a087eeabaf954ad28c8c8c0e0fedf14.mp3str"
 
 [deps]
 
-source_file="res://character/sfx/Saltar.mp3"
-dest_files=["res://.godot/imported/Saltar.mp3-0feddc73597d59794b96b42582aa4bfc.mp3str"]
+source_file="res://Character/sfx/Saltar.mp3"
+dest_files=["res://.godot/imported/Saltar.mp3-8a087eeabaf954ad28c8c8c0e0fedf14.mp3str"]
 
 [params]
 

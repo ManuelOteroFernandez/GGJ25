@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0jx3888t5pab"
-path="res://.godot/imported/helice_frame3.png-a09456b86645e4c7eeb812d3c6cb9bc1.ctex"
+path="res://.godot/imported/helice_frame3.png-c8fdc403a3d99ebedb46c872e2be175b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enviroment/AirBlower/sprites/helice_frame3.png"
-dest_files=["res://.godot/imported/helice_frame3.png-a09456b86645e4c7eeb812d3c6cb9bc1.ctex"]
+source_file="res://Enviroment/AirBlower/sprites/helice_frame3.png"
+dest_files=["res://.godot/imported/helice_frame3.png-c8fdc403a3d99ebedb46c872e2be175b.ctex"]
 
 [params]
 

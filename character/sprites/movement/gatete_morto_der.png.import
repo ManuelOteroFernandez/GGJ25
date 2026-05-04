@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqpifa7tkq1cw"
-path="res://.godot/imported/gatete_morto_der.png-f6df519553b70911d45490398383f6db.ctex"
+path="res://.godot/imported/gatete_morto_der.png-d5dd5a8f6c49eb84120a070276b0bc5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/sprites/movement/gatete_morto_der.png"
-dest_files=["res://.godot/imported/gatete_morto_der.png-f6df519553b70911d45490398383f6db.ctex"]
+source_file="res://Character/sprites/movement/gatete_morto_der.png"
+dest_files=["res://.godot/imported/gatete_morto_der.png-d5dd5a8f6c49eb84120a070276b0bc5c.ctex"]
 
 [params]
 

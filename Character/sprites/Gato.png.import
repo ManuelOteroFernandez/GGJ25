@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwng2c3jvwn1r"
-path="res://.godot/imported/gatete_morto_esq.png-1a2aa4813916d473e8f1c642a7b98eb3.ctex"
+uid="uid://b874fpyla7p7k"
+path="res://.godot/imported/Gato.png-68ef53086b8ba590455509ef457e6c3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/sprites/movement/gatete_morto_esq.png"
-dest_files=["res://.godot/imported/gatete_morto_esq.png-1a2aa4813916d473e8f1c642a7b98eb3.ctex"]
+source_file="res://Character/sprites/Gato.png"
+dest_files=["res://.godot/imported/Gato.png-68ef53086b8ba590455509ef457e6c3a.ctex"]
 
 [params]
 

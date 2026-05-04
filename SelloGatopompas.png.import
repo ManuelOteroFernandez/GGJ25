@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwng2c3jvwn1r"
-path="res://.godot/imported/gatete_morto_esq.png-1a2aa4813916d473e8f1c642a7b98eb3.ctex"
+uid="uid://bf1akmdotmekd"
+path="res://.godot/imported/SelloGatopompas.png-17a73db53d6fbee954938a57aeb9549f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/sprites/movement/gatete_morto_esq.png"
-dest_files=["res://.godot/imported/gatete_morto_esq.png-1a2aa4813916d473e8f1c642a7b98eb3.ctex"]
+source_file="res://SelloGatopompas.png"
+dest_files=["res://.godot/imported/SelloGatopompas.png-17a73db53d6fbee954938a57aeb9549f.ctex"]
 
 [params]
 

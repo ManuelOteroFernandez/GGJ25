@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bophkoj4bf5s1"
-path="res://.godot/imported/gatete_idlebuceo_esq.png-5d94805a82d5f9faf879a52a16555ca5.ctex"
+path="res://.godot/imported/gatete_idlebuceo_esq.png-032d5ca9ed0b56507da46a173f716196.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/sprites/in_bubble/gatete_idlebuceo_esq.png"
-dest_files=["res://.godot/imported/gatete_idlebuceo_esq.png-5d94805a82d5f9faf879a52a16555ca5.ctex"]
+source_file="res://Character/sprites/in_bubble/gatete_idlebuceo_esq.png"
+dest_files=["res://.godot/imported/gatete_idlebuceo_esq.png-032d5ca9ed0b56507da46a173f716196.ctex"]
 
 [params]
 
