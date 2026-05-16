@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mod8hta7xeju"
-path="res://.godot/imported/bubbleTemplate.png-3a49a7397d0fbc198ef6dca864c8b867.ctex"
+uid="uid://bjci8k5xvtf5i"
+path="res://.godot/imported/Gato.png-c81b1125c8de9415cceced6b01bbc72f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bubble/bubbleTemplate.png"
-dest_files=["res://.godot/imported/bubbleTemplate.png-3a49a7397d0fbc198ef6dca864c8b867.ctex"]
+source_file="res://character/sprites/Gato.png"
+dest_files=["res://.godot/imported/Gato.png-c81b1125c8de9415cceced6b01bbc72f.ctex"]
 
 [params]
 

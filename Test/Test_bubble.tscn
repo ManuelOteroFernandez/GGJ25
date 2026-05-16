@@ -1,3 +1,41 @@
-[gd_scene format=3 uid="uid://cy7rft6exbpom"]
+[gd_scene format=4 uid="uid://cy7rft6exbpom"]
+
+[ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://bubble/BubbleGenerator.tscn" id="1_tsmm8"]
+[ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://enviroment/floor_tile_set.tres" id="2_3ynxp"]
+[ext_resource type="Resource" uid="uid://dpxq3xlefq2od" path="res://bubble/types/burbuja_lineal.tres" id="2_h3r6w"]
+[ext_resource type="Resource" uid="uid://cxlkmwcditdhh" path="res://bubble/types/burbuja_libre.tres" id="3_h3r6w"]
+[ext_resource type="Script" uid="uid://bn7ho4rb68e4b" path="res://bubble/types/bubble_type_ress.gd" id="4_2d0li"]
+
+[sub_resource type="Resource" id="Resource_g2ogf"]
+script = ExtResource("4_2d0li")
+color_array = Array[Color]([Color(0.46, 0.3542, 0.447657, 1), Color(0.52, 0.4004, 0.506047, 1), Color(0.58, 0.4466, 0.564437, 1), Color(0.64, 0.4928, 0.622827, 1), Color(0.7, 0.539, 0.681217, 1), Color(0.76, 0.5852, 0.739607, 1), Color(0.82, 0.6314, 0.797997, 1), Color(0.88, 0.6776, 0.856387, 1), Color(0.94, 0.7238, 0.914777, 1), Color(1, 0.769757, 0.973464, 1)])
+type = 3
+gravity = -0.3
+endurance = 2
 
 [node name="TestBubble" type="Node2D" unique_id=164128708]
+
+[node name="BubbleGenerator" parent="." unique_id=1436191769 instance=ExtResource("1_tsmm8")]
+position = Vector2(1152, 1536)
+spawn_time = 3.0
+bubble_type = ExtResource("2_h3r6w")
+bubble_speed = Vector2(0, -30)
+
+[node name="BubbleGenerator2" parent="." unique_id=318913668 instance=ExtResource("1_tsmm8")]
+position = Vector2(2432, 1792)
+spawn_time = 3.0
+bubble_type = ExtResource("3_h3r6w")
+bubble_speed = Vector2(0, -30)
+
+[node name="BubbleGenerator3" parent="." unique_id=709745912 instance=ExtResource("1_tsmm8")]
+position = Vector2(3712, 1536)
+spawn_time = 3.0
+bubble_type = SubResource("Resource_g2ogf")
+bubble_speed = Vector2(0, -30)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1678276495 groups=["Ground"]]
+tile_map_data = PackedByteArray("AAAAAAYAAAAAAAAAAAABAAYAAAABAAAAAAACAAYAAAABAAAAAAADAAYAAAABAAAAAAAFAAYAAAABAAAAAAAEAAYAAAABAAAAAAAGAAYAAAABAAAAAAAHAAYAAAACAAAAAAALAAYAAAADAAAAAAANAAYAAAAAAAAAAAAOAAYAAAABAAAAAAAPAAYAAAACAAAAAAAAAAcAAAAAAAEAAAABAAcAAAABAAEAAAACAAcAAAABAAEAAAADAAcAAAAHAAUAAAAEAAcAAAABAAEAAAAFAAcAAAABAAEAAAAGAAcAAAAHAAUAAAAHAAcAAAAAAAUAAAALAAcAAAAHAAMAAAAAAAgAAAAAAAEAAAABAAgAAAAHAAUAAAACAAgAAAABAAEAAAAEAAgAAAAHAAUAAAADAAgAAAABAAEAAAAFAAgAAAAHAAUAAAAHAAgAAAABAAEAAAAGAAgAAAAHAAUAAAALAAgAAAACAAEAAAAAAAkAAAAAAAIAAAABAAkAAAABAAIAAAACAAkAAAABAAIAAAADAAkAAAABAAIAAAAEAAkAAAABAAIAAAAGAAkAAAABAAIAAAAFAAkAAAABAAIAAAAHAAkAAAABAAIAAAAIAAkAAAABAAIAAAAJAAkAAAABAAIAAAALAAkAAAAGAAEAAAAKAAkAAAABAAIAAAAMAAkAAAABAAMAAAANAAkAAAABAAMAAAAOAAkAAAABAAMAAAAPAAkAAAABAAMAAAAQAAkAAAABAAMAAAARAAkAAAABAAMAAAASAAkAAAABAAMAAAATAAkAAAAFAAEAAAATAAgAAAADAAEAAAATAAYAAAADAAAAAAATAAcAAAADAAEAAAAIAAgAAAAHAAUAAAAJAAgAAAAHAAUAAAAKAAgAAAABAAEAAAAIAAcAAAABAAAAAAAJAAcAAAABAAAAAAAKAAcAAAABAAAAAAANAAcAAAAAAAIAAAAOAAcAAAABAAIAAAAPAAcAAAACAAIAAAADAP7/AAABAAMAAAAEAP7/AAABAAMAAAAFAP7/AAABAAMAAAAGAP7/AAABAAMAAAAHAP7/AAABAAMAAAAIAP7/AAABAAMAAAAJAP7/AAABAAMAAAAKAP7/AAABAAMAAAALAP7/AAABAAMAAAAMAP7/AAABAAMAAAANAP7/AAABAAMAAAAOAP7/AAABAAMAAAAPAP7/AAABAAMAAAAQAP7/AAABAAMAAAARAP7/AAABAAMAAAASAP7/AAABAAMAAAATAP7/AAABAAMAAAAUAP7/AAABAAMAAAAVAP7/AAACAAMAAAACAP7/AAABAAMAAAABAP7/AAABAAMAAAAAAP7/AAAAAAMAAAA=")
+tile_set = ExtResource("2_3ynxp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1023683248]
+position = Vector2(2432, 640)

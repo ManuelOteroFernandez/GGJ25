@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://dnn87aqvrb6mj"]
 
 [ext_resource type="Script" uid="uid://ba3oocwh8agph" path="res://bubble/bubble_generator.gd" id="1_37rfm"]
-[ext_resource type="Texture2D" uid="uid://cj04840tox6ek" path="res://bubble/tubería_basic.png" id="2_dq5bm"]
+[ext_resource type="Texture2D" uid="uid://dhdjxowy0rmw2" path="res://enviroment/foreground/Foreground.png" id="2_hd4n2"]
 [ext_resource type="AudioStream" uid="uid://hhxavs7i5ltn" path="res://bubble/sfx/Pompero genera pompa.mp3" id="3_43ad8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpyfk"]
+atlas = ExtResource("2_hd4n2")
+region = Rect2(7.741043, 335.85303, 472.50525, 351.38416)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f07jw"]
 size = Vector2(680, 544)
@@ -12,8 +16,9 @@ script = ExtResource("1_37rfm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=183867471]
 z_index = 2
+position = Vector2(0, 8)
 scale = Vector2(2, 2)
-texture = ExtResource("2_dq5bm")
+texture = SubResource("AtlasTexture_qpyfk")
 
 [node name="BubbleList" type="Node2D" parent="." unique_id=1767629251]
 

@@ -8,7 +8,7 @@ var scene_bubble = preload("res://Bubble/Bubble.tscn");
 
 func _ready() -> void:
 	$Timer.wait_time = spawn_time
-	$Sprite2D.modulate = bubble_type.color_array.back()
+	#$Sprite2D.modulate = bubble_type.color_array.back()
 	spawn_bubble()
 	$Timer.start()
 
