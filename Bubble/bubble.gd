@@ -55,7 +55,7 @@ func pop() -> void:
 	audio.play()
 	line_sprite.play("explotion")
 	animated_sprite.play("explotion")
-	await audio.finished
+	await animated_sprite.animation_finished
 
 	queue_free()
 
@@ -98,7 +98,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 func _play_hit_and_back():
 	line_sprite.play("hit")
 	animated_sprite.play("hit")
-	print("%s hit" % self.name)
 	if not animated_sprite.animation_finished.is_connected(_play_default):
 		animated_sprite.animation_finished.connect(
 			_play_default,
@@ -107,7 +106,6 @@ func _play_hit_and_back():
 	
 	
 func _play_default():
-	print("%s default" % self.name)
 	line_sprite.play("default")
 	animated_sprite.play("default")
 	
