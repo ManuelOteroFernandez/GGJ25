@@ -1,34 +1,34 @@
 extends AnimatedSprite2D
 
 
-var parent
+var parent: Player
 
 func _ready() -> void:
-	parent = get_parent()
+	parent = get_parent() as Player
+	if parent == null: return
+	parent.state_changed_signal.connect(_on_state_changed)
 
 
 func _process(_delta: float) -> void:
-	if parent == null: return
-	
-	if parent.anim_state == parent.ANIM_STATE_SET.RUN:
-		animation = "runL" if parent.current_dir < 0 else "runR"
+	flip_h = parent.current_dir < 0
 
-	elif parent.anim_state == parent.ANIM_STATE_SET.JUMP and animation not in ["jumpL","jumpR"]:
-		animation = "jumpL" if parent.current_dir < 0 else "jumpR"
 
-	elif parent.anim_state == parent.ANIM_STATE_SET.IDLE:
-		animation = "idleL" if parent.current_dir < 0 else "idleR"
-
-	elif parent.anim_state == parent.ANIM_STATE_SET.SLICE:
-		animation = "slideL" if parent.current_dir < 0 else "slideR"
-
-	elif parent.anim_state in [parent.ANIM_STATE_SET.FALL, parent.ANIM_STATE_SET.JUMP_SLICE]:
-		animation = "fallL" if parent.current_dir < 0 else "fallR"
-	
-	elif parent.anim_state == parent.ANIM_STATE_SET.BUBBLE_IDLE:
-		animation = "idleBubbleL" if parent.current_dir < 0 else "idleBubbleR"
-
-	elif parent.anim_state == parent.ANIM_STATE_SET.BUBBLE_MOVE:
-		animation = "moveBubbleL" if parent.current_dir < 0 else "moveBubbleR"
-
+func _on_state_changed(new_state: StateMachine.State) -> void:
+	match new_state:
+		StateMachine.State.RUN:
+			animation = "run"
+		StateMachine.State.JUMP:
+			animation = "jump"
+		StateMachine.State.IDLE:
+			animation = "idle"
+		StateMachine.State.SLICE:
+			animation = "slide"
+		StateMachine.State.FALL, StateMachine.State.SLICE_JUMP:
+			animation = "fall"
+		StateMachine.State.BUBBLE_IDLE:
+			animation = "idleBubble"
+		StateMachine.State.BUBBLE_MOVE:
+			animation = "moveBubble"
+		StateMachine.State.BUBBLE_JUMP:
+			animation = "jump"
 	play()

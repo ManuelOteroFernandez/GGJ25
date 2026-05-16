@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 signal on_dead_signal
+signal state_changed_signal(new_state: StateMachine.State)
 
 enum MOVE_SET { GROUND, BURBUJA }
 enum ANIM_STATE_SET { 
@@ -32,7 +33,7 @@ const MIN_HEIGHT_SLICE = 384
 @onready var audio_comp = $AudioStreamPlayer2D
 @onready var first_parent = get_parent()
 
-@onready var state_machine: StateMachine = StateMachine.new(self)
+@onready var state_machine: StateMachine
 
 var _last_bubble_collided_id:int
 var _block_input: bool = false
@@ -44,6 +45,11 @@ var anim_state = ANIM_STATE_SET.IDLE
 
 
 func _ready() -> void:
+	state_machine = StateMachine.new(self)
+	state_machine.state_changed_signal.connect(
+		func (value): state_changed_signal.emit(value)
+	)
+	
 	if GameController.last_checkpoint_position != Vector2.ZERO:
 		global_position = GameController.last_checkpoint_position
 	

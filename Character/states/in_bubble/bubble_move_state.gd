@@ -31,7 +31,10 @@ func on_physics_process(_delta: float) -> void:
 		bubble.add_external_force(Vector2(x_axis * FORCE_BUBBLE,0))
 	elif x_axis == 0 and bubble.external_forces.x != 0:
 		bubble.add_external_force(Vector2(bubble.external_forces.x * -1,0))
-			
+	
+	if x_axis != 0:
+		character.current_dir = x_axis
+	
 	if bubble.bubbleT.type == GameController.bubbleType.floating: return
 			
 	var y_axis = Input.get_axis("move_up", "move_down")

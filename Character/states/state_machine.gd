@@ -1,6 +1,8 @@
 class_name StateMachine
 extends RefCounted
 
+signal state_changed_signal(new_state: State)
+
 enum State {
 	IDLE,
 	RUN,
@@ -59,6 +61,7 @@ func change_state(state_name: State, data: Dictionary = {}) -> void:
 	var current_state_name = get_current_state_name()
 	if old_state != current_state_name:
 		old_state = current_state_name
+		state_changed_signal.emit(current_state_name)
 		
 	current_state.on_start(state_data)
 
