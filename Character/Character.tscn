@@ -58,10 +58,6 @@ region = Rect2(1340, 808, 256, 256)
 atlas = ExtResource("2_ejbmd")
 region = Rect2(1606, 808, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cxnga"]
-atlas = ExtResource("2_ejbmd")
-region = Rect2(1074, 276, 256, 256)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ytm8"]
 atlas = ExtResource("2_ejbmd")
 region = Rect2(1340, 276, 256, 256)
@@ -188,9 +184,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cxnga")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_4ytm8")
 }, {
 "duration": 1.0,
@@ -273,8 +266,6 @@ script = ExtResource("1_p7qbp")
 position = Vector2(0, -53.455)
 sprite_frames = SubResource("SpriteFrames_ktwkg")
 animation = &"jump"
-frame = 4
-frame_progress = 1.0
 script = ExtResource("21_7fhq0")
 
 [node name="RayCastDer" type="RayCast2D" parent="." unique_id=321678592]
