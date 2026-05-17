@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbcv7lwkdihmm" path="res://character/character.gd" id="1_p7qbp"]
 [ext_resource type="Shape2D" uid="uid://yahvowfedqg3" path="res://character/shapeCat.tres" id="2_7wa33"]
-[ext_resource type="Texture2D" uid="uid://bjci8k5xvtf5i" path="res://Character/sprites/Gato.png" id="2_ejbmd"]
+[ext_resource type="Texture2D" uid="uid://b874fpyla7p7k" path="res://Character/sprites/Gato.png" id="2_ejbmd"]
 [ext_resource type="Script" uid="uid://b4uuoieubxmc8" path="res://character/character_animator.gd" id="21_7fhq0"]
 [ext_resource type="Script" uid="uid://bsfhfg5paf417" path="res://character/charecter_audio.gd" id="24_538os"]
 
