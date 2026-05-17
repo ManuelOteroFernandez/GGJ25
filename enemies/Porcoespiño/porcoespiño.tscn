@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bmlan3lbek3bk" path="res://enemies/Porcoespiño/porcoespiño.png" id="1_ydicx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j1jqs"]
-radius = 40.0
+radius = 80.024994
 
 [node name="Porcoespiño" type="Area2D" unique_id=1231255478 groups=["Enemigo"]]
 collision_layer = 17

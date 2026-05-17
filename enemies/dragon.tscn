@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://cmghj2juysnl" path="res://enemies/dragonorigame.png" id="2_rjiky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyciw"]
-size = Vector2(124, 72)
+size = Vector2(152, 92)
 
 [node name="Porcoespiño" unique_id=412103817 instance=ExtResource("1_da50e")]
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=2059187614]
-position = Vector2(-16, 24)
+position = Vector2(-20, 14)
 shape = SubResource("RectangleShape2D_fyciw")
 
 [node name="Porcoespiño" parent="." index="1" unique_id=630229497]
