@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dmjrl26ropqt0"]
 
-[ext_resource type="PackedScene" uid="uid://cksqk72kh6thc" path="res://Enviroment/Background/background_pradera.tscn" id="1_l3cij"]
+[ext_resource type="PackedScene" uid="uid://cksqk72kh6thc" path="res://enviroment/Background/background_pradera.tscn" id="1_l3cij"]
 [ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://enviroment/floor_tile_set.tres" id="3_0sj7p"]
 [ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://character/Character.tscn" id="6_bqhur"]
 [ext_resource type="PackedScene" uid="uid://bml6auaaybttx" path="res://character/follower.tscn" id="7_kr4tk"]
@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://bubble/BubbleGenerator.tscn" id="9_wijih"]
 [ext_resource type="Texture2D" uid="uid://dopm1olw4chu6" path="res://enviroment/foreground/bush_01.tres" id="10_egagl"]
 [ext_resource type="Texture2D" uid="uid://ddk2aho5drs0k" path="res://enviroment/foreground/fosil_01.tres" id="11_0sj7p"]
+[ext_resource type="PackedScene" uid="uid://bikkpuuf1fguh" path="res://enviroment/Checkpoints/checkpoint.tscn" id="12_k18n2"]
 [ext_resource type="Texture2D" uid="uid://6h8mkdxyg8xu" path="res://enviroment/foreground/fosil_02.tres" id="12_qlpo1"]
 [ext_resource type="Resource" uid="uid://cxlkmwcditdhh" path="res://bubble/types/burbuja_libre.tres" id="13_8467r"]
+[ext_resource type="Texture2D" uid="uid://bb8phniy6ygt2" path="res://enviroment/foreground/flower_02.tres" id="13_j0beh"]
 
 [node name="TestLevel" type="Node2D" unique_id=497673803]
 
@@ -56,3 +58,14 @@ texture = ExtResource("11_0sj7p")
 [node name="Sprite2D5" type="Sprite2D" parent="." unique_id=288789520]
 position = Vector2(3865, 2202)
 texture = ExtResource("12_qlpo1")
+
+[node name="Checkpoint" parent="." unique_id=1398415536 instance=ExtResource("12_k18n2")]
+position = Vector2(3216, 1696)
+
+[node name="Flower02" type="Sprite2D" parent="." unique_id=1514018576]
+position = Vector2(1392, 1744)
+texture = ExtResource("13_j0beh")
+
+[node name="Fosil01" type="Sprite2D" parent="." unique_id=1158909266]
+position = Vector2(1608, 2056)
+texture = ExtResource("11_0sj7p")
