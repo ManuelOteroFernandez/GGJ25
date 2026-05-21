@@ -70,7 +70,7 @@ track = ExtResource("2_wh17q")
 [node name="Background" parent="." unique_id=1948444696 instance=ExtResource("3_jxdal")]
 
 [node name="CharacterBody2D" parent="." unique_id=1180186928 instance=ExtResource("1_iks6m")]
-position = Vector2(5425, 11584)
+position = Vector2(5490, 11970)
 
 [node name="Follower" parent="." unique_id=474227756 node_paths=PackedStringArray("target") instance=ExtResource("1_80ccf")]
 target = NodePath("../CharacterBody2D")
