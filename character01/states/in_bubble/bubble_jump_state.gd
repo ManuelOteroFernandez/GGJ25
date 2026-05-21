@@ -19,10 +19,17 @@ func on_start(_data: Dictionary = {}) -> void:
 	if Input.is_action_pressed("move_down"):
 		exit = Vector2(0, -1)
 	if Input.is_action_pressed("move_left"):
-		exit = Vector2(1, 0.2)
+		if exit == Vector2.ZERO:
+			exit = Vector2(1, 0.2)
+		else: 
+			exit.x = 1
 	if Input.is_action_pressed("move_right"):
-		exit = Vector2(-1 , 0.2)
-	if exit == Vector2(0,0):
+		if exit == Vector2.ZERO:
+			exit = Vector2(-1, 0.2)
+		else: 
+			exit.x = -1
+			
+	if exit == Vector2.ZERO:
 		exit = Vector2(0,1)
 		
 	character.set_move_ground()
