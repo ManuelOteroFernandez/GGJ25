@@ -21,7 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://hqqsnr6nn7ga" path="res://enviroment01/EndLevelArea.tscn" id="11_yw4hd"]
 [ext_resource type="Texture2D" uid="uid://crmlo41x1m78m" path="res://enviroment01/foreground/flower_04.tres" id="12_3d0bn"]
 [ext_resource type="Texture2D" uid="uid://mabxs7rrej4e" path="res://enviroment01/foreground/flower_05.tres" id="13_8grs7"]
+[ext_resource type="Texture2D" uid="uid://vq45opwmlf3v" path="res://enviroment01/Background/buch_back_01.tres" id="13_cqp3u"]
+[ext_resource type="Texture2D" uid="uid://d1tomktv2bibr" path="res://enviroment01/Background/ovillo.tres" id="14_c3061"]
 [ext_resource type="Texture2D" uid="uid://b06ei01rik4kj" path="res://enviroment01/foreground/rock_01.tres" id="14_y0n7u"]
+[ext_resource type="Texture2D" uid="uid://bn4qbafvk5n1a" path="res://enviroment01/Background/signal.tres" id="15_m80ru"]
 [ext_resource type="Texture2D" uid="uid://dmbm2ofwidbmn" path="res://enviroment01/foreground/flower_03.tres" id="15_qqdpw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wynit"]
@@ -35,7 +38,7 @@ track = ExtResource("2_wynit")
 [node name="Background" parent="." unique_id=1948444696 instance=ExtResource("3_wynit")]
 
 [node name="CharacterBody2D" parent="." unique_id=1795255368 instance=ExtResource("1_l7ng4")]
-position = Vector2(6317, 7525)
+position = Vector2(6685, 7630)
 
 [node name="Follower" parent="." unique_id=211591860 node_paths=PackedStringArray("target") instance=ExtResource("2_4kt54")]
 position = Vector2(-657, -182)
@@ -116,6 +119,10 @@ texture = ExtResource("10_kxi7i")
 position = Vector2(16648, 4056)
 texture = ExtResource("9_xiuh1")
 
+[node name="BuchBack01" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1649564604]
+position = Vector2(8717, 7600)
+texture = ExtResource("13_cqp3u")
+
 [node name="Flower31" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=405846768]
 position = Vector2(22592, 1768)
 texture = ExtResource("10_kxi7i")
@@ -143,6 +150,34 @@ texture = ExtResource("10_kxi7i")
 [node name="Flower39" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=856344219]
 position = Vector2(27944, 1864)
 texture = ExtResource("10_kxi7i")
+
+[node name="BuchBack02" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1063244757]
+position = Vector2(12485, 2485)
+texture = ExtResource("13_cqp3u")
+
+[node name="BuchBack03" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1757336955]
+position = Vector2(25878, 2752)
+texture = ExtResource("13_cqp3u")
+
+[node name="Ovillo" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1122549352]
+position = Vector2(9166, 7626)
+texture = ExtResource("14_c3061")
+
+[node name="Ovillo2" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1678617691]
+position = Vector2(25394, 2766)
+texture = ExtResource("14_c3061")
+
+[node name="Signal" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=803419781]
+position = Vector2(7332, 7386)
+texture = ExtResource("15_m80ru")
+
+[node name="Signal2" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=85826804]
+position = Vector2(17303, 3757)
+texture = ExtResource("15_m80ru")
+
+[node name="Signal3" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=318646634]
+position = Vector2(29597, 1234)
+texture = ExtResource("15_m80ru")
 
 [node name="Fosil01" type="Sprite2D" parent="Map/Miscelanea" unique_id=2004538037]
 position = Vector2(11430, 8072)
@@ -648,36 +683,38 @@ position = Vector2(29056, 1432)
 [node name="Generators" type="Node" parent="." unique_id=1198029404]
 
 [node name="BubbleGenerator2" parent="Generators" unique_id=1032709597 instance=ExtResource("9_khqs5")]
-z_index = -3
-position = Vector2(7810, 7925)
+position = Vector2(7806, 7967)
 spawn_time = 3.0
 bubble_type = ExtResource("9_u0uaa")
 bubble_speed = Vector2(0, -30)
 
+[node name="Mid" parent="Generators/BubbleGenerator2" index="1" unique_id=1076732170]
+position = Vector2(0, 109)
+scale = Vector2(1, 1.752809)
+
+[node name="Bottom" parent="Generators/BubbleGenerator2" index="2" unique_id=1530187700]
+position = Vector2(0, 352)
+
 [node name="BubbleGenerator3" parent="Generators" unique_id=1558037543 instance=ExtResource("9_khqs5")]
-z_index = -3
-position = Vector2(9078, 5878)
+position = Vector2(9078, 6036)
 spawn_time = 3.0
 bubble_type = ExtResource("9_u0uaa")
 bubble_speed = Vector2(0, -30)
 
 [node name="BubbleGenerator4" parent="Generators" unique_id=1457568942 instance=ExtResource("9_khqs5")]
-z_index = -3
-position = Vector2(10625, 4090)
+position = Vector2(10625, 4233)
 spawn_time = 3.0
 bubble_type = ExtResource("9_u0uaa")
 bubble_speed = Vector2(0, -30)
 
 [node name="BubbleGenerator6" parent="Generators" unique_id=1785020725 instance=ExtResource("9_khqs5")]
-z_index = -3
-position = Vector2(21386, 5877)
+position = Vector2(21386, 6087)
 spawn_time = 4.0
 bubble_type = ExtResource("9_u0uaa")
 bubble_speed = Vector2(0, -30)
 
 [node name="BubbleGenerator5" parent="Generators" unique_id=1464081118 instance=ExtResource("9_khqs5")]
-z_index = -3
-position = Vector2(17142, 4716)
+position = Vector2(17025, 4716)
 rotation = 1.5708
 spawn_time = 4.0
 bubble_type = ExtResource("9_u0uaa")
@@ -686,3 +723,5 @@ bubble_speed = Vector2(50, 0)
 [node name="EndLevelArea" parent="." unique_id=1248092690 instance=ExtResource("11_yw4hd")]
 position = Vector2(31991, 20217)
 shape = SubResource("RectangleShape2D_wynit")
+
+[editable path="Generators/BubbleGenerator2"]
