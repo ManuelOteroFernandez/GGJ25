@@ -105,6 +105,10 @@ func is_near_floor() -> bool:
 	return not result.is_empty()
 
 
+func is_near_wall() -> bool:
+	return ray_der.is_colliding() or ray_izq.is_colliding()
+
+
 func get_bubble() -> Bubble:
 	var bubble = get_parent() as Bubble
 	return bubble if bubble else null

@@ -3,6 +3,7 @@ extends BaseState
 
 func on_start(_data: Dictionary = {}) -> void:
 	character.set_move_ground()
+	character.rotation = 0
 
 	character.anim_state = Player.ANIM_STATE_SET.FALL
 

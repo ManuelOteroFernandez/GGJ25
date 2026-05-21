@@ -39,6 +39,10 @@ func on_physics_process(delta: float) -> void:
 
 func move(delta: float) -> void:
 	character.rotate_with_surface()
+	
+	if abs(character.rotation_degrees) > 80:
+		character.state_machine.change_state(StateMachine.State.FALL)
+		
 
 	if abs(character.rotation_degrees) < 2:
 		character.apply_move_horizontal(delta)
