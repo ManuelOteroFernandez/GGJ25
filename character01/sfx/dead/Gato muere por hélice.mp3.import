@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cajg3b18uok25"
+path="res://.godot/imported/Gato muere por hélice.mp3-b516aab552f70a966b2c2b453d61a6b7.mp3str"
+
+[deps]
+
+source_file="res://character01/sfx/dead/Gato muere por hélice.mp3"
+dest_files=["res://.godot/imported/Gato muere por hélice.mp3-b516aab552f70a966b2c2b453d61a6b7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

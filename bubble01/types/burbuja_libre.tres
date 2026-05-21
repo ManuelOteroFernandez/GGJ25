@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BubleTypeRes" format=3 uid="uid://cxlkmwcditdhh"]
+
+[ext_resource type="Script" uid="uid://bn7ho4rb68e4b" path="res://bubble01/types/bubble_type_ress.gd" id="1_03ldn"]
+
+[resource]
+script = ExtResource("1_03ldn")
+color_array = Array[Color]([Color(0.5189479, 0.7560525, 0.86076874, 1), Color(0.70559686, 1.0276252, 1.1815963, 1), Color(0.95093787, 1.4058571, 1.6078098, 1), Color(1.0769198, 1.5871712, 1.8247963, 1)])
+type = 1
+gravity = 0.1
+endurance = 4

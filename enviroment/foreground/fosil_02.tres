@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://6h8mkdxyg8xu"]
-
-[ext_resource type="Texture2D" uid="uid://dhdjxowy0rmw2" path="res://enviroment/foreground/Foreground.png" id="1_g57uc"]
-
-[resource]
-atlas = ExtResource("1_g57uc")
-region = Rect2(1776.4967, 61.686615, 158.21838, 178.96835)

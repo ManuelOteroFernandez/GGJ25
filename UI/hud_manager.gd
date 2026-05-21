@@ -5,6 +5,7 @@ const FADE_DURATION := 1.5
 var _transition_screen: TransitionScreen
 var _canvas: CanvasLayer
 var _pause_menu: Control
+#var _my_touch_control: MyTouchControl
 
 
 func _ready() -> void:
@@ -15,7 +16,11 @@ func _ready() -> void:
 	_canvas = CanvasLayer.new()
 	_canvas.layer = 100
 	add_child(_canvas)
-
+	
+	#if DisplayServer.is_touchscreen_available():
+		#var touch_control_tscn: PackedScene = load("res://ui/tactil/touch_controls.tscn")
+		#_my_touch_control = touch_control_tscn.instantiate()
+		#add_child(_my_touch_control)
 
 
 func _setup_fallback_transition() -> void:

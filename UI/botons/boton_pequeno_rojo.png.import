@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blehdyrj68rh0"
-path="res://.godot/imported/boton_pequeno_rojo.png-d40e2f79b641f05a6b264af17fee3d90.ctex"
+path="res://.godot/imported/boton_pequeno_rojo.png-d46cf0de60913931c429c42b6a45307e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/botons/boton_pequeno_rojo.png"
-dest_files=["res://.godot/imported/boton_pequeno_rojo.png-d40e2f79b641f05a6b264af17fee3d90.ctex"]
+source_file="res://ui/botons/boton_pequeno_rojo.png"
+dest_files=["res://.godot/imported/boton_pequeno_rojo.png-d46cf0de60913931c429c42b6a45307e.ctex"]
 
 [params]
 

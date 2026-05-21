@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bikkpuuf1fguh"]
+
+[ext_resource type="Script" uid="uid://y7d0u5ywef2y" path="res://enviroment01/Checkpoints/checkpoint.gd" id="1_t5sh2"]
+[ext_resource type="Texture2D" uid="uid://bxn1gnw6hk45v" path="res://enviroment01/foreground/Foreground.png" id="2_d7hd8"]
+[ext_resource type="AudioStream" uid="uid://qhp1g30t6rvk" path="res://enviroment01/Checkpoints/Castillo.v2.mp3" id="3_6grqm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_363or"]
+atlas = ExtResource("2_d7hd8")
+region = Rect2(55, 0, 350, 300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vtob"]
+size = Vector2(254, 243.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwhcm"]
+atlas = ExtResource("2_d7hd8")
+region = Rect2(455, 0, 350, 300)
+
+[node name="Checkpoint" type="Area2D" unique_id=1398415536]
+z_index = -1
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_t5sh2")
+textureActive = SubResource("AtlasTexture_363or")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=505044018]
+shape = SubResource("RectangleShape2D_4vtob")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=2072017710]
+scale = Vector2(0.855, 0.855)
+texture = SubResource("AtlasTexture_fwhcm")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=66274420]
+stream = ExtResource("3_6grqm")
+volume_db = -20.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

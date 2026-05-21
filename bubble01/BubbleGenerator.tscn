@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dnn87aqvrb6mj"]
+
+[ext_resource type="Script" uid="uid://ba3oocwh8agph" path="res://bubble01/bubble_generator.gd" id="1_37rfm"]
+[ext_resource type="Texture2D" uid="uid://bxn1gnw6hk45v" path="res://enviroment01/foreground/Foreground.png" id="2_hd4n2"]
+[ext_resource type="AudioStream" uid="uid://hhxavs7i5ltn" path="res://bubble01/sfx/Pompero genera pompa.mp3" id="3_43ad8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gegqw"]
+atlas = ExtResource("2_hd4n2")
+region = Rect2(61, 354, 762, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n80og"]
+atlas = ExtResource("2_hd4n2")
+region = Rect2(891, 387, 762, 178)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcs0b"]
+atlas = ExtResource("2_hd4n2")
+region = Rect2(89, 662, 706, 199)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f07jw"]
+size = Vector2(768, 544)
+
+[node name="BubbleGenerator" type="Node2D" unique_id=1436191769]
+script = ExtResource("1_37rfm")
+
+[node name="Top" type="Sprite2D" parent="." unique_id=183867471]
+z_index = 2
+position = Vector2(0, -161)
+texture = SubResource("AtlasTexture_gegqw")
+
+[node name="Mid" type="Sprite2D" parent="." unique_id=1076732170]
+z_index = 2
+texture_repeat = 2
+position = Vector2(0, 42)
+texture = SubResource("AtlasTexture_n80og")
+
+[node name="Bottom" type="Sprite2D" parent="." unique_id=1530187700]
+z_index = 2
+texture_repeat = 2
+position = Vector2(0, 229)
+texture = SubResource("AtlasTexture_hcs0b")
+
+[node name="BubbleList" type="Node2D" parent="." unique_id=1767629251]
+
+[node name="Timer" type="Timer" parent="." unique_id=1440066169]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1779404481 groups=["Ground"]]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=187187164]
+shape = SubResource("RectangleShape2D_f07jw")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1641843757]
+stream = ExtResource("3_43ad8")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

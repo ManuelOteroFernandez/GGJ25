@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://dxpc7y5f0eonr"]
 
-[ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://enviroment/floor_tile_set.tres" id="1_xr26a"]
-[ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://bubble/BubbleGenerator.tscn" id="4_2sx8j"]
-[ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://character/Character.tscn" id="4_5q4wn"]
-[ext_resource type="PackedScene" uid="uid://bml6auaaybttx" path="res://character/follower.tscn" id="5_oma07"]
-[ext_resource type="Resource" uid="uid://dpxq3xlefq2od" path="res://bubble/types/burbuja_lineal.tres" id="5_t2mo4"]
-[ext_resource type="Resource" uid="uid://cxlkmwcditdhh" path="res://bubble/types/burbuja_libre.tres" id="6_dlul0"]
+[ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://enviroment01/floor_tile_set.tres" id="1_xr26a"]
+[ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://bubble01/BubbleGenerator.tscn" id="4_2sx8j"]
+[ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://character01/Character.tscn" id="4_5q4wn"]
+[ext_resource type="PackedScene" uid="uid://bml6auaaybttx" path="res://character01/follower.tscn" id="5_oma07"]
+[ext_resource type="Resource" uid="uid://dpxq3xlefq2od" path="res://bubble01/types/burbuja_lineal.tres" id="5_t2mo4"]
+[ext_resource type="Resource" uid="uid://cxlkmwcditdhh" path="res://bubble01/types/burbuja_libre.tres" id="6_dlul0"]
 
 [node name="TestLevel" type="Node2D" unique_id=497673803]
 

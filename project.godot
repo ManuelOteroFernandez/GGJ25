@@ -35,6 +35,7 @@ HudManager="*uid://be4f0mgm8ve2m"
 
 window/size/viewport_width=3840
 window/size/viewport_height=2160
+window/size/resizable=false
 window/stretch/mode="viewport"
 
 [dotnet]
@@ -162,7 +163,7 @@ locale/translations=PackedStringArray("res://localization/localizacion.en.transl
 
 [level_transition]
 
-level_list_path="res://enviroment/levels/level_list.tres"
+level_list_path="res://enviroment01/levels/level_list.tres"
 transition_timeout=2.0
 
 [music_manager]

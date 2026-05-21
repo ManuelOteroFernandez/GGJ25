@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://cy7rft6exbpom"]
 
-[ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://bubble/BubbleGenerator.tscn" id="1_tsmm8"]
-[ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://enviroment/floor_tile_set.tres" id="2_3ynxp"]
-[ext_resource type="Resource" uid="uid://dpxq3xlefq2od" path="res://bubble/types/burbuja_lineal.tres" id="2_h3r6w"]
-[ext_resource type="Resource" uid="uid://cxlkmwcditdhh" path="res://bubble/types/burbuja_libre.tres" id="3_h3r6w"]
-[ext_resource type="Script" uid="uid://bn7ho4rb68e4b" path="res://bubble/types/bubble_type_ress.gd" id="4_2d0li"]
+[ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://bubble01/BubbleGenerator.tscn" id="1_tsmm8"]
+[ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://enviroment01/floor_tile_set.tres" id="2_3ynxp"]
+[ext_resource type="Resource" uid="uid://dpxq3xlefq2od" path="res://bubble01/types/burbuja_lineal.tres" id="2_h3r6w"]
+[ext_resource type="Resource" uid="uid://cxlkmwcditdhh" path="res://bubble01/types/burbuja_libre.tres" id="3_h3r6w"]
+[ext_resource type="Script" uid="uid://bn7ho4rb68e4b" path="res://bubble01/types/bubble_type_ress.gd" id="4_2d0li"]
 
 [sub_resource type="Resource" id="Resource_g2ogf"]
 script = ExtResource("4_2d0li")
