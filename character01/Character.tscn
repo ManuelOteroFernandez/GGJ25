@@ -265,7 +265,8 @@ script = ExtResource("1_p7qbp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=656479624]
 position = Vector2(0, -53.455)
 sprite_frames = SubResource("SpriteFrames_ktwkg")
-animation = &"jump"
+animation = &"idle"
+autoplay = "idle"
 script = ExtResource("21_7fhq0")
 
 [node name="RayCastDer" type="RayCast2D" parent="." unique_id=321678592]
