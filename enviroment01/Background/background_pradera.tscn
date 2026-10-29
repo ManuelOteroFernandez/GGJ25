@@ -81,7 +81,7 @@ repeat_times = 5
 metadata/_edit_lock_ = true
 
 [node name="Loma" type="Sprite2D" parent="Layer02" unique_id=995398529]
-position = Vector2(0, 600)
+position = Vector2(0, 650)
 texture = SubResource("AtlasTexture_85q47")
 metadata/_edit_lock_ = true
 

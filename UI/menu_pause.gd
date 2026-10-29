@@ -8,7 +8,10 @@ func _ready() -> void:
 	
 	
 func on_pause():
-	pass
+	if get_tree().paused:
+		show()
+	else:
+		hide()
 
 	
 

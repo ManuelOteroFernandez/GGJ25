@@ -22,8 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://crmlo41x1m78m" path="res://enviroment01/foreground/flower_04.tres" id="12_3d0bn"]
 [ext_resource type="Texture2D" uid="uid://mabxs7rrej4e" path="res://enviroment01/foreground/flower_05.tres" id="13_8grs7"]
 [ext_resource type="Texture2D" uid="uid://vq45opwmlf3v" path="res://enviroment01/Background/buch_back_01.tres" id="13_cqp3u"]
-[ext_resource type="Texture2D" uid="uid://d1tomktv2bibr" path="res://enviroment01/Background/ovillo.tres" id="14_c3061"]
 [ext_resource type="Texture2D" uid="uid://b06ei01rik4kj" path="res://enviroment01/foreground/rock_01.tres" id="14_y0n7u"]
+[ext_resource type="PackedScene" uid="uid://c2snups2r57rj" path="res://enviroment01/Background/ovillo.tscn" id="15_cqp3u"]
 [ext_resource type="Texture2D" uid="uid://bn4qbafvk5n1a" path="res://enviroment01/Background/signal.tres" id="15_m80ru"]
 [ext_resource type="Texture2D" uid="uid://dmbm2ofwidbmn" path="res://enviroment01/foreground/flower_03.tres" id="15_qqdpw"]
 
@@ -159,14 +159,6 @@ texture = ExtResource("13_cqp3u")
 position = Vector2(25878, 2752)
 texture = ExtResource("13_cqp3u")
 
-[node name="Ovillo" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1122549352]
-position = Vector2(9166, 7626)
-texture = ExtResource("14_c3061")
-
-[node name="Ovillo2" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1678617691]
-position = Vector2(25394, 2766)
-texture = ExtResource("14_c3061")
-
 [node name="Signal" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=803419781]
 position = Vector2(7332, 7386)
 texture = ExtResource("15_m80ru")
@@ -175,6 +167,9 @@ texture = ExtResource("15_m80ru")
 position = Vector2(17303, 3757)
 texture = ExtResource("15_m80ru")
 
+[node name="Ovillo" parent="Map/Miscelanea/Back" unique_id=1529328619 instance=ExtResource("15_cqp3u")]
+position = Vector2(25422, 2766)
+
 [node name="Signal3" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=318646634]
 position = Vector2(29597, 1234)
 texture = ExtResource("15_m80ru")
@@ -182,6 +177,10 @@ texture = ExtResource("15_m80ru")
 [node name="Fosil01" type="Sprite2D" parent="Map/Miscelanea" unique_id=2004538037]
 position = Vector2(11430, 8072)
 texture = ExtResource("7_onrba")
+
+[node name="Ovillo" parent="Map/Miscelanea" unique_id=298186082 instance=ExtResource("15_cqp3u")]
+z_index = -2
+position = Vector2(9677, 7639)
 
 [node name="Fosil02" type="Sprite2D" parent="Map/Miscelanea" unique_id=1171425696]
 position = Vector2(12058, 6152)

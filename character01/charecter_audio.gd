@@ -10,10 +10,11 @@ extends AudioStreamPlayer2D
 @onready var sound_step = load("res://character01/sfx/Paso.mp3")
 
 
-var parent
+var parent: Player
 
 func _ready() -> void:
 	parent = get_parent()
+	parent.state_changed_signal.connect(on_player_state_changed)
 
 
 func _process(_delta: float) -> void:
@@ -30,3 +31,10 @@ func play_sound(sound:AudioStream):
 	if (not playing and stream == sound) or stream != sound:
 		stream = sound
 		play()
+
+
+func on_player_state_changed(state: StateMachine.State):
+	match state:
+		StateMachine.State.JUMP:
+			play_sound(sound_jump)
+		

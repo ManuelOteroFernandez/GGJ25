@@ -18,7 +18,7 @@ tile_set = ExtResource("1_xr26a")
 
 [node name="CharacterBody2D" parent="." unique_id=1748748497 instance=ExtResource("4_5q4wn")]
 z_index = 10
-position = Vector2(-256, 6144)
+position = Vector2(12288, 9728)
 collision_layer = 43
 
 [node name="Follower" parent="." unique_id=1653171669 node_paths=PackedStringArray("target") instance=ExtResource("5_oma07")]
