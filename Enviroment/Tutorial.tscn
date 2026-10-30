@@ -1,30 +1,26 @@
 [gd_scene format=4 uid="uid://0klv87m3yrwp"]
 
 [ext_resource type="PackedScene" uid="uid://bpsaj6k3ar60m" path="res://addons/music_manager/music_track_node.tscn" id="1_4860d"]
-[ext_resource type="PackedScene" uid="uid://bml6auaaybttx" path="res://character/follower.tscn" id="1_qctxu"]
+[ext_resource type="PackedScene" uid="uid://bml6auaaybttx" path="res://Character/follower.tscn" id="1_qctxu"]
 [ext_resource type="Resource" uid="uid://c3wit44taoobg" path="res://music/levels_track.tres" id="2_n4rwi"]
-[ext_resource type="PackedScene" uid="uid://cksqk72kh6thc" path="res://enviroment/Background/background_pradera.tscn" id="3_34xno"]
-[ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://bubble/BubbleGenerator.tscn" id="3_qkns2"]
-[ext_resource type="PackedScene" uid="uid://bikkpuuf1fguh" path="res://enviroment/Checkpoints/checkpoint.tscn" id="5_rewlg"]
-[ext_resource type="Script" uid="uid://c76axdpjbf2w3" path="res://enviroment/death_area.gd" id="6_4esvo"]
+[ext_resource type="PackedScene" uid="uid://cksqk72kh6thc" path="res://Enviroment/Background/background_pradera.tscn" id="3_34xno"]
+[ext_resource type="PackedScene" uid="uid://dnn87aqvrb6mj" path="res://Bubble/BubbleGenerator.tscn" id="3_qkns2"]
+[ext_resource type="PackedScene" uid="uid://bikkpuuf1fguh" path="res://Enviroment/Checkpoints/checkpoint.tscn" id="5_rewlg"]
+[ext_resource type="Script" uid="uid://c76axdpjbf2w3" path="res://Enviroment/death_area.gd" id="6_4esvo"]
 [ext_resource type="PackedScene" uid="uid://baiqng55hvml" path="res://enemies/Porcoespiño/porcoespiño.tscn" id="6_kpah2"]
-[ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://character/Character.tscn" id="7_7eh40"]
+[ext_resource type="PackedScene" uid="uid://b8p160kb7yaso" path="res://Character/Character.tscn" id="7_7eh40"]
 [ext_resource type="PackedScene" uid="uid://d2iqsec6j0llb" path="res://enemies/goose.tscn" id="7_ilca8"]
-[ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://enviroment/floor_tile_set.tres" id="7_n4rwi"]
-[ext_resource type="Texture2D" uid="uid://dopm1olw4chu6" path="res://enviroment/foreground/bush_01.tres" id="8_38lrr"]
+[ext_resource type="TileSet" uid="uid://c6l4b2yahyfjj" path="res://Enviroment/floor_tile_set.tres" id="7_n4rwi"]
+[ext_resource type="Texture2D" uid="uid://dopm1olw4chu6" path="res://Enviroment/foreground/bush_01.tres" id="8_38lrr"]
 [ext_resource type="PackedScene" uid="uid://cettndp5gem4o" path="res://enemies/grulla.tscn" id="8_ru7pe"]
-[ext_resource type="Texture2D" uid="uid://ldu72k6c2n35" path="res://enviroment/foreground/flower_01.tres" id="9_1crxd"]
+[ext_resource type="Texture2D" uid="uid://ldu72k6c2n35" path="res://Enviroment/foreground/flower_01.tres" id="9_1crxd"]
 [ext_resource type="PackedScene" uid="uid://cpxu4wmi42r1" path="res://enemies/dragon.tscn" id="9_v3hcb"]
-[ext_resource type="Texture2D" uid="uid://bb8phniy6ygt2" path="res://enviroment/foreground/flower_02.tres" id="10_3t8bb"]
-[ext_resource type="Texture2D" uid="uid://b06ei01rik4kj" path="res://enviroment/foreground/rock_01.tres" id="11_afeaw"]
-[ext_resource type="PackedScene" uid="uid://hqqsnr6nn7ga" path="res://enviroment/EndLevelArea.tscn" id="11_m0e7j"]
-[ext_resource type="Texture2D" uid="uid://crmlo41x1m78m" path="res://enviroment/foreground/flower_04.tres" id="12_548yv"]
-[ext_resource type="Texture2D" uid="uid://dmbm2ofwidbmn" path="res://enviroment/foreground/flower_03.tres" id="13_fdjsk"]
-[ext_resource type="Texture2D" uid="uid://ddk2aho5drs0k" path="res://enviroment/foreground/fosil_01.tres" id="14_1b2te"]
-[ext_resource type="Resource" uid="uid://dpxq3xlefq2od" path="res://bubble/types/burbuja_lineal.tres" id="14_4esvo"]
-[ext_resource type="Texture2D" uid="uid://6h8mkdxyg8xu" path="res://enviroment/foreground/fosil_02.tres" id="15_8yjqn"]
-[ext_resource type="Script" uid="uid://bn7ho4rb68e4b" path="res://bubble/types/bubble_type_ress.gd" id="16_34xno"]
-[ext_resource type="Texture2D" uid="uid://mabxs7rrej4e" path="res://enviroment/foreground/flower_05.tres" id="16_x6brw"]
+[ext_resource type="Texture2D" uid="uid://b06ei01rik4kj" path="res://Enviroment/foreground/rock_01.tres" id="11_afeaw"]
+[ext_resource type="PackedScene" uid="uid://hqqsnr6nn7ga" path="res://Enviroment/EndLevelArea.tscn" id="11_m0e7j"]
+[ext_resource type="Texture2D" uid="uid://ddk2aho5drs0k" path="res://Enviroment/foreground/fosil_01.tres" id="14_1b2te"]
+[ext_resource type="Resource" uid="uid://dpxq3xlefq2od" path="res://Bubble/types/burbuja_lineal.tres" id="14_4esvo"]
+[ext_resource type="Texture2D" uid="uid://6h8mkdxyg8xu" path="res://Enviroment/foreground/fosil_02.tres" id="15_8yjqn"]
+[ext_resource type="Script" uid="uid://bn7ho4rb68e4b" path="res://Bubble/types/bubble_type_ress.gd" id="16_34xno"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4esvo"]
 size = Vector2(4344, 284.00006)
@@ -104,19 +100,15 @@ texture = ExtResource("9_1crxd")
 
 [node name="Flower02" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=76649961]
 position = Vector2(768, 3040)
-texture = ExtResource("10_3t8bb")
 
 [node name="Flower03" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=506194805]
 position = Vector2(1904, 2784)
-texture = ExtResource("10_3t8bb")
 
 [node name="Flower04" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=762676714]
 position = Vector2(2128, 2779)
-texture = ExtResource("10_3t8bb")
 
 [node name="Flower05" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=2139155208]
 position = Vector2(2000, 2784)
-texture = ExtResource("10_3t8bb")
 
 [node name="Bush04" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1754776247]
 position = Vector2(2368, 2784)
@@ -124,7 +116,6 @@ texture = ExtResource("8_38lrr")
 
 [node name="Flower10" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=931374785]
 position = Vector2(10864, 2800)
-texture = ExtResource("10_3t8bb")
 
 [node name="Bush08" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1104165193]
 position = Vector2(11264, 5600)
@@ -138,7 +129,6 @@ flip_h = true
 
 [node name="Flower06" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=46430806]
 position = Vector2(2304, 2779)
-texture = ExtResource("10_3t8bb")
 
 [node name="Rock02" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=44511452]
 position = Vector2(4672, 3056)
@@ -159,15 +149,12 @@ flip_h = true
 
 [node name="Flower14" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=2127542419]
 position = Vector2(16352, 5616)
-texture = ExtResource("12_548yv")
 
 [node name="Flower16" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1071128403]
 position = Vector2(17968, 5088)
-texture = ExtResource("10_3t8bb")
 
 [node name="Flower19" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1359734151]
 position = Vector2(9408, 2800)
-texture = ExtResource("12_548yv")
 
 [node name="Bush11" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=748227203]
 position = Vector2(21376, 5600)
@@ -175,7 +162,6 @@ texture = ExtResource("8_38lrr")
 
 [node name="Flower21" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=789970755]
 position = Vector2(21584, 5600)
-texture = ExtResource("10_3t8bb")
 
 [node name="Rock05" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1748207566]
 position = Vector2(25152, 5616)
@@ -183,7 +169,6 @@ texture = ExtResource("11_afeaw")
 
 [node name="Flower24" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=1535286761]
 position = Vector2(27344, 3296)
-texture = ExtResource("13_fdjsk")
 
 [node name="Bush14" type="Sprite2D" parent="Map/Miscelanea/Back" unique_id=2144273690]
 position = Vector2(34720, 8160)
@@ -274,11 +259,9 @@ texture = ExtResource("11_afeaw")
 
 [node name="Flower04" type="Sprite2D" parent="Map/Miscelanea" unique_id=88421364]
 position = Vector2(3056, 2800)
-texture = ExtResource("12_548yv")
 
 [node name="Flower05" type="Sprite2D" parent="Map/Miscelanea" unique_id=789567725]
 position = Vector2(4352, 2784)
-texture = ExtResource("16_x6brw")
 
 [node name="Flower03" type="Sprite2D" parent="Map/Miscelanea" unique_id=18186007]
 position = Vector2(4096, 2528)
@@ -286,11 +269,9 @@ texture = ExtResource("9_1crxd")
 
 [node name="Flower07" type="Sprite2D" parent="Map/Miscelanea" unique_id=119917945]
 position = Vector2(6912, 2800)
-texture = ExtResource("12_548yv")
 
 [node name="Flower08" type="Sprite2D" parent="Map/Miscelanea" unique_id=1363632052]
 position = Vector2(6400, 2544)
-texture = ExtResource("12_548yv")
 
 [node name="Bush05" type="Sprite2D" parent="Map/Miscelanea" unique_id=1678385223]
 position = Vector2(9040, 2784)
@@ -302,7 +283,6 @@ texture = ExtResource("8_38lrr")
 
 [node name="Flower09" type="Sprite2D" parent="Map/Miscelanea" unique_id=568455582]
 position = Vector2(10944, 2784)
-texture = ExtResource("13_fdjsk")
 
 [node name="Flower11" type="Sprite2D" parent="Map/Miscelanea" unique_id=789040486]
 position = Vector2(10800, 2784)
@@ -322,11 +302,9 @@ texture = ExtResource("9_1crxd")
 
 [node name="Flower13" type="Sprite2D" parent="Map/Miscelanea" unique_id=41458446]
 position = Vector2(15680, 5600)
-texture = ExtResource("10_3t8bb")
 
 [node name="Flower15" type="Sprite2D" parent="Map/Miscelanea" unique_id=351300520]
 position = Vector2(16304, 5600)
-texture = ExtResource("16_x6brw")
 
 [node name="Rock03" type="Sprite2D" parent="Map/Miscelanea" unique_id=1712297245]
 position = Vector2(19408, 5616)
@@ -338,16 +316,13 @@ texture = ExtResource("11_afeaw")
 
 [node name="Flower17" type="Sprite2D" parent="Map/Miscelanea" unique_id=1240722457]
 position = Vector2(18400, 5104)
-texture = ExtResource("12_548yv")
 flip_h = true
 
 [node name="Flower18" type="Sprite2D" parent="Map/Miscelanea" unique_id=827784077]
 position = Vector2(9760, 2800)
-texture = ExtResource("12_548yv")
 
 [node name="Flower20" type="Sprite2D" parent="Map/Miscelanea" unique_id=1182545278]
 position = Vector2(9168, 2800)
-texture = ExtResource("16_x6brw")
 
 [node name="Bush10" type="Sprite2D" parent="Map/Miscelanea" unique_id=781180259]
 position = Vector2(14448, 5600)
@@ -363,7 +338,6 @@ texture = ExtResource("9_1crxd")
 
 [node name="Flower23" type="Sprite2D" parent="Map/Miscelanea" unique_id=1715455117]
 position = Vector2(22416, 5600)
-texture = ExtResource("13_fdjsk")
 
 [node name="Rock06" type="Sprite2D" parent="Map/Miscelanea" unique_id=1965325668]
 position = Vector2(25312, 5616)
@@ -392,11 +366,9 @@ texture = ExtResource("8_38lrr")
 
 [node name="Flower25" type="Sprite2D" parent="Map/Miscelanea" unique_id=1047794961]
 position = Vector2(34864, 8192)
-texture = ExtResource("12_548yv")
 
 [node name="Flower26" type="Sprite2D" parent="Map/Miscelanea" unique_id=1017227411]
 position = Vector2(35168, 8176)
-texture = ExtResource("16_x6brw")
 
 [node name="Fosil15" type="Sprite2D" parent="Map/Miscelanea" unique_id=1489220871]
 position = Vector2(36416, 7216)
@@ -405,7 +377,6 @@ texture = ExtResource("15_8yjqn")
 
 [node name="Flower27" type="Sprite2D" parent="Map/Miscelanea" unique_id=164171570]
 position = Vector2(22464, 5616)
-texture = ExtResource("12_548yv")
 
 [node name="Bush17" type="Sprite2D" parent="Map/Miscelanea" unique_id=323768132]
 position = Vector2(30048, 3792)
@@ -413,11 +384,9 @@ texture = ExtResource("8_38lrr")
 
 [node name="Flower29" type="Sprite2D" parent="Map/Miscelanea" unique_id=2128265623]
 position = Vector2(30752, 4064)
-texture = ExtResource("13_fdjsk")
 
 [node name="Flower30" type="Sprite2D" parent="Map/Miscelanea" unique_id=642550540]
 position = Vector2(29184, 3568)
-texture = ExtResource("12_548yv")
 
 [node name="Enemies" type="Node" parent="." unique_id=1484117929]
 

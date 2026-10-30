@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b3ylhln31lr80"]
 
-[ext_resource type="Script" uid="uid://b5veoho2qwqii" path="res://bubble/bubble.gd" id="1_5l2d8"]
-[ext_resource type="Texture2D" uid="uid://juysj1yybu6o" path="res://bubble/BurbujaColor.png" id="2_xsj2t"]
-[ext_resource type="AudioStream" uid="uid://5rny7vcbefuw" path="res://bubble/sfx/Pompa explota.mp3" id="3_3gr6d"]
-[ext_resource type="Texture2D" uid="uid://ch31nhnaioi67" path="res://bubble/BurbujaLinea.png" id="3_xsj2t"]
+[ext_resource type="Script" uid="uid://b5veoho2qwqii" path="res://Bubble/bubble.gd" id="1_5l2d8"]
+[ext_resource type="Texture2D" uid="uid://juysj1yybu6o" path="res://Bubble/BurbujaColor.png" id="2_xsj2t"]
+[ext_resource type="AudioStream" uid="uid://5rny7vcbefuw" path="res://Bubble/sfx/Pompa explota.mp3" id="3_3gr6d"]
+[ext_resource type="Texture2D" uid="uid://ch31nhnaioi67" path="res://Bubble/BurbujaLinea.png" id="3_xsj2t"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5xbdo"]
 friction = 0.0
@@ -301,7 +301,6 @@ autoplay = "default"
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="." unique_id=256823499]
 stream = ExtResource("3_3gr6d")
-parameters/looping = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bs5japfg0s7av"
+path="res://.godot/imported/Rebote Pompa v2.mp3-8b608429f11ec0e5682a663b9771f86b.mp3str"
+
+[deps]
+
+source_file="res://Bubble/sfx/Rebote Pompa v2.mp3"
+dest_files=["res://.godot/imported/Rebote Pompa v2.mp3-8b608429f11ec0e5682a663b9771f86b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
