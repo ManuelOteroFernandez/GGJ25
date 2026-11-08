@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtgkw6smrf5nt"
-path="res://.godot/imported/boton_pequeno_rojo_cruz.png-af126e4eedf63c0f10b04351466e38bf.ctex"
+uid="uid://blehdyrj68rh0"
+path="res://.godot/imported/boton_pequeno_rojo.png-efc05526c64b069eaa0ffde06e465e3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/botons/boton_pequeno_rojo_cruz.png"
-dest_files=["res://.godot/imported/boton_pequeno_rojo_cruz.png-af126e4eedf63c0f10b04351466e38bf.ctex"]
+source_file="res://ui01/botons/boton_pequeno_rojo.png"
+dest_files=["res://.godot/imported/boton_pequeno_rojo.png-efc05526c64b069eaa0ffde06e465e3f.ctex"]
 
 [params]
 

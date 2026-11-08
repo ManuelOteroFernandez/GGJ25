@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buqm56ngq8aa5"
-path="res://.godot/imported/boton_xenerico.png-3756c6cf3631eaf2863cde8a7bf0e5f2.ctex"
+uid="uid://dtsarlowea7g7"
+path="res://.godot/imported/fondo.png-55134a56849badf3f03e755c9028559b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/botons/boton_xenerico.png"
-dest_files=["res://.godot/imported/boton_xenerico.png-3756c6cf3631eaf2863cde8a7bf0e5f2.ctex"]
+source_file="res://menu01/fondo.png"
+dest_files=["res://.godot/imported/fondo.png-55134a56849badf3f03e755c9028559b.ctex"]
 
 [params]
 

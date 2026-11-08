@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blehdyrj68rh0"
-path="res://.godot/imported/boton_pequeno_rojo.png-d46cf0de60913931c429c42b6a45307e.ctex"
+uid="uid://buqm56ngq8aa5"
+path="res://.godot/imported/boton_xenerico.png-9c1ef86b32cee636258345b36efde125.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/botons/boton_pequeno_rojo.png"
-dest_files=["res://.godot/imported/boton_pequeno_rojo.png-d46cf0de60913931c429c42b6a45307e.ctex"]
+source_file="res://ui01/botons/boton_xenerico.png"
+dest_files=["res://.godot/imported/boton_xenerico.png-9c1ef86b32cee636258345b36efde125.ctex"]
 
 [params]
 
