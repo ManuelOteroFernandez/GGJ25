@@ -44,7 +44,7 @@ project/assembly_name="GGJ25"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/level_transition/plugin.cfg", "res://addons/music_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/devmo_split/plugin.cfg", "res://addons/level_transition/plugin.cfg", "res://addons/music_manager/plugin.cfg")
 
 [global_group]
 
