@@ -56,7 +56,7 @@ func _on_scene_changed() -> void:
 
 func show_pause_menu() -> void:	
 	if not _pause_menu:
-		_pause_menu = preload("res://ui/MenuPause.tscn").instantiate()
+		_pause_menu = preload("res://ui01/MenuPause.tscn").instantiate()
 		_canvas.add_child(_pause_menu)
 
 	_pause_menu.show_menu()
