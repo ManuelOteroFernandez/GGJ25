@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bpsaj6k3ar60m"]
+
+[ext_resource type="Script" uid="uid://luu6ekw83osh" path="res://addons/music_manager/music_track_node.gd" id="1"]
+
+[node name="MusicTrackNode" type="Node" unique_id=1850352206]
+script = ExtResource("1")

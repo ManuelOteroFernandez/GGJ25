@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dydlgpkx5qd5o"]
+[gd_scene format=3 uid="uid://dydlgpkx5qd5o"]
 
-[ext_resource type="Script" path="res://Enviroment/Letreros/letrero.gd" id="1_au5ab"]
+[ext_resource type="Script" uid="uid://cafeg1kmn53ia" path="res://enviroment/Letreros/letrero.gd" id="1_au5ab"]
 [ext_resource type="Texture2D" uid="uid://ccrlpljsdhna4" path="res://icon.svg" id="2_xkag5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_deh50"]
