@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbine1tsomosb"
+path="res://.godot/imported/Gatopompas base del tema v2.mp3-f17cde4f54d29bb502461948e8ff6d93.mp3str"
+
+[deps]
+
+source_file="res://music/Gatopompas base del tema v2.mp3"
+dest_files=["res://.godot/imported/Gatopompas base del tema v2.mp3-f17cde4f54d29bb502461948e8ff6d93.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

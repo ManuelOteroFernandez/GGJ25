@@ -301,7 +301,6 @@ autoplay = "default"
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="." unique_id=256823499]
 stream = ExtResource("3_3gr6d")
-parameters/looping = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
