@@ -1,0 +1,3 @@
+[submodule "addons/devmo_split"]
+	path = addons/devmo_split
+	url = git@github.com:ManuelOteroFernandez/devmo_split.git

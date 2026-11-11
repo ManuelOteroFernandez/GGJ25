@@ -1,7 +1,6 @@
 extends Node
 
 signal pause_signal
-signal init_game_signal
 signal end_game_signal
 
 # Enum para tipos de burbulla

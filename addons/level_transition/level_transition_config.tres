@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_5vbsr")
 lists = {
-"expo": Array[String](["res://enviroment/Tutorial.tscn", "res://enviroment/Level1.tscn", "res://enviroment/Level2.tscn"])
+"expo": Array[String](["res://enviroment01/Tutorial.tscn", "res://enviroment01/Level1.tscn", "res://enviroment01/Level2.tscn"])
 }
 main_menu_path = "res://ui/MainMenu.tscn"
-output_path = "res://enviroment/levels"
+output_path = "res://enviroment01/levels"
